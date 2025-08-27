@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+p, label{
+      font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+      font-family: 'Anton', sans-serif;
+    }
+
+    /* Reset e corpo */
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden; /* remove scroll do body */
+    }
+
+    /* Navbar superior */
+    .navbar-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 20px;
+      z-index: 1000;
+    }
+
+    .logo-top img {
+      width: 60px;
+      height: 35px;
+    }
+
+    /* Navbar lateral */
+    .navbar-side {
+      position: fixed;
+      top: 60px;
+      left: 10px;
+      width: 80px;
+      height: calc(100% - 110px); /* subtraindo top + bottom */
+      background-color: #090909;
+      border: 1px solid white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      gap: 15px;
+      z-index: 3;
+    }
+
+    /* Navbar inferior */
+    .navbar-bottom {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 60px;
+      background-color: #090909;
+      border: 1px solid white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      padding: 5px 16px;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    /* Botões genéricos */
+    .nav-btn {
+      width: 2.5vw;
+      height: 5vh;
+      background-color: gray;
+      border-radius: 8px;
+    }
+
+    /* Conteúdo principal */
+    .content {
+      position: absolute;
+      top: 60px;
+      left: 6%;
+      right: 0px;
+      bottom: 0px;
+      overflow-y: auto; /* scroll vertical */
+      padding: 20px;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+      border-radius: 25px 0 0 0;
+      background-image: url('imagens/Ilustração_Sem_Título 1.png');
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-size: 70%;
+      box-sizing: border-box;
+
+      /* Scroll estilizado */
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #66b3ff #0d1117; /* thumb / track */
+    }
+
+    /* Scroll para Chrome, Edge e Safari */
+    .content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .content::-webkit-scrollbar-track {
+      background: #0d1117;
+      border-radius: 4px;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+      background-color: #66b3ff;
+      border-radius: 4px;
+      border: 2px solid #0d1117;
+    }
+
+    .content::-webkit-scrollbar-thumb:hover {
+      background-color: #3399ff;
+    }
+
+    /* Main area e grid */
+    .main-area {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .grid-dobra-1 {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 20px;
+      width: 100%;
+      
+    }
+
+    .dobra1-esquerda-topo h1 {
+      font-size: 50px;
+    }
+
+    .dobra1-esquerda-topo, .dobra1-esquerda-baixo {
+        padding: 5vh 5vw 0px 5vw;
+    }
+    /* Calendário */
+    .calendar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .day-labels {
+      display: grid;
+      grid-template-columns: repeat(30, 18px);
+      grid-gap: 4px;
+      margin-bottom: 5px;
+    }
+
+    .label {
+      font-size: 10px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(18px, 1fr));
+      grid-gap: 4px;
+      max-width: 100%;
+    }
+
+    .day {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background-color: #0d1117;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    .level-1 { background-color: #003f7f; }
+    .level-2 { background-color: #0059b3; }
+    .level-3 { background-color: #3399ff; }
+    .level-4 { background-color: #66b3ff; }
+    .level-5 { background-color: #cce6ff; }
+
+    .day::after {
+      content: attr(data-day);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .day:hover::after {
+      opacity: 1;
+    }
+
+    .day:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .day-labels {
+        grid-template-columns: repeat(15, 12px);
+        grid-gap: 3px;
+      }
+      .calendar {
+        grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+        grid-gap: 3px;
+      }
+      .day {
+        width: 12px;
+        height: 12px;
+      }
+      .label {
+        font-size: 8px;
+      }
+    }
+
+    .dobra1-esquerda-topo h1 {
+  font-size: 50px;
+  margin-bottom: 10px; /* define só o espaço que você quer */
+}
+
+.dobra1-esquerda-topo p {
+  margin-top: 0; /* remove a margem automática */
+}
