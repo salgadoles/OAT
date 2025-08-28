@@ -26,7 +26,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 20px;
+  padding: 2rem;
   box-sizing: border-box;
   z-index: 1000;
 }
@@ -40,14 +40,14 @@ body {
 
 .icons-navbar-top-left img,
 .icons-navbar-top-right img {
-  width: clamp(20px, 3vw, 80px);
+  width: clamp(30px, 2vw, 80px);
   height: auto;
   object-fit: contain;
   min-width: 25px;
 }
 
 .logo-top img {
-  width: clamp(30px, 5vw, 100px);
+  width: clamp(50px, 4vw, 100px);
   height: auto;
   object-fit: contain;
   min-width: 40px;
@@ -56,10 +56,10 @@ body {
 /* NAVBAR LATERAL */
 .navbar-side {
   position: fixed;
-  top: clamp(80px, 6%, 80px); 
+  top: clamp(100px, 6%, 80px); 
   left: clamp(5px, 2vw, 20px);
   width: clamp(60px, 6vw, 100px); 
-  height: calc(95% - clamp(90px, 10vh, 120px));
+  height: calc(93% - clamp(90px, 8vh, 120px));
   background-color: #090909;
   border: 1px solid white;
   border-radius: 10px;
@@ -101,7 +101,7 @@ body {
 /* CONTEÚDO PRINCIPAL */
 .content {
   position: absolute;
-  top: clamp(60px, 6vh, 80px); 
+  top: clamp(70px, 6vh, 80px); 
   left: clamp(90px, 9vw, 150px); 
   right: 0;
   bottom: 0;
