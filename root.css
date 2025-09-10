@@ -4,11 +4,11 @@
 /* ==========================
    FONTES
 ========================== */
-p, label {
+p, label, h5, h6 {
   font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4   {
   font-family: 'Anton', sans-serif;
 }
 
