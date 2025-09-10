@@ -11,58 +11,55 @@
   <!-- Navbar superior -->
   <div class="navbar-top">
     <section class="icons-navbar-top-left">
-      <div class="logo-top"><img src="imagens/Group 8 (1).png" alt="Logo"></div>
-      <div class="explorar"><img src="imagens/Vector (6).png" alt=""></div>
+      <div class="logo-top">
+        <img src="imagens/Group 8 (1).png" alt="Logo">
+      </div>
+      <div class="explorar">
+        <img src="imagens/Vector (6).png" alt="">
+      </div>
     </section>
 
     <section class="icons-navbar-top-right">
-      <div class="profile"><img src="imagens/Group 67.png" alt=""></div>
-      <div class="sino"><img src="imagens/Vector (7).png" alt=""></div>
+      <div class="profile">
+        <img src="imagens/Group 67.png" alt="">
+      </div>
+      <div class="sino">
+        <img src="imagens/Vector (7).png" alt="">
+      </div>
     </section>
   </div>
 
   <!-- Navbar lateral -->
   <div class="navbar-side">
-    <div class="nav-btn"></div>
-    <div class="nav-btn"></div>
-    <div class="nav-btn"></div>
+
+    <!-- Cursos em andamento -->
+    <div class="cursos-andamento">
+      <div class="cards-cursos-andamento"></div>
+      <div class="cards-cursos-andamento"></div>
+      <div class="cards-cursos-andamento"></div>
+    </div>
+
+    <!-- Canais que sigo -->
+    <div class="canais-que-sigo">
+      <div class="cards-canais-que-sigo"></div>
+      <div class="cards-canais-que-sigo"></div>
+      <div class="cards-canais-que-sigo"></div>
+    </div>
+
   </div>
 
   <!-- Conteúdo principal -->
   <div class="content">
-    
+
     <!-- Navbar inferior -->
     <div class="navbar-bottom">
+      <section class="icons-ferramentas-do-aluno">
+        <img src="imagens/System  Code.png" alt="">
+        <img src="imagens/Interface  Book_Open.png" alt="">
+      </section>
     </div>
-  </div>
 
-  <!-- Script do calendário -->
-  <script>
-    const totalDias = 182;
-    const frequencias = Array.from({ length: totalDias }, () => Math.floor(Math.random() * 6));
+        </div>
 
-    const calendar = document.getElementById("calendar");
-    const labels = document.getElementById("labels");
-
-    // Rótulos 1 a 30
-    for (let i = 1; i <= 30; i++) {
-      const label = document.createElement("div");
-      label.classList.add("label");
-      label.textContent = i;
-      labels.appendChild(label);
-    }
-
-    // Quadradinhos
-    frequencias.forEach((nivel, index) => {
-      const day = document.createElement("div");
-      day.classList.add("day");
-      day.setAttribute("data-day", `Dia ${index + 1} de ${totalDias}`);
-      if (nivel > 0) day.classList.add(`level-${nivel}`);
-      calendar.appendChild(day);
-    });
-  </script>
- 
 </body>
 </html>
-
-</style>

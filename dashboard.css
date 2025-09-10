@@ -16,7 +16,9 @@ body {
   color: white;
 }
 
-/* NAVBAR SUPERIOR */
+/* ==========================
+   NAVBAR SUPERIOR
+========================== */
 .navbar-top {
   position: fixed;
   top: 0;
@@ -34,7 +36,7 @@ body {
 .icons-navbar-top-left,
 .icons-navbar-top-right {
   display: flex;
-  gap: 2rem;       
+  gap: 2rem;
   align-items: center;
 }
 
@@ -53,12 +55,14 @@ body {
   min-width: 40px;
 }
 
-/* NAVBAR LATERAL */
+/* ==========================
+   NAVBAR LATERAL
+========================== */
 .navbar-side {
   position: fixed;
-  top: clamp(100px, 6%, 80px); 
+  top: clamp(100px, 6%, 80px);
   left: clamp(5px, 2vw, 20px);
-  width: clamp(60px, 6vw, 100px); 
+  width: clamp(70px, 6vw, 100px);
   height: calc(93% - clamp(90px, 8vh, 120px));
   background-color: #090909;
   border: 1px solid white;
@@ -71,7 +75,9 @@ body {
   z-index: 3;
 }
 
-/* NAVBAR INFERIOR */
+/* ==========================
+   NAVBAR INFERIOR
+========================== */
 .navbar-bottom {
   position: fixed;
   bottom: clamp(5px, 2vh, 20px);
@@ -90,29 +96,55 @@ body {
   z-index: 1000;
 }
 
-/* BOTÕES */
-.nav-btn {
- width: 70%;
-  height: auto;
-  max-height: 90%;
-  background-color: gray;
-  border-radius: 8px;
-  aspect-ratio: 1 / 1;
+.cursos-andamento {
+  flex: 1;
 }
 
+/* ==========================
+   CARDS - NAVBAR SIDE
+========================== */
+.cursos-andamento,
+.canais-que-sigo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%; /* garante que os cards ocupem o espaço da navbar */
+}
 
-/* CONTEÚDO PRINCIPAL */
+/* Cards de cursos (quadrados) */
+.cards-cursos-andamento {
+  width: 70%; /* 70% da largura da navbar */
+  max-width: 80px; /* limite máximo */
+  min-width: 50px; /* limite mínimo */
+  aspect-ratio: 1 / 1; /* sempre quadrado */
+  background-color: gray;
+  border-radius: 8px;
+}
+
+/* Cards de canais (círculos) */
+.cards-canais-que-sigo {
+  width: 60%; /* 60% da largura da navbar */
+  max-width: 70px;
+  min-width: 40px;
+  aspect-ratio: 1 / 1; /* sempre quadrado, transformado em círculo */
+  background-color: gray;
+  border-radius: 50%; /* deixa circular */
+}
+
+/* ==========================
+   CONTEÚDO PRINCIPAL
+========================== */
 .content {
   position: absolute;
-  top: clamp(70px, 6vh, 80px); 
-  left: clamp(90px, 9vw, 150px); 
+  top: clamp(70px, 6vh, 80px);
+  left: clamp(100px, 9vw, 150px);
   right: 0;
   bottom: 0;
   padding: clamp(10px, 2vw, 30px);
   border-top: 1px solid white;
   border-left: 1px solid white;
-  border-radius: clamp(15px, 3vw, 30px) 0 0 0; 
-
+  border-radius: clamp(15px, 3vw, 30px) 0 0 0;
 }
 
 .main-area {
@@ -135,98 +167,9 @@ body {
 
 .dobra1-esquerda-topo h1 {
   font-size: 50px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .dobra1-esquerda-topo p {
-  margin-top: 0; 
+  margin-top: 0;
 }
-
-/* CALENDÁRIO */
-.calendar-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.day-labels {
-  display: grid;
-  grid-template-columns: repeat(30, 18px);
-  grid-gap: 4px;
-  margin-bottom: 5px;
-}
-
-.label {
-  font-size: 10px;
-  text-align: center;
-  color: #ccc;
-}
-
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18px, 1fr));
-  grid-gap: 4px;
-  max-width: 100%;
-}
-
-.day {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  background-color: #0d1117;
-  transition: 0.2s;
-  position: relative;
-}
-
-.level-1 { background-color: #003f7f; }
-.level-2 { background-color: #0059b3; }
-.level-3 { background-color: #3399ff; }
-.level-4 { background-color: #66b3ff; }
-.level-5 { background-color: #cce6ff; }
-
-.day::after {
-  content: attr(data-day);
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #222;
-  color: #fff;
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 10px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.day:hover::after {
-  opacity: 1;
-}
-
-.day:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-/* RESPONSIVO */
-@media (max-width: 600px) {
-  .day-labels {
-    grid-template-columns: repeat(15, 12px);
-    grid-gap: 3px;
-  }
-  .calendar {
-    grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
-    grid-gap: 3px;
-  }
-  .day {
-    width: 12px;
-    height: 12px;
-  }
-  .label {
-    font-size: 8px;
-  }
-}
-
