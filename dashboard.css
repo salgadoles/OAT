@@ -1,175 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-p, label {
-  font-family: 'Montserrat', sans-serif;
-}
 
-h1, h2, h3 {
-  font-family: 'Anton', sans-serif;
-}
 
-body {
-  margin: 0;
-  background-color: #000;
-  font-family: Arial, sans-serif;
-  color: white;
-}
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f0f6fc;
+      font-weight: 500;
+    }
 
-/* ==========================
-   NAVBAR SUPERIOR
-========================== */
-.navbar-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  box-sizing: border-box;
-  z-index: 1000;
-}
+    .chart-wrapper {
+      display: flex;
+    }
 
-.icons-navbar-top-left,
-.icons-navbar-top-right {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
+    .days {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-right: 5px;
+      font-size: 10px;
+      color: #8b949e;
+    }
 
-.icons-navbar-top-left img,
-.icons-navbar-top-right img {
-  width: clamp(30px, 2vw, 80px);
-  height: auto;
-  object-fit: contain;
-  min-width: 25px;
-}
+    .months {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #8b949e;
+      margin-bottom: 5px;
+      padding: 0 4px;
+    }
 
-.logo-top img {
-  width: clamp(50px, 4vw, 100px);
-  height: auto;
-  object-fit: contain;
-  min-width: 40px;
-}
+    .chart-container {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
 
-/* ==========================
-   NAVBAR LATERAL
-========================== */
-.navbar-side {
-  position: fixed;
-  top: clamp(100px, 6%, 80px);
-  left: clamp(5px, 2vw, 20px);
-  width: clamp(70px, 6vw, 100px);
-  height: calc(93% - clamp(90px, 8vh, 120px));
-  background-color: #090909;
-  border: 1px solid white;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: clamp(10px, 2vh, 20px) 0;
-  gap: clamp(8px, 2vh, 20px);
-  z-index: 3;
-}
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(53, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      gap: 4px;
+      width: max-content;
+      padding: 5px;
+    }
 
-/* ==========================
-   NAVBAR INFERIOR
-========================== */
-.navbar-bottom {
-  position: fixed;
-  bottom: clamp(5px, 2vh, 20px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(200px, 60%, 800px);
-  height: clamp(45px, 8vh, 70px);
-  background-color: #090909;
-  border: 1px solid white;
-  border-radius: clamp(8px, 2vw, 20px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: clamp(4px, 1vh, 12px) clamp(10px, 2vw, 24px);
-  gap: clamp(8px, 2vw, 20px);
-  z-index: 1000;
-}
+    .grid-item {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      background-color: #161b22;
+      transition: transform 0.2s, border 0.2s;
+    }
 
-.cursos-andamento {
-  flex: 1;
-}
+    .grid-item:hover {
+      transform: scale(1.2);
+      border: 1px solid white;
+      z-index: 2;
+    }
 
-/* ==========================
-   CARDS - NAVBAR SIDE
-========================== */
-.cursos-andamento,
-.canais-que-sigo {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  width: 100%; /* garante que os cards ocupem o espaço da navbar */
-}
+    .legend {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 10px;
+      font-size: 12px;
+    }
 
-/* Cards de cursos (quadrados) */
-.cards-cursos-andamento {
-  width: 70%; /* 70% da largura da navbar */
-  max-width: 80px; /* limite máximo */
-  min-width: 50px; /* limite mínimo */
-  aspect-ratio: 1 / 1; /* sempre quadrado */
-  background-color: gray;
-  border-radius: 8px;
-}
+    .legend-items {
+      display: flex;
+      margin-left: 10px;
+    }
 
-/* Cards de canais (círculos) */
-.cards-canais-que-sigo {
-  width: 60%; /* 60% da largura da navbar */
-  max-width: 70px;
-  min-width: 40px;
-  aspect-ratio: 1 / 1; /* sempre quadrado, transformado em círculo */
-  background-color: gray;
-  border-radius: 50%; /* deixa circular */
-}
+    .legend-item {
+      width: 14px;
+      height: 14px;
+      margin: 0 2px;
+      border-radius: 2px;
+    }
 
-/* ==========================
-   CONTEÚDO PRINCIPAL
-========================== */
-.content {
-  position: absolute;
-  top: clamp(70px, 6vh, 80px);
-  left: clamp(100px, 9vw, 150px);
-  right: 0;
-  bottom: 0;
-  padding: clamp(10px, 2vw, 30px);
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  border-radius: clamp(15px, 3vw, 30px) 0 0 0;
-}
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #30363d;
+    }
 
-.main-area {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+    .stat-item {
+      text-align: center;
+    }
 
-.grid-dobra-1 {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 20px;
-  width: 100%;
-}
+    .stat-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #58a6ff;
+    }
 
-.dobra1-esquerda-topo,
-.dobra1-esquerda-baixo {
-  padding: 5vh 5vw 0px 5vw;
-}
+    .stat-label {
+      font-size: 14px;
+      color: #8b949e;
+    }
 
-.dobra1-esquerda-topo h1 {
-  font-size: 50px;
-  margin-bottom: 10px;
-}
+    @media (max-width: 768px) {
+      .grid-item {
+        width: 10px;
+        height: 10px;
+      }
+      .months { font-size: 9px; }
+      .days { font-size: 8px; }
+      .stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
 
-.dobra1-esquerda-topo p {
-  margin-top: 0;
-}
+    .tooltip {
+      position: absolute;
+      background-color: rgba(22, 27, 34, 0.95);
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 100;
+      color: #f0f6fc;
+    }

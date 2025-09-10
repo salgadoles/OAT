@@ -5,61 +5,220 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layout com 3 Navbars e Scroll Lateral</title>
   <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="root.css">
 </head>
-<body>
+<body base>
 
-  <!-- Navbar superior -->
-  <div class="navbar-top">
-    <section class="icons-navbar-top-left">
-      <div class="logo-top">
+  <!-- NAVBAR SUPERIOR -->
+  <div navbarsuperior>
+    <section iconesnavtop>
+      <div logo>
         <img src="imagens/Group 8 (1).png" alt="Logo">
       </div>
-      <div class="explorar">
+      <div explorar>
         <img src="imagens/Vector (6).png" alt="">
       </div>
     </section>
 
-    <section class="icons-navbar-top-right">
-      <div class="profile">
+    <section iconesnavtop>
+      <div profile>
         <img src="imagens/Group 67.png" alt="">
       </div>
-      <div class="sino">
+      <div sino>
         <img src="imagens/Vector (7).png" alt="">
       </div>
     </section>
   </div>
 
-  <!-- Navbar lateral -->
-  <div class="navbar-side">
-
-    <!-- Cursos em andamento -->
-    <div class="cursos-andamento">
-      <div class="cards-cursos-andamento"></div>
-      <div class="cards-cursos-andamento"></div>
-      <div class="cards-cursos-andamento"></div>
+  <!-- NAVBAR LATERAL -->
+  <div navbarlateral>
+    <div cursosandamento>
+      <div cardcurso></div>
+      <div cardcurso></div>
+      <div cardcurso></div>
     </div>
 
-    <!-- Canais que sigo -->
-    <div class="canais-que-sigo">
-      <div class="cards-canais-que-sigo"></div>
-      <div class="cards-canais-que-sigo"></div>
-      <div class="cards-canais-que-sigo"></div>
+    <div canaisquesigo>
+      <div cardcanal></div>
+      <div cardcanal></div>
+      <div cardcanal></div>
     </div>
-
   </div>
 
-  <!-- Conteúdo principal -->
-  <div class="content">
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div content>
+<section class="sec1">
+  <section class="linha1">
+    <section class="linha1-direita">
+      <h1>BEM VINDO DE VOLTA, SALGADO.</h1>
+      <p>analise suas metricas.</p>
+    </section>
+    <section class="linha1-esquerda">
+<section class="dashboard-grade-de-frequencia">
+  
+</section>
 
-    <!-- Navbar inferior -->
-    <div class="navbar-bottom">
-      <section class="icons-ferramentas-do-aluno">
+    </section>
+  </section>
+</section>
+
+<section class="linha2">
+  <section class="linha2-direita"></section>
+  <section class="linha2-direita"></section>
+</section>
+
+
+
+
+ <div class="container">
+    <h1>Frequência na Plataforma</h1>
+
+    <div class="chart-wrapper">
+      <div class="days">
+        <span>Dom</span>
+        <span>Seg</span>
+        <span>Ter</span>
+        <span>Qua</span>
+        <span>Qui</span>
+        <span>Sex</span>
+        <span>Sáb</span>
+      </div>
+      <div style="width: 100%;">
+        <div class="months">
+          <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span>
+          <span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span>
+          <span>Set</span><span>Out</span><span>Nov</span><span>Dez</span>
+        </div>
+        <div class="chart-container">
+          <div class="grid-container" id="gridContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      Menos
+      <div class="legend-items">
+        <div class="legend-item" style="background-color: #161b22"></div>
+        <div class="legend-item" style="background-color: #0e4429"></div>
+        <div class="legend-item" style="background-color: #006d32"></div>
+        <div class="legend-item" style="background-color: #26a641"></div>
+        <div class="legend-item" style="background-color: #39d353"></div>
+      </div>
+      Mais
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-value" id="totalValue">0</div>
+        <div class="stat-label">Total de atividades</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="maxValue">0</div>
+        <div class="stat-label">Máximo em um dia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="streakValue">0</div>
+        <div class="stat-label">Sequência atual</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    // === Dados de exemplo ===
+    function generateData() {
+      const data = [];
+      for (let i = 0; i < 365; i++) {
+        const dayOfWeek = (i + 3) % 7;
+        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+
+        let value = Math.floor(Math.random() * 10);
+        if (isWeekend) value = Math.floor(value * 0.4);
+        if (Math.random() > 0.95) value += Math.floor(Math.random() * 15);
+
+        data.push(value);
+      }
+      return data;
+    }
+
+    // === Escala de cores ===
+    function getColor(v) {
+      if (v === 0) return '#161b22';
+      if (v < 5) return '#0e4429';
+      if (v < 10) return '#006d32';
+      if (v < 15) return '#26a641';
+      return '#39d353';
+    }
+
+    // === Renderização do heatmap ===
+    function renderHeatmap() {
+      const activityData = generateData();
+      const total = activityData.reduce((a, b) => a + b, 0);
+      const max = Math.max(...activityData);
+
+      // Sequência atual
+      let streak = 0;
+      for (let i = activityData.length - 1; i >= 0; i--) {
+        if (activityData[i] > 0) streak++;
+        else break;
+      }
+
+      // Atualiza estatísticas
+      document.getElementById('totalValue').textContent = total;
+      document.getElementById('maxValue').textContent = max;
+      document.getElementById('streakValue').textContent = streak;
+
+      // Monta a grade
+      const grid = document.getElementById('gridContainer');
+      const tooltip = document.getElementById('tooltip');
+      grid.innerHTML = '';
+
+      const weeksInYear = 53;
+      const days = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+
+      for (let i = 0; i < 7 * weeksInYear; i++) {
+        const item = document.createElement('div');
+        item.className = 'grid-item';
+
+        if (i < activityData.length) {
+          const value = activityData[i];
+          item.style.backgroundColor = getColor(value);
+
+          item.addEventListener('mousemove', (e) => {
+            const day = i % 7;
+            const date = new Date();
+            date.setDate(date.getDate() - (activityData.length - i));
+
+            tooltip.innerHTML = `
+              <strong>${value} atividade(s)</strong><br>
+              ${days[day]}<br>
+              ${date.toLocaleDateString()}
+            `;
+            tooltip.style.opacity = '1';
+            tooltip.style.left = (e.pageX + 10) + 'px';
+            tooltip.style.top = (e.pageY - 40) + 'px';
+          });
+
+          item.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+          });
+        }
+
+        grid.appendChild(item);
+      }
+    }
+
+    renderHeatmap();
+  </script>
+    <div navbarinferior>
+      <section iconsferramentas>
         <img src="imagens/System  Code.png" alt="">
         <img src="imagens/Interface  Book_Open.png" alt="">
       </section>
     </div>
-
-        </div>
+  </div>
 
 </body>
+
 </html>
