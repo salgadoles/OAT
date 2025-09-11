@@ -32,7 +32,8 @@
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 0 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px);
-
+    padding: 10px;
+     margin-top: -10px;
 }
 
 .postdobra1 h6{
@@ -53,13 +54,15 @@
 
 
 .postdobra2{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-top: 1px solid rgb(0, 0, 0);
     border-bottom: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 0 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px);
+    padding: 10px;
+    margin-top: -10px;
 }
 
 .avaliacao{
@@ -76,4 +79,9 @@
     font-size: clamp(6px, 0.5vw, 12px);
     text-align: right;
     line-height: 1.2;
+}
+
+.post-dobra2-direita{
+display: flex;
+    justify-content: space-between;
 }
