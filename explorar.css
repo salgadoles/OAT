@@ -1,5 +1,7 @@
 .post-curso{
     width: clamp(200px, 25vw, 300px);
+    min-width: 0;
+    box-sizing: border-box  ;
 }
 
 .post-imagem{
@@ -32,24 +34,24 @@
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 0 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px);
-    padding: 10px;
+    padding: 15px 10px 15px 10px;
      margin-top: -10px;
 }
 
 .postdobra1 h6{
     line-height: 1.2;
     margin: 0;
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: clamp(16px, 2vw, 24px);
 }
 
 .postdobra1 p{
     line-height: 1.2;
     margin: 0;
-    font-size: clamp(12px, 0.8vw, 16px);
+    font-size: clamp(11px, 0.8vw, 16px);
 }
 
 .flecha-post img {
-   width: clamp(14px, 1vw, 20px);
+   width: clamp(12px, 1vw, 20px);
 }
 
 
@@ -76,12 +78,31 @@
 }
 
 .promocao{
-    font-size: clamp(6px, 0.5vw, 12px);
+    font-size: clamp(6px, 0.4vw, 10px);
     text-align: right;
     line-height: 1.2;
 }
 
 .post-dobra2-direita{
 display: flex;
-    justify-content: space-between;
+    justify-content: right;
+    align-items: center;
+    gap: 5px;
+}
+
+.preco > strong{
+    font-size: clamp(17px, 1.76vw, 30px);
+
+}
+
+.preco{
+    font-size: clamp(7px, 1vw, 14px);
+}
+
+.secaoconteudo{
+  margin: 0 clamp(20px, 5vw, 200px);
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(10px, 1vw, 20px); 
+  padding: clamp(10px, 2vw, 20px);  
 }
