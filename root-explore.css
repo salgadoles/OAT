@@ -75,6 +75,11 @@ h1, h2, h3, h4   {
   height: clamp(30px, 4vh, 50px);
 }
 
+[barradepesquisa] input:hover {
+  border: 1px solid white;
+  border-width: 4px;
+border-style: double;
+}
 
 [navbarsuperior] [iconesnavtop] img:not([logo] img) {
   width: clamp(25px, 2vw, 50px);

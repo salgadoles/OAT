@@ -1,8 +1,8 @@
 const slides = [
-  {titulo:"Curso de Python Avançado", texto:"Automação, APIs e IA", img:"https://picsum.photos/1200/500?random=1", link:"#"},
-  {titulo:"Design UI/UX", texto:"Crie interfaces modernas", img:"https://picsum.photos/1200/500?random=2", link:"#"},
-  {titulo:"Machine Learning", texto:"Modelos inteligentes e predição", img:"https://picsum.photos/1200/500?random=3", link:"#"},
-  {titulo:"Marketing Digital", texto:"Estratégias e crescimento online", img:"https://picsum.photos/1200/500?random=4", link:"#"}
+  {titulo:"Curso de Python Avançado", texto:"Automação, APIs e IA", img:"https://d335luupugsy2.cloudfront.net/cms/files/47031/1757823897/$of7p3idlna", link:"#"},
+  {titulo:"Design UI/UX", texto:"Crie interfaces modernas", img:"https://d335luupugsy2.cloudfront.net/cms/files/47031/1757823897/$of7p3idlna", link:"#"},
+  {titulo:"Machine Learning", texto:"Modelos inteligentes e predição", img:"https://d335luupugsy2.cloudfront.net/cms/files/47031/1757823897/$of7p3idlna", link:"#"},
+  {titulo:"Marketing Digital", texto:"Estratégias e crescimento online", img:"https://d335luupugsy2.cloudfront.net/cms/files/47031/1757823897/$of7p3idlna", link:"#"}
 ];
 
 let index = 0;
