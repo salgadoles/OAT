@@ -1,0 +1,129 @@
+
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f0f6fc;
+      font-weight: 500;
+    }
+
+    .chart-wrapper {
+      display: flex;
+    }
+
+    .days {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-right: 5px;
+      font-size: 10px;
+      color: #8b949e;
+    }
+
+    .months {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #8b949e;
+      margin-bottom: 5px;
+      padding: 0 4px;
+    }
+
+    .chart-container {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(53, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      gap: 4px;
+      width: max-content;
+      padding: 5px;
+    }
+
+    .grid-item {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      background-color: #161b22;
+      transition: transform 0.2s, border 0.2s;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.2);
+      border: 1px solid white;
+      z-index: 2;
+    }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .legend-items {
+      display: flex;
+      margin-left: 10px;
+    }
+
+    .legend-item {
+      width: 14px;
+      height: 14px;
+      margin: 0 2px;
+      border-radius: 2px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #30363d;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #58a6ff;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #8b949e;
+    }
+
+    @media (max-width: 768px) {
+      .grid-item {
+        width: 10px;
+        height: 10px;
+      }
+      .months { font-size: 9px; }
+      .days { font-size: 8px; }
+      .stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: rgba(22, 27, 34, 0.95);
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 100;
+      color: #f0f6fc;
+    }
