@@ -97,7 +97,7 @@
 }
 
 .secaoconteudo {
-  margin: 0 clamp(18px, 4.5vw, 180px);
+  margin:  clamp(18px, 4.5vw, 180px);
   display: grid;
   grid-template-columns: repeat(
       auto-fill,
@@ -107,3 +107,102 @@
     row-gap: clamp(24px, 3vw, 36px);
   padding: clamp(8px, 1.8vw, 18px);
 }
+
+.carrossel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.carrossel-slide img {
+  width: 100%;
+  height: clamp(220px, 50vw, 600px);
+  object-fit: cover;
+  filter: brightness(0.6) blur(0px);
+  transition: filter 0.5s;
+}
+
+.carrossel-slide::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000000  5%, #00000000 60%);
+  z-index: 2;
+  pointer-events: none; 
+}
+
+.carrossel-linha1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrossel-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.overlay-info {
+  padding: clamp(20px, 4vw, 60px);
+  max-width: 55%;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.overlay-info h3 {
+  font-size: clamp(28px, 3vw, 42px);
+  margin-bottom: 8px;
+  font-weight: 800;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
+}
+
+.overlay-info p {
+  font-size: clamp(14px, 1.6vw, 20px);
+  margin-bottom: 16px;
+  color: #fff;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+
+
+
+
+/* ===== Barras de Progresso ousadas ===== */
+.carrossel-progress {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  z-index: 20;
+}
+
+.progress-item {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3) inset;
+}
+
+.progress-inner {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#ffffff,#ffffff,#ffffff);
+  border-radius: inherit;
+}
+
