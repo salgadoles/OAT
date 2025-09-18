@@ -65,3 +65,24 @@ function trocaSlide(){
 
 trocaSlide();
 setInterval(trocaSlide, tempoSlide*1000);
+
+const painel = document.getElementById('painelFiltro');
+const btnAbrir = document.getElementById('btnFiltro');
+const btnFechar = document.getElementById('fecharFiltro');
+
+btnAbrir.addEventListener('click', () => {
+  painel.classList.add('ativo');
+});
+
+btnFechar.addEventListener('click', () => {
+  painel.classList.remove('ativo');
+});
+
+// opcional: fechar clicando fora
+document.addEventListener('click', (e)=>{
+  if(painel.classList.contains('ativo') &&
+     !painel.contains(e.target) &&
+     e.target !== btnAbrir){
+       painel.classList.remove('ativo');
+  }
+});

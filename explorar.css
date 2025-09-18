@@ -206,3 +206,35 @@
   border-radius: inherit;
 }
 
+#painelFiltro{
+  position: fixed;
+  top: 0;
+  right: 0;                 /* painel vem da direita */
+  width: 320px;             /* ajuste conforme o design */
+  height: 100%;
+  background: #1e1e1e;
+  color: white;
+  padding: 20px;
+  box-shadow: -4px 0 10px rgba(0,0,0,.5);
+  transform: translateX(100%);   /* começa escondido */
+  transition: transform .4s ease;
+  z-index: 2000;
+}
+
+#painelFiltro.ativo{
+  transform: translateX(0);      /* aparece */
+}
+
+#painelFiltro .filtro-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+#fecharFiltro{
+  background:none;
+  border:none;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+}
