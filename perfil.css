@@ -1,0 +1,29 @@
+.conteudodeimg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner{
+    background-image: url('imagens/download (4).jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 70%;
+    height: auto;
+    aspect-ratio: 16/4;
+    background-color: aliceblue;
+    border-radius: 20px;
+}
+
+.fotodeperfil{
+     background-image: url('imagens/download (5).jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: -10%;
+    border: 10px solid black;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    width: 20%;
+    background-color: blue;
+}
