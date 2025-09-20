@@ -54,15 +54,15 @@
 }
 
 .postdobra2{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-top: 1px solid rgb(0, 0, 0);
     border-bottom: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 0 0 clamp(6px, 1.6vw, 10px) clamp(6px, 1.6vw, 10px);
     padding: 8px;
-    margin-top: -8px;
 }
 
 .avaliacao{
@@ -330,4 +330,12 @@
 
 .fechar img {
   width: clamp(14px, 5vw, 50px);
+}
+
+.btnsearch:hover img{
+  content: url("imagens/Group 138 (1).png");
+}
+
+body.sidebar-aberta .btnsearch img{
+  content: url("imagens/Group 138 (1).png");
 }
