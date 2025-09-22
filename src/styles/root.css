@@ -4,11 +4,8 @@
 /* ==========================
    FONTES
 ========================== */
-<<<<<<< HEAD:src/styles/root.css
-p, label, h5, h6, input, label {
-=======
+
 p, label, h5, h6, span, a, button, input, textarea {
->>>>>>> b58f1923ab7bcb4673f0bf3f0fcffbd0ef874f40:root.css
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;

@@ -172,14 +172,7 @@
   text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 
-
-
-<<<<<<< HEAD:src/styles/explorar.css
-
-
 /* ===== Barras de Progresso ousadas ===== */
-=======
->>>>>>> b58f1923ab7bcb4673f0bf3f0fcffbd0ef874f40:explorar.css
 .carrossel-progress {
   position: absolute;
   bottom: 10px;
@@ -208,9 +201,6 @@
   background: linear-gradient(90deg,#ffffff,#ffffff,#ffffff);
   border-radius: inherit;
 }
-
-<<<<<<< HEAD:src/styles/explorar.css
-=======
 
 .sidebar-filtro{
   position: fixed;
@@ -347,4 +337,5 @@
 body.sidebar-aberta .btnsearch img{
   content: url("imagens/Group 138 (1).png");
 }
->>>>>>> b58f1923ab7bcb4673f0bf3f0fcffbd0ef874f40:explorar.css
+
+
