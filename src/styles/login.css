@@ -1,0 +1,172 @@
+body {
+    background-image: url("../../public/imagens/background-login.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+}
+
+form {
+    background: #000B73;
+    background: linear-gradient(130deg, rgba(0, 11, 115, 1) 0%, rgba(79, 7, 77, 1) 50%, rgba(242, 0, 0, 1) 100%);
+}
+
+
+.navsuperior {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.logotipo {
+
+    margin: 20px;
+
+    img {
+        width: 40px;
+    }
+}
+
+
+.main-content {
+    width: 100%;
+    height: 90%;
+    padding: 0px 0px 100px 100px;
+    margin-bottom: 50px;
+}
+
+.content-form {
+    text-align: right;
+    width: 30%;
+
+    h3 {
+        font-weight: 300;
+    }
+
+    a {
+        color: #00C2FF;
+    }
+}
+
+.loginForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 12px;
+}
+
+.cadastroForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.cabecalho-form {
+    width: 80%;
+    text-align: center;
+
+    h1 {
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+
+.form-fields .field {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    gap: 5px;
+    text-align: left;
+    width: 70%;
+
+
+    & input {
+        border-radius: 20px;
+        padding: 15px;
+        background: none;
+        outline: none;
+        border: 1px solid #ffff;
+        color: #ffff;
+        transition: 1 ease-in-out;
+    }
+
+    & input:focus {
+        outline: 1px solid #ffff;
+    }
+}
+
+.field-button {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.field-button button {
+    width: 80%;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+.field-button button:hover {
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+}
+
+.link-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    gap: 10px;
+
+    img {
+        width: 100px;
+        cursor: pointer;
+    }
+}
+
+/* campo senha  */
+.password-input {
+    position: relative;
+    z-index: 0;
+}
+
+.form-fields .icon {
+    position: relative;
+    top: -40px;
+    width: 20px;
+    cursor: pointer;
+    left: 85%;
+    z-index: 1;
+    color: #fafafa;
+}
+
+.icon.hide {
+        display: none;
+}
+

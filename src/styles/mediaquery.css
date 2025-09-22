@@ -1,0 +1,30 @@
+@media (max-width: 1400px) {
+    .content-form {
+        text-align: center;
+        width: 50%;
+    }
+}
+@media (max-width: 900px) {
+    
+    body {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+    .header, .footer {
+        text-align: center;
+    }
+    
+
+    .content-form {
+        text-align: center;
+        width: 100%;
+    }
+
+    .field-button{
+        width: 90%;
+    }
+
+}

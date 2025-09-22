@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>OAT | Escola digital totalmente gratuita para você!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="icon" href="/public/imagens/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../styles/login.css">
+    <link rel="stylesheet" type="text/css" href="../styles/mediaquery.css">
+    <link rel="stylesheet" href="../styles/root.css">
+</head>
+
+<body base>
+
+    <div class="navsuperior">
+        <div class="logotipo">
+            <img src="/public/imagens/logo_escoladigital.png" alt="">
+        </div>
+    </div>
+
+    <main>
+        <section class="main-content">
+            <article class="content-form">
+                <div>
+                    <h3>Já possui conta?
+                        <a href="../pages/login.html">Entrar</a>
+                    </h3>
+                </div>
+
+                <form class="cadastroForm" action="" method="get">
+                    <header class="cabecalho-form">
+                        <h1>VENHA FAZER PARTE DA OAT!</h1>
+                    </header>
+                    <div class="form-fields">
+                        <div class="field">
+                            <label for="name">Username</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+
+                        <div class="field">
+                            <label for="password">Senha</label>
+                            <input type="password" name="password" id="password" maxlength="30">
+                            <img src="/imagens/visibility.png" alt="" class="icon show" id="toggleSenha">
+                            <img src="/imagens/visibility_off.png" alt="" class="icon hide" id="toggleSenhaOff">
+                        </div>
+                        <div class="field">
+                            <label for="password">Confirmar senha</label>
+                            <input type="password" name="confirmpassword" id="confirmpassword" maxlength="30">
+                        </div>
+
+                        <div class="field"><label for="date">Data de Nascimento</label>
+                            <input type="date" name="date" id="date">
+                        </div>
+
+                        <!-- Mensagem de erro -->
+                        <div id="cadastroError">
+
+                        </div>
+
+                        <div class="field-button">
+                            <button type="submit">Cadastrar-se</button>
+                        </div>
+                    </div>
+                    <footer class="link-google">
+                        <p>Logar com</p>
+                        <a href="#">
+                            <img src="/public/imagens/google-logo.png" alt="">
+                        </a>
+                    </footer>
+                </form>
+
+            </article>
+            <article>
+
+            </article>
+        </section>
+    </main>
+
+    <script src="../scripts/cadastro.js"></script>
+    <script src="../scripts/global.js"></script>
+
+</body>
+
+</html>
