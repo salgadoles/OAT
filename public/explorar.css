@@ -28,7 +28,7 @@
 }
 
 .postdobra1{
-    border-top: 1px solid rgb(8, 8, 8);
+    border-top: 1px solid rgb(0, 0, 0);
     border-bottom: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
@@ -54,15 +54,15 @@
 }
 
 .postdobra2{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-top: 1px solid rgb(0, 0, 0);
     border-bottom: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 0 0 clamp(6px, 1.6vw, 10px) clamp(6px, 1.6vw, 10px);
     padding: 8px;
+    margin-top: -8px;
 }
 
 .avaliacao{
@@ -174,12 +174,9 @@
 
 
 
-<<<<<<< HEAD:src/styles/explorar.css
 
 
 /* ===== Barras de Progresso ousadas ===== */
-=======
->>>>>>> b58f1923ab7bcb4673f0bf3f0fcffbd0ef874f40:explorar.css
 .carrossel-progress {
   position: absolute;
   bottom: 10px;
@@ -209,142 +206,3 @@
   border-radius: inherit;
 }
 
-<<<<<<< HEAD:src/styles/explorar.css
-=======
-
-.sidebar-filtro{
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: clamp(260px, 25vw, 360px);
-  height: 100%;
-  background: #1B0087;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(12px, 2vw, 24px);
-  box-sizing: border-box;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.filtro-topo{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: clamp(16px, 3vw, 32px);
-}
-
-.filtro-topo h2{
-  font-size: clamp(18px, 3vw, 28px);
-  font-weight: 700;
-  margin: 0;
-}
-
-
-
-.campo{
-  margin-bottom: clamp(16px, 3vw, 28px);
-}
-
-.campo label{
-  display: block;
-  font-size: clamp(12px, 1.6vw, 16px);
-  margin-bottom: clamp(6px, 1vw, 10px);
-}
-
-.campo select{
-  width: 100%;
-  padding: clamp(8px, 1.5vw, 12px);
-  border-radius: 6px;
-  border: none;
-  background: #0a003d;
-  font-size: clamp(12px, 2vw, 16px);
-  color: white;
-}
-
-.range-campo input[type="range"]{
-  width: 100%;
-}
-
-.range-labels{
-  display: flex;
-  justify-content: space-between;
-  font-size: clamp(12px, 2vw, 16px);
-}
-
-.skills-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: clamp(10px, 2vw, 20px);
-  font-size: clamp(12px, 2vw, 16px);
-}
-
-.reset{
-  background: none;
-  border: none;
-  color: #FFD100;
-  cursor: pointer;
-  font-size: inherit;
-}
-
-.skills-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(8px, 1.5vw, 12px);
-  margin-bottom: clamp(20px, 4vw, 32px);
-}
-
-.skills-grid button{
-  background: #d3d3d3;
-  border: none;
-  padding: clamp(6px, 1.5vw, 10px);
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: clamp(12px, 1.6vw, 14px);
-}
-
-.btn-procurar{
-  width: 100%;
-  background: #FFD100;
-  border: none;
-  padding: clamp(10px, 2vw, 16px);
-  border-radius: 8px;
-  font-size: clamp(14px, 2.5vw, 18px);
-  font-weight: 600;
-  cursor: pointer;
-  color: #000;
-}
-
-.sidebar-pesquisa, .sidebar-filtro, #sidebarPesquisa {
-  right: -100%;
-  transition: right 0.35s ease;
-  z-index: 2000;
-}
-
-
-.sidebar-pesquisa.ativo, .sidebar-pesquisa.open,
-.sidebar-filtro.ativo, .sidebar-filtro.open,
-#sidebarPesquisa.ativo, #sidebarPesquisa.open {
-  right: 0;
-}
-
-
-.fechar{
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.fechar img {
-  width: clamp(14px, 5vw, 50px);
-}
-
-.btnsearch:hover img{
-  content: url("imagens/Group 138 (1).png");
-}
-
-body.sidebar-aberta .btnsearch img{
-  content: url("imagens/Group 138 (1).png");
-}
->>>>>>> b58f1923ab7bcb4673f0bf3f0fcffbd0ef874f40:explorar.css

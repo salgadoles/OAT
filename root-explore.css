@@ -4,11 +4,7 @@
 /* ==========================
    FONTES
 ========================== */
-<<<<<<< HEAD:src/styles/root.css
-p, label, h5, h6, input, label {
-=======
-p, label, h5, h6, span, a, button, input, textarea {
->>>>>>> b58f1923ab7bcb4673f0bf3f0fcffbd0ef874f40:root.css
+p, label, h5, h6, span, a, button, input, textarea, option, select {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
@@ -16,6 +12,8 @@ p, label, h5, h6, span, a, button, input, textarea {
 
 h1, h2, h3, h4   {
   font-family: 'Anton', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* ==========================
@@ -59,6 +57,32 @@ h1, h2, h3, h4   {
   height: auto;
   object-fit: contain;
   display: block;
+}
+[barradepesquisa] img {
+  width: clamp(25px, 2vw, 50px); 
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+[barradepesquisa] {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 2rem); 
+}
+[barradepesquisa] input {
+  flex: 1;  
+  background-color: #090909;
+  border: 1px solid white;
+  border-radius: clamp(8px, 2vw, 20px);
+  width: clamp(200px, 30vw, 800px);
+  height: clamp(30px, 4vh, 50px);
+}
+
+[barradepesquisa] input:hover {
+  border: 1px solid white;
+  border-width: 4px;
+border-style: double;
 }
 
 [navbarsuperior] [iconesnavtop] img:not([logo] img) {
@@ -159,7 +183,7 @@ html, body {
   left: clamp(100px, 9vw, 150px);   
   right: 0;
   bottom: 0;
-  padding: clamp(10px, 2vw, 30px);
+
   border-top: 1px solid white;
   border-left: 1px solid white;
   border-radius: clamp(15px, 3vw, 30px) 0 0 0;
@@ -167,7 +191,6 @@ html, body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
 
 [botaovoltar]{
   position: relative;
@@ -186,4 +209,3 @@ html, body {
   width: clamp(12px, 1vw, 20px);
   height: auto;
 }
-

@@ -28,6 +28,7 @@ const barras = document.querySelectorAll(".progress-inner");
 function trocaSlide(){
   const s = slides[index];
 
+  // anima overlay info
   gsap.to(".overlay-info", {opacity:0, x:-50, duration:0.5, ease:"power2.inOut"});
   setTimeout(()=>{
     titulo.textContent = s.titulo;
@@ -39,12 +40,13 @@ function trocaSlide(){
       {opacity:1, x:0, duration:1.2, ease:"power3.out"}
     );
 
+    // imagem com efeito de zoom e blur
     gsap.fromTo(img,
       {opacity:0, scale:1.1, filter:"blur(4px)"},
       {opacity:1, scale:1, filter:"blur(0px)", duration:1.2, ease:"power3.out"}
     );
 
-  
+    // reset e animação da barra atual
     barras.forEach((b,i)=>{
       gsap.killTweensOf(b);
       gsap.set(b,{width: i<index ? "100%" : "0%"});
@@ -63,55 +65,3 @@ function trocaSlide(){
 
 trocaSlide();
 setInterval(trocaSlide, tempoSlide*1000);
-
-document.addEventListener('DOMContentLoaded', () => {
-  const btnSearch = document.querySelector('.btnsearch'); 
-  const sidebar = document.querySelector('#sidebarPesquisa, .sidebar-pesquisa, .sidebar-filtro');
-  const fechar = document.querySelector('#fecharSidebar, .fechar-sidebar, .fechar, .close');
-
-  if (!btnSearch) {
-    console.warn('btnsearch não encontrado: verifique se existe .btnsearch no HTML');
-    return;
-  }
-  if (!sidebar) {
-    console.warn('sidebar não encontrado: verifique se existe #sidebarPesquisa ou .sidebar-pesquisa ou .sidebar-filtro');
-    return;
-  }
-
-  function abrirSidebar(e) {
-    if (e) e.preventDefault();
-    sidebar.classList.add('ativo', 'open'); // as duas só pra garantir
-    document.body.classList.add('sidebar-aberta');
-  }
-
-  function fecharSidebar() {
-    sidebar.classList.remove('ativo', 'open');
-    document.body.classList.remove('sidebar-aberta');
-  }
-
-  function toggleSidebar(e) {
-    if (sidebar.classList.contains('ativo') || sidebar.classList.contains('open')) {
-      fecharSidebar();
-    } else {
-      abrirSidebar(e);
-    }
-  }
-
-  btnSearch.addEventListener('click', abrirSidebar);
-
-  if (fechar) fechar.addEventListener('click', fecharSidebar);
-
-  document.addEventListener('click', (evt) => {
-    const alvo = evt.target;
-    const aberto = sidebar.classList.contains('ativo') || sidebar.classList.contains('open');
-    if (!aberto) return;
-    if (!sidebar.contains(alvo) && !btnSearch.contains(alvo)) {
-      fecharSidebar();
-    }
-  });
-
-  // Esc fecha esse djanho
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') fecharSidebar();
-  });
-});
