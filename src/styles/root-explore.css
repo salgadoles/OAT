@@ -188,3 +188,21 @@ html, body {
   scroll-behavior: smooth;
 }
 
+[botaovoltar]{
+  position: relative;
+  z-index: 1;
+ margin-top: clamp(10px, 2vw, 20px);
+ margin-left: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 20px);
+}
+
+[voltar]{   
+  padding: clamp(6px, 0.8vw, 12px);
+  border-radius: 50%;
+  border: none;
+}
+
+[voltar] img{
+  width: clamp(12px, 1vw, 20px);
+  height: auto;
+}
