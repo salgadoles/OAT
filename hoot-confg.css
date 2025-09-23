@@ -188,21 +188,6 @@ html, body {
   scroll-behavior: smooth;
 }
 
-[navconfig] {
-    display: flex;
-    width: 20vw;
-    min-width: 13rem;
-    height: 80%;
-    max-height: 700px;
-    background-color: #090909;
-    border: 1px solid white;
-    position: relative;
-    flex: auto;
-    left: 2%;
-    border-radius: clamp(8px, 2vw, 20px);
-}
-
-
 [botaovoltar]{
   position: relative;
   z-index: 1;
@@ -221,3 +206,22 @@ html, body {
   width: clamp(12px, 1vw, 20px);
   height: auto;
 }
+
+
+[navconfig] {
+    display: flex;
+    width: 20vw;
+    min-width: 13rem;
+    max-width: 20rem;
+    height: 75%;
+    max-height: 700px;
+    background-color: #090909;
+    border: 1px solid white;
+    position: relative;
+    flex: auto;
+    left: 2%;
+    border-radius: clamp(8px, 2vw, 20px);
+}
+
+
+
