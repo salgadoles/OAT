@@ -7,6 +7,95 @@ body {
     width: 100%;
 }
 
+
+/* BACKGROUND GRADIENT  */
+
+/* Gradiente azul suave em movimento */
+.grain {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: auto;
+    opacity: 0.19;
+    filter: contrast(150%) brightness(220%);
+    animation: grainMove 0.7s steps(1) infinite;
+
+    /* máscara para sumir nas bordas */
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 80%);
+    mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 80%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.gradient-top {
+    z-index: 0;
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 140%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%,
+            rgba(0, 0, 255, 0.85),
+            rgba(0, 120, 255, 0.55),
+            rgba(0, 60, 180, 0.35),
+            rgba(0, 0, 0, 0) 80%);
+    filter: blur(80px) brightness(1.2);
+    background-size: 300% 300%;
+    animation: moveGradient 25s ease-in-out infinite alternate;
+}
+
+/* Camada de ruído */
+.grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* não interfere no clique */
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    /* tamanho fixo do pattern */
+    opacity: 0.12;
+    filter: contrast(150%) brightness(220%);
+    animation: grainMove 0.7s steps(1) infinite;
+    /* leve cintilação */
+}
+
+/* Movimento suave do gradiente */
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+/* Ruído cintilando */
+@keyframes grainMove {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-2%, 2%);
+    }
+}
+
+/* termina gradient */
+
+
 form {
     background: #000B73;
     background: linear-gradient(130deg, rgba(0, 11, 115, 1) 0%, rgba(79, 7, 77, 1) 50%, rgba(242, 0, 0, 1) 100%);
@@ -32,6 +121,8 @@ form {
 
 
 .main-content {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 90%;
     padding: 0px 0px 100px 100px;
@@ -167,6 +258,5 @@ form {
 }
 
 .icon.hide {
-        display: none;
+    display: none;
 }
-

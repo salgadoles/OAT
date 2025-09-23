@@ -3,6 +3,7 @@
         text-align: center;
         width: 50%;
     }
+    
 }
 @media (max-width: 900px) {
     
@@ -27,4 +28,11 @@
         width: 90%;
     }
 
+}
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 20px;
+    }
 }

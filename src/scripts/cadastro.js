@@ -6,6 +6,7 @@ function validarEmail(email) {
 // ===== CADASTRO =====
 document.getElementById("cadastroForm").addEventListener("submit", function(e) {
   e.preventDefault();
+  console.log("Formulário enviado");
 
   const nome = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
@@ -32,5 +33,5 @@ document.getElementById("cadastroForm").addEventListener("submit", function(e) {
   }
 
   errorMsg.textContent = "";
-  alert("Cadastro realizado com sucesso!");
+  location.href = "src/pages/explorar.html";
 });
