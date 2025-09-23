@@ -39,7 +39,7 @@ body {
     position: absolute;
     top: -40%;
     left: -40%;
-    width: 100%;
+    width: 140%;
     height: 100%;
     background: radial-gradient(circle at 50% 0%,
             rgba(0, 0, 255, 0.85),
