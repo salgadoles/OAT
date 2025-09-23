@@ -130,7 +130,7 @@ vec3 glow  = vec3(1.0, 0.933, 0.0);      // amarelo
 
   // apply a gentle vignette
   float vignette = smoothstep(1.1, 0.2, length(uv - vec2(0.5)));
-  color *= 0.5;
+  color *= 0.55;
 
   // add final grain (procedural)
   float g = rand(gl_FragCoord.xy + floor(u_time*10.0));
