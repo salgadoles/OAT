@@ -1,0 +1,23 @@
+.conteudopage{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.conteudopage-direita{
+ padding: 2%;
+ position: relative;
+ text-align: right;
+ right: 2%;
+}
+
+.conteudopage-direita h1{
+ font-size: clamp(20px, 4vw, 200px);
+}
+
+.conteudopage-direita p{
+ font-size: clamp(14px, 1vw, 100px);
+}
+
+.conteudopage-direita span{
+ mix-blend-mode: difference;
+}

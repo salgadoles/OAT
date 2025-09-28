@@ -176,7 +176,7 @@ window.addEventListener('pointerdown', (e)=>{
 });
 
 /* resize */
-window.addEventListener('resize', ()=>{
+window.addEventListener('resizeObserver', ()=>{
   renderer.setSize(window.innerWidth, window.innerHeight);
   uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 });

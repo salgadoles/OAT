@@ -209,3 +209,9 @@ html, body {
   width: clamp(12px, 1vw, 20px);
   height: auto;
 }
+
+[navconfigbottom]{
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: aqua;
+}
