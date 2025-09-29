@@ -1,0 +1,131 @@
+body  {
+    width: 100%;
+    overflow: auto !important;
+    scrollbar-width: none;
+}
+
+[navbarsuperior] {
+    position:static !important;
+    z-index: 1;
+}
+
+h1, h3 {
+    margin:0;
+    padding: 0;
+}
+
+main {
+    padding: 0px 5% 0px 5%;
+}
+
+.main-content {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.header-notas {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    padding: 30px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.box-trash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.box-input {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.item {
+    width: 40%;
+}
+
+.box-input textarea {
+      width: 100%;
+      padding: 10px 10px 0px 10px;
+      height: 30px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      resize: none;
+}
+
+.box-tittle {
+    padding: 20px 0px 20px 0px;
+}
+
+.conteiner-notas {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+    height: fit-content;
+}
+
+.nota {
+    max-width: 300px; /* limite do card */
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    word-wrap: break-word; /* quebra palavras longas */
+    overflow-wrap: break-word;
+    white-space: pre-wrap; /* mantém quebras de linha */
+}
+
+.nota button {
+    width: 100%;
+    height: 30px;
+}
+
+
+.nota p {
+    text-align: justify;
+    font-size: 12px;
+}
+
+@media (max-width:400px) {
+    .header-notas {
+        padding: 10px 0px 10px 0px;
+    }
+
+    .item {
+        width: 100%;
+    }
+
+    .box-input {
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+
+        textarea {
+            text-align: center;
+            width: 90%;
+        }
+    }
+
+    .conteiner-notas {
+        padding: 0px;
+    }
+}
