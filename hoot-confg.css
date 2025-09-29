@@ -213,10 +213,9 @@ html, body {
   justify-content: space-between;
   flex-direction: column;
     width: 20vw;
-    min-width: 13rem;
-    max-width: 20rem;
-    height: 70%;
-    max-height: 700px;
+    min-width: 12rem;
+    max-width: 15rem;
+    height: clamp(250px, 60%, 600px); 
     background-color: #090909;
     border: 1px solid white;
     position: absolute;
