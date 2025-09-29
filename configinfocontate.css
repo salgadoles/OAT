@@ -1,0 +1,66 @@
+[conteudointerno] h1{
+  font-size: clamp(22px, 3vw, 150px);
+  text-align: left;
+}
+
+[conteudointerno] p{
+  font-size: clamp(12px, 1vw, 50px);
+  text-align: left;
+}
+
+
+/* ==========================
+   FORM - Campos de informações
+========================== */
+.caixainfos {
+  margin-top: clamp(0.8rem, 1vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: clamp(300px, 70%, 700px);
+}
+
+.caixainfos .linhainfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.caixainfos label {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.caixainfos input {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.caixainfos input:focus {
+  border-color: #8100d6;
+}
+
+.caixainfos button {
+  background-color: #d9d9d9;    
+  color: black;
+  border: none;
+  padding: 1rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+  font-size: clamp(0.8rem, 0.8vw, 1.5rem);
+}
+
+.caixainfos button:hover {
+  background-color: #ffc400;
+}

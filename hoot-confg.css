@@ -294,8 +294,8 @@ html, body {
 
 [conteudointerno]{
   flex: 1; 
-  margin-left: clamp(10rem,35vw,40rem); 
+  margin-left: clamp(16rem,30vw,40rem); 
   max-width: 800px;
-  text-align: center;
+  
 }
 
