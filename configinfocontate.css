@@ -8,10 +8,6 @@
   text-align: left;
 }
 
-
-/* ==========================
-   FORM - Campos de informações
-========================== */
 .caixainfos {
   margin-top: clamp(0.8rem, 1vw, 2rem);
   display: flex;
