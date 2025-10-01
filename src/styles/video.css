@@ -48,6 +48,20 @@ p {
     }
 }
 
+.action-video {
+    padding: 10px 0px 10px 0px;
+}
+
+.action-video img:nth-child(1) {
+    width: 20px;
+
+}
+
+.action-video img:nth-child(2) {
+    width: 35px;
+
+}
+
 .content-video {
     display: flex;
     width: 90%;
