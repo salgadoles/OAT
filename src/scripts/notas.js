@@ -48,8 +48,18 @@ function CriarCard() {
     const conteudo = fieldTextValue;
     const titulo = fieldTittleValue;
 
-    if (fieldTextValue === "") return;
-    if (fieldTittleValue === "") return;
+    if (fieldTextValue === "") {
+        inputContent.style.border = "1px solid red";
+        return;
+    } 
+    
+    if (fieldTittleValue === "") {
+        inputTittle.style.border = "1px solid red";
+        return;
+    } else {
+        inputTittle.style.border = "none";
+        inputContent.style.border = "none";
+    }
 
     console.log("teste");
     // Criar card
