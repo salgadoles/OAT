@@ -4,11 +4,16 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
-    width: 100%;
+    overflow-y: visible !important;
 }
 
 
 /* BACKGROUND GRADIENT  */
+h3 {
+    padding: 0px !important;
+    margin: 0px 0px 10px 0px;
+
+}
 
 /* Gradiente azul suave em movimento */
 .grain {
@@ -125,7 +130,7 @@ form {
     z-index: 1;
     width: 100%;
     height: 90%;
-    padding: 0px 0px 100px 100px;
+    padding: 0px 0px 0px 100px;
     margin-bottom: 50px;
 }
 

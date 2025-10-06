@@ -41,6 +41,8 @@ p {
 }
 
 .content-info {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
 
     p {
@@ -54,12 +56,13 @@ p {
 
 .action-video img:nth-child(1) {
     width: 20px;
+    cursor: pointer;
 
 }
 
 .action-video img:nth-child(2) {
     width: 35px;
-
+    cursor: pointer;
 }
 
 .content-video {
