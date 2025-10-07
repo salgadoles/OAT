@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout com 3 Navbars e Scroll Lateral</title>
+  <link rel="stylesheet" href="src/styles/root.css">
+  <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
+
+</head>
+<body base>
+
+  <!-- NAVBAR SUPERIOR -->
+  <div navbarsuperior>
+    <section iconesnavtop>
+      <div logo>
+        <img src="/public/imagens/Group 8 (1).png" alt="Logo">
+      </div>
+      <div explorar>
+        <img src="/public/imagens/Vector (6).png" alt="">
+      </div>
+    </section>
+
+    <section iconesnavtop>
+      <div profile>
+        <img src="/public/imagens/Group 67.png" alt="">
+      </div>
+      <div sino>
+        <img src="/public/imagens/Vector (7).png" alt="">
+      </div>
+    </section>
+  </div>
+
+  <!-- NAVBAR LATERAL -->
+  <div navbarlateral>
+    <div cursosandamento>
+      <div cardcurso></div>
+      <div cardcurso></div>
+      <div cardcurso></div>
+    </div>
+
+    <div canaisquesigo>
+      <div cardcanal></div>
+      <div cardcanal></div>
+      <div cardcanal></div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div content>
+
+    <div id="caderno" style="
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  width: 400px;
+  height: 300px;
+  background: #111;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 2000;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+">
+  <h4>Caderno Digital</h4>
+  <textarea id="caderno-texto" placeholder="Escreva aqui..." style="
+    width: 100%; height: 75%; background: #000; color: #fff; border: none; border-radius: 8px; padding: 8px;
+  "></textarea>
+  <button onclick="salvarCaderno()">Salvar no Drive</button>
+</div>
+
+<!-- Botão do Google Login -->
+<div id="g_id_signin" style="position:fixed;top:80px;right:30px;"></div>
+
+<!-- Indicador de login -->
+<div id="user-status" style="position:fixed;top:130px;right:30px;color:white;font-size:12px;"></div>
+
+    <div navbarinferior>
+      <section iconsferramentas>
+        <img src="/public/imagens/System  Code.png" alt="">
+        <img src="/public/imagens/Interface  Book_Open.png" alt="" onclick="toggleCaderno()">
+
+      </section>
+    </div>
+  </div>
+<script>
+  function toggleCaderno() {
+    const caderno = document.getElementById('caderno');
+    caderno.style.display = (caderno.style.display === 'none') ? 'block' : 'none';
+  }
+</script>
+
+</body>
+
+</html>

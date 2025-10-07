@@ -331,11 +331,11 @@
 }
 
 .btnsearch:hover img{
-  content: url("imagens/Group 138 (1).png");
+  content: url("/public/imagens/Group 138 (1).png");
 }
 
 body.sidebar-aberta .btnsearch img{
-  content: url("imagens/Group 138 (1).png");
+  content: url("/public/imagens/Group 138 (1).png");
 }
 
 

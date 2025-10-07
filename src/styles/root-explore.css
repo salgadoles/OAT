@@ -4,7 +4,7 @@
 /* ==========================
    FONTES
 ========================== */
-p, label, h5, h6 {
+p, label, h5, h6, select, button {
   font-family: 'Montserrat', sans-serif;
 }
 
