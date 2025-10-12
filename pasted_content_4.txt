@@ -1,0 +1,341 @@
+.post-curso{
+    width: clamp(180px, 22vw, 280px);
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.post-imagem{
+  position: relative;
+  aspect-ratio: 4 / 2.5;
+  overflow: hidden;
+  border-radius: clamp(6px, 2.5vw, 10px);
+}
+
+.post-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.flecha-post{
+  position: absolute;
+  bottom: clamp(10px, 0.9vw, 16px);
+  right: clamp(10px, 0.9vw, 16px);
+  background-color: #000000;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.postdobra1{
+    border-top: 1px solid rgb(8, 8, 8);
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-radius: 0 0 clamp(6px, 1.6vw, 10px) clamp(6px, 1.6vw, 10px);
+    padding: 12px 8px;
+    margin-top: -8px;
+}
+
+.postdobra1 h6{
+    line-height: 1.2;
+    margin: 0;
+    font-size: clamp(15px, 1.8vw, 22px);
+}
+
+.postdobra1 p{
+    line-height: 1.2;
+    margin: 0;
+    font-size: clamp(10px, 0.7vw, 14px);
+}
+
+.flecha-post img {
+   width: clamp(10px, 0.9vw, 18px);
+}
+
+.postdobra2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-radius: 0 0 clamp(6px, 1.6vw, 10px) clamp(6px, 1.6vw, 10px);
+    padding: 8px;
+}
+
+.avaliacao{
+    font-size: clamp(13px, 1.3vw, 16px);
+    color: #FFC300;
+    font-weight: bold;
+}
+
+.avaliacao span{
+    font-weight: normal;
+}
+
+.promocao{
+    font-size: clamp(6px, 0.4vw, 10px);
+    text-align: right;
+    line-height: 1.2;
+}
+
+.post-dobra2-direita{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 5px;
+}
+
+.preco > strong{
+    font-size: clamp(16px, 1.5vw, 24px);
+}
+
+.preco{
+    font-size: clamp(8px, 0.9vw, 12px);
+}
+
+.secaoconteudo {
+  margin:  clamp(18px, 4.5vw, 180px);
+  display: grid;
+  grid-template-columns: repeat(
+      auto-fill,
+      minmax(clamp(180px, 20vw, 260px), 1fr)
+  );
+  column-gap: clamp(12px, 2vw, 20px);
+    row-gap: clamp(24px, 3vw, 36px);
+  padding: clamp(8px, 1.8vw, 18px);
+}
+
+.carrossel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.carrossel-slide img {
+  width: 100%;
+  height: clamp(220px, 50vw, 600px);
+  object-fit: cover;
+  filter: brightness(0.6) blur(0px);
+  transition: filter 0.5s;
+}
+
+.carrossel-slide::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000000  5%, #00000000 60%);
+  z-index: 2;
+  pointer-events: none; 
+}
+
+.carrossel-linha1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrossel-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.overlay-info {
+  padding: clamp(20px, 4vw, 60px);
+  max-width: 55%;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.overlay-info h3 {
+  font-size: clamp(28px, 3vw, 42px);
+  margin-bottom: 8px;
+  font-weight: 800;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
+}
+
+.overlay-info p {
+  font-size: clamp(14px, 1.6vw, 20px);
+  margin-bottom: 16px;
+  color: #fff;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+/* ===== Barras de Progresso ousadas ===== */
+.carrossel-progress {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  z-index: 20;
+}
+
+.progress-item {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3) inset;
+}
+
+.progress-inner {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#ffffff,#ffffff,#ffffff);
+  border-radius: inherit;
+}
+
+.sidebar-filtro{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: clamp(260px, 25vw, 360px);
+  height: 100%;
+  background: #1B0087;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(12px, 2vw, 24px);
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.filtro-topo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(16px, 3vw, 32px);
+}
+
+.filtro-topo h2{
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 700;
+  margin: 0;
+}
+
+
+
+.campo{
+  margin-bottom: clamp(16px, 3vw, 28px);
+}
+
+.campo label{
+  display: block;
+  font-size: clamp(12px, 1.6vw, 16px);
+  margin-bottom: clamp(6px, 1vw, 10px);
+}
+
+.campo select{
+  width: 100%;
+  padding: clamp(8px, 1.5vw, 12px);
+  border-radius: 6px;
+  border: none;
+  background: #0a003d;
+  font-size: clamp(12px, 2vw, 16px);
+  color: white;
+}
+
+.range-campo input[type="range"]{
+  width: 100%;
+}
+
+.range-labels{
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(12px, 2vw, 16px);
+}
+
+.skills-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(10px, 2vw, 20px);
+  font-size: clamp(12px, 2vw, 16px);
+}
+
+.reset{
+  background: none;
+  border: none;
+  color: #FFD100;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.skills-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(8px, 1.5vw, 12px);
+  margin-bottom: clamp(20px, 4vw, 32px);
+}
+
+.skills-grid button{
+  background: #d3d3d3;
+  border: none;
+  padding: clamp(6px, 1.5vw, 10px);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(12px, 1.6vw, 14px);
+}
+
+.btn-procurar{
+  width: 100%;
+  background: #FFD100;
+  border: none;
+  padding: clamp(10px, 2vw, 16px);
+  border-radius: 8px;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+}
+
+.sidebar-pesquisa, .sidebar-filtro, #sidebarPesquisa {
+  right: -100%;
+  transition: right 0.35s ease;
+  z-index: 2000;
+}
+
+
+.sidebar-pesquisa.ativo, .sidebar-pesquisa.open,
+.sidebar-filtro.ativo, .sidebar-filtro.open,
+#sidebarPesquisa.ativo, #sidebarPesquisa.open {
+  right: 0;
+}
+
+
+.fechar{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.fechar img {
+  width: clamp(14px, 5vw, 50px);
+}
+
+.btnsearch:hover img{
+  content: url("/public/imagens/Group 138 (1).png");
+}
+
+body.sidebar-aberta .btnsearch img{
+  content: url("/public/imagens/Group 138 (1).png");
+}
+
+
