@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAT| Solicitações de Novos Cursos</title>
+  <link rel="stylesheet" href="/src/styles/admin.css">
+  <link rel="stylesheet" href="/src/styles/root.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="/public/imagens/logoname.png" alt="">
+    </div>
+    <nav>
+      <a href="/src/pages/admin/admin-cursoativo.html">Gerenciar Cursos</a>
+      <a href="/src/pages/admin/admin-reporte.html">Gerenciar Reportes <span class="dot"></span></a>
+      <a href="/src/pages/admin/admin-solicitacao.html">Gerenciar Solicitações <span class="dot"></span></a>
+    </nav>
+    <div class="icons">
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <button>Solicitações de novos cursos <span>20+</span></button>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="header">
+      <b>Bem vindo Administrador!</b>
+      <h1>SOLICITAÇÕES DE NOVOS CURSO</h1>
+    </div>
+
+    <div class="wrapper-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Professor</th>
+            <th>Reporte</th>
+            <th>Data do reporte </th>
+          </tr>
+        </thead>
+        <tbody id="tabela-solicitacoes">
+          <!-- Linhas via JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <button class="close-btn" id="closeModal">X</button>
+        <h2 id="modalProfessor"></h2>
+        <p id="modalDescricao"></p>
+        <p><strong>Data do pedido:</strong> <span id="modalData"></span></p>
+        <button class="btn">Confirmar</button>
+        <button class="btn">Cancelar</button>
+      </div>
+
+      <script>
+        const dados = [
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." },
+          { professor: "Por Cléo Quintilhano", descricao: "Ninjas do Excel, é uma formação voltada para quem deseja dominar o Microsoft Excel de forma prática e eficiente.", data: "30 de jan." }
+        ];
+
+        const tabela = document.getElementById("tabela-solicitacoes");
+        const modal = document.getElementById("modal");
+        const closeModal = document.getElementById("closeModal");
+
+        const modalProfessor = document.getElementById("modalProfessor");
+        const modalDescricao = document.getElementById("modalDescricao");
+        const modalData = document.getElementById("modalData");
+
+        // Renderizar linhas
+        dados.forEach((item, index) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+        <td>${item.professor}</td>
+        <td>${item.descricao}</td>
+        <td>${item.data} <span class="dot-red"></span></td>
+      `;
+
+          // Adicionar evento para abrir modal
+          tr.addEventListener("click", () => {
+            modalProfessor.textContent = item.professor;
+            modalDescricao.textContent = item.descricao;
+            modalData.textContent = item.data;
+            modal.style.display = "flex";
+          });
+
+          tabela.appendChild(tr);
+        });
+
+        // Fechar modal
+        closeModal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        // Fechar ao clicar fora
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      </script>
+</body>
+
+</html>

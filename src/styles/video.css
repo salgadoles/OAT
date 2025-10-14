@@ -79,7 +79,7 @@ p {
 
 .content-inline-video-rowvideo {
     display: flex;
-    gap: 10px;
+    gap: 50px;
     margin-top: 0;
 }
 
@@ -90,6 +90,10 @@ p {
 
 .item-description {
     font-size: 12px;
+}
+
+iframe {
+    width: 100%;
 }
 
 @media (max-width:800px) {
