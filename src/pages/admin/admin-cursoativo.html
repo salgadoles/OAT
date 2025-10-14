@@ -26,14 +26,14 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <button>Solicitações de novos cursos <span>20+</span></button>
+    
   </div>
 
   <!-- Content -->
   <div class="content">
     <div class="header">
       <b>Bem vindo Administrador!</b>
-      <h1>Gerenciar Cursos</h1>
+      <h1>GERENCIAR CURSOS</h1>
     </div>
 
     <div class="wrapper-table">
@@ -41,9 +41,9 @@
         <thead>
           <tr>
             <th>Professor</th>
+            <th>Email</th>
             <th>Nome do Curso</th>
-            <th>Descrição</th>
-            <th>Data de envio</th>
+            <th>Data de Criação</th>
           </tr>
         </thead>
         <tbody id="tabela-solicitacoes">
@@ -58,28 +58,24 @@
         <h2 id="modalUsuario"></h2>
         <p id="modalDescricao"></p>
         <p><strong>Data do pedido:</strong> <span id="modalData"></span></p>
-        <label for="">Marcar como visualizado</label>
-        <div class="checkbox">
-            <input type="checkbox" name="visualizar" id="visualizar" value="">
-        </div>
-       
+        <button class="btn">Remover</button>       
         <button class="btn">Cancelar</button>
       </div>
 
       <script>
         const dados = [
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentado na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123456@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intevalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou a mensagem de erro.", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao intervalo de dados apresentados na planilha, o que pode gerar resultados incorretos ou mensafem", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao...", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao...", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao...", data: "30 de jan." },
-          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", descricao: "O vídeo da aula apresenta um erro no exemplo prático da função PROCV: a fórmula utilizada não corresponde ao...", data: "30 de jan." }
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123456@dominio.com", curso: "Pacote Office para iniciantes", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." },
+          { usuario: "Por Cléo Quintilhano", email: "usuario123@dominio.com", curso: "Ninjas do Excel", data: "30 de jan." }
         ];
 
         const tabela = document.getElementById("tabela-solicitacoes");
@@ -96,7 +92,7 @@
           tr.innerHTML = `
         <td>${item.usuario}</td>
         <td>${item.email}</td>
-        <td>${item.descricao}</td>
+        <td>${item.curso}</td>
         <td>${item.data} <span class="dot-red"></span></td>
       `;
 
@@ -104,7 +100,7 @@
           tr.addEventListener("click", () => {
             modalUsuario.textContent = item.usuario;
             modalUsuario.textContent = item.email;
-            modalDescricao.textContent = item.descricao;
+            modalDescricao.textContent = item.curso;
             modalData.textContent = item.data;
             modal.style.display = "flex";
           });
