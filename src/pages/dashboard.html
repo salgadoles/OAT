@@ -10,23 +10,22 @@
 <body base>
 
   <!-- NAVBAR SUPERIOR -->
-  <div navbarsuperior>
-    <section iconesnavtop>
-      <div logo>
-        <img src="/public/imagens/Group 8 (1).png" alt="Logo">
-      </div>
-      <div explorar>
-        <img src="/public/imagens/Vector (6).png" alt="">
-      </div>
+  <div navbarsuperior class="navbar-superior">
+    <section iconesnavtop class="icones-navtop">
+      <a href="/index.html" logo class="nav-item">
+        <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
+      </a>
+      <a href="/src/pages/explorar.html" explorar class="nav-item">
+        <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
+      </a>
     </section>
-
-    <section iconesnavtop>
-      <div profile>
-        <img src="/public/imagens/Group 67.png" alt="">
-      </div>
-      <div sino>
-        <img src="/public/imagens/Vector (7).png" alt="">
-      </div>
+    <section iconesnavtop class="icones-navtop">
+      <a href="/perfil.html" profile class="nav-item">
+        <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
+      </a>
+      <a href="/notificacoes.html" sino class="nav-item">
+        <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
+      </a>
     </section>
   </div>
 
@@ -37,7 +36,6 @@
       <div cardcurso></div>
       <div cardcurso></div>
     </div>
-
     <div canaisquesigo>
       <div cardcanal></div>
       <div cardcanal></div>
@@ -47,30 +45,31 @@
 
   <!-- CONTEÚDO PRINCIPAL -->
   <div content>
-<section class="sec1">
-  <section class="linha1">
-    <section class="linha1-direita">
-      <h1>BEM VINDO DE VOLTA, SALGADO.</h1>
-      <p>analise suas metricas.</p>
+    <section class="sec1">
+      <section class="linha1">
+        <section class="linha1-direita">
+          <h1>BEM VINDO DE VOLTA, SALGADO.</h1>
+          <p>analise suas metricas.</p>
+        </section>
+        <section class="linha1-esquerda"></section>
+      </section>
     </section>
-    <section class="linha1-esquerda">
-</section>
 
+    <section class="linha2">
+      <section class="linha2-direita"></section>
+      <section class="linha2-direita"></section>
     </section>
-  </section>
-</section>
 
-<section class="linha2">
-  <section class="linha2-direita"></section>
-  <section class="linha2-direita"></section>
-</section>
-
-
-
-
- 
+    <div navbarinferior>
+      <section iconsferramentas>
+        <img src="/public/imagens/System  Code.png" alt="">
+        <img src="/public/imagens/Interface  Book_Open.png" alt="">
+      </section>
+    </div>
   </div>
 
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="/src/scripts/transition.js"></script>
 </body>
-
 </html>
