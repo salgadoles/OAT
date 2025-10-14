@@ -4,12 +4,16 @@
 /* ==========================
    FONTES
 ========================== */
-p, label, h5, h6, select, button {
+p, label, h5, h6, span, a, button, input, textarea, option, select {
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4   {
   font-family: 'Anton', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* ==========================
@@ -32,7 +36,7 @@ h1, h2, h3, h4   {
   top: 0;
   left: 0;
   width: 100%;
-  height: fit-content; 
+  height: 60px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -193,7 +197,6 @@ html, body {
   z-index: 1;
  margin-top: clamp(10px, 2vw, 20px);
  margin-left: clamp(10px, 2vw, 20px);
-  margin-bottom: clamp(10px, 2vw, 20px);
 }
 
 [voltar]{   
@@ -205,4 +208,10 @@ html, body {
 [voltar] img{
   width: clamp(12px, 1vw, 20px);
   height: auto;
+}
+
+[navconfigbottom]{
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: aqua;
 }
