@@ -9,10 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   createTransitionOverlay();
-  
   setupLinkTransitions();
-  
-  animatePageEnter();
 });
 
 function createTransitionOverlay() {
@@ -39,7 +36,7 @@ function setupLinkTransitions() {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
       
-      if (href && !href.startsWith("#") && !href.startsWith("http" )) {
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
         e.preventDefault();
         console.log('🔄 Iniciando transição para:', href);
         animatePageExit(href);
@@ -60,7 +57,6 @@ function animatePageExit(href) {
       setTimeout(() => {
         window.location.href = href;
       }, 400); 
-      
     }
   });
 
@@ -68,7 +64,6 @@ function animatePageExit(href) {
     opacity: 1,
     scale: 1,
     duration: 0.6, 
-    
   })
   .to(".scribble", {
     opacity: 0,
@@ -76,51 +71,7 @@ function animatePageExit(href) {
   }, "+=0.5"); 
 }
 
-function animatePageEnter() {
-  const overlay = document.querySelector('.transition-overlay');
-  
-  if (document.readyState === 'complete') {
-    doPageEnterAnimation();
-  } else {
-    window.addEventListener('load', doPageEnterAnimation);
-  }
-}
-
-function doPageEnterAnimation() {
-  const overlay = document.querySelector('.transition-overlay');
-  
-  overlay.classList.add('active');
-  gsap.set(overlay, { opacity: 1 });
-  
-  gsap.set(".scribble", { opacity: 0, scale: 1.1 });
-
-  const tl = gsap.timeline({
-    onComplete: () => {
-      console.log('✅ Animação de entrada completa');
-   
-      gsap.to(overlay, {
-        opacity: 0,
-        duration: 0.6,
-        onComplete: () => {
-          overlay.classList.remove('active');
-        }
-      });
-    }
-  });
-
-  tl.to(".scribble", {
-    opacity: 1,
-    scale: 1,
-    duration: 0.7, 
-    
-  })
-  .to(".scribble", {
-    opacity: 0,
-    duration: 0.7,
-
-  }, "+=0.5");
-}
-
+// 🧪 Mantido o botão de teste opcional
 function addTestButton() {
   const testButton = document.createElement('button');
   testButton.textContent = '🧪 TESTAR TRANSIÇÃO';
@@ -145,5 +96,4 @@ function addTestButton() {
   document.body.appendChild(testButton);
 }
 
-// Descomente a linha abaixo se quiser o botão de teste
 // addTestButton();
