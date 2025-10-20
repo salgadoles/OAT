@@ -305,6 +305,10 @@
     font-size: 18px;
     cursor: pointer
   }
+
+  .small-btn {
+    color: #e6e6e6;
+  }
   
   .modal-actions {
     display: flex;
