@@ -112,3 +112,28 @@ if (imgEl) {
       }
     }, 2000);
   })();
+
+
+  // DOBRA 5 - Acordeão Requisitos Mínimos
+document.addEventListener('DOMContentLoaded', function() {
+    const dobra5Headers = document.querySelectorAll('.dobra5-header');
+    
+    dobra5Headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.dobra5-toggle');
+            
+            // Fecha todos os outros
+            document.querySelectorAll('.dobra5-content.active').forEach(activeContent => {
+                if (activeContent !== content) {
+                    activeContent.classList.remove('active');
+                    activeContent.previousElementSibling.querySelector('.dobra5-toggle').classList.remove('rotate');
+                }
+            });
+            
+            // Alterna o atual
+            content.classList.toggle('active');
+            toggle.classList.toggle('rotate');
+        });
+    });
+});

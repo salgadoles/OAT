@@ -166,6 +166,7 @@
 
             .dobra2{
                 margin-top: clamp(30px, 30vh, 180px);
+                font-size: clamp(12px, 1vw, 18px);
             }
 
             .linha1 h1{
@@ -402,6 +403,10 @@
             overflow: hidden;
             }
 
+            .card-content h1{
+                font-size: clamp(20px, 3vw, 28px);
+            }
+
             .card-content p {
             font-size: clamp(0.82rem, 3.5vw, 1rem);
             opacity: 0.85;
@@ -489,6 +494,7 @@
             align-items: center;
             justify-content: center;
             padding: clamp(20px, 5vw, 60px) 0;
+            gap: clamp(25px, 4vw, 80px);
             }
 
             .dobra4-container {
@@ -650,11 +656,11 @@
             opacity: 0.7;
             }
 
-            @media (max-width: 1000px) {
+            @media (max-width: 1200px) {
             .dobra4-container {
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(4, auto) 1.5fr;
-                gap: clamp(40px, 6vw, 100px) !important;
+                gap: auto;
                 height: auto;
                 min-height: 120vh;
             }
@@ -773,4 +779,167 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             transition: transform 0.5s ease;
             animation: levitar 4s ease-in-out infinite alternate;
+            }
+
+            
+            .dobra5-container {
+                width: 100%;
+                max-width: 1500px;
+                margin: 0 auto;
+                padding: clamp(40px, 15vw, 400px) clamp(18px, 4vw, 180px) clamp(60px, 10vw, 150px);
+            }
+
+            .dobra5-titulo {
+                font-family: 'Anton', sans-serif;
+                font-size: clamp(28px, 4vw, 52px);
+                color: white;
+                text-align: center;
+                margin-bottom: clamp(30px, 5vw, 60px);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 10%;
+            }
+
+            .dobra5-item {
+                background: rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: clamp(10px, 2vw, 16px);
+                margin-bottom: clamp(12px, 2vw, 20px);
+                backdrop-filter: blur(14px) saturate(1.3);
+                box-shadow: inset 0 0 10px rgba(255,255,255,0.02),
+                            0 10px 30px rgba(0, 0, 0, 0.45);
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                margin-right: 10%;
+                margin-left: 2%;
+            }
+
+            .dobra5-header {
+                padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 24px);
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: white;
+                font-weight: 700;
+                font-size: clamp(16px, 2vw, 20px);
+                transition: all 0.3s ease;
+            }
+
+            .dobra5-header:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+
+            .dobra5-content {
+                padding: 0 clamp(16px, 3vw, 24px);
+                max-height: 0;
+                overflow: hidden;
+                background: rgba(255, 255, 255, 0.03);
+                transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                color: #f3f6ff;
+                line-height: 1.6;
+                border-top: 1px solid transparent;
+            }
+
+            .dobra5-content.active {
+                padding: clamp(16px, 3vw, 24px);
+                max-height: none; 
+                height: auto; 
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .dobra5-content p {
+                font-size: clamp(14px, 1.8vw, 16px);
+                opacity: 0.9;
+                margin: 0;
+                font-weight: 500;
+                line-height: 1.7;
+            }
+
+            .dobra5-toggle {
+                font-size: clamp(20px, 2.5vw, 26px);
+                font-weight: 300;
+                transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                color: #FFC300;
+                min-width: clamp(20px, 3vw, 24px);
+                text-align: center;
+            }
+
+            .dobra5-toggle.rotate {
+                transform: rotate(45deg);
+                color: #ffee00;
+            }
+
+            .dobra5-item::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: clamp(10px, 2vw, 16px);
+                background: radial-gradient(circle at 20% 20%, rgba(255, 195, 0, 0.1), transparent 60%),
+                            radial-gradient(circle at 80% 80%, rgba(124, 92, 255, 0.1), transparent 60%);
+                opacity: 0;
+                filter: blur(30px);
+                z-index: -1;
+                transition: opacity 0.8s ease;
+            }
+
+            .dobra5-item:hover::before {
+                opacity: 0.6;
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                .dobra5-container {
+                    padding: 60px 30px 80px;
+                }
+                
+                .dobra5-header {
+                    padding: 20px;
+                    font-size: 18px;
+                }
+                
+                .dobra5-content {
+                    padding: 0 20px;
+                }
+                
+                .dobra5-content.active {
+                    padding: 20px;
+                }
+                
+                .dobra5-content p {
+                    font-size: 15px;
+                    line-height: 1.6;
+                }
+                
+                .dobra5-toggle {
+                    font-size: 22px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .dobra5-container {
+                    padding: 40px 20px 60px;
+                }
+                
+                .dobra5-header {
+                    padding: 16px;
+                    font-size: 16px;
+                }
+                
+                .dobra5-content {
+                    padding: 0 16px;
+                }
+                
+                .dobra5-content.active {
+                    padding: 16px;
+                }
+                
+                .dobra5-content p {
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+                
+                .dobra5-toggle {
+                    font-size: 20px;
+                }
             }
