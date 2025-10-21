@@ -208,38 +208,75 @@
                 font-weight: bold;
                 font-size: clamp(12px, 2vw, 18px);
             }
-            .linha2, .linha3 {
+            .linha2 {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 2fr 2fr;
                 margin: 5%;
                 gap: 10%;
             }
-            .linha2 p {
-                font-size: clamp(12px, 1vw, 18px);
-            }
+            
+         .linha3 {
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr; 
+  align-items: center;
+  justify-items: center;
+  padding: 0% 5%;
+}
 
-            .fotoprofessor{
-                width: clamp(20px, 10vw, 500px);
-            }
+.imagem-rotativa {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
 
-            .linha3 {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                margin: 5%;
-                gap: 10%;
-            }
+.imagem-rotativa img {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
 
-            .perfilprofessor {
-            display: flex;
-            justify-content: flex-end;   
-            align-items: center;         
-            flex-wrap: nowrap;  
-            gap: 50px;         
-            }
+.imagem-rotativa img.img-ativa {
+  opacity: 1;
+}
 
-            .perfilprofessor h3{
-                font-size: clamp(20px, 2vw, 80px);
-            }
+
+.linha-branca {
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  justify-self: stretch;
+}
+
+.perfilprofessor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.fotoprofessor {
+  width: clamp(100px, 10vw, 240px);
+  border-radius: 50%;
+}
+
+.nomeprofessor {
+  font-size: clamp(20px, 2vw, 32px);
+  font-weight: 700;
+}
+
+.info-professor p {
+  font-size: clamp(12px, 1vw, 16px);
+  color: #ccc;
+  margin: 0;
+}
 
 
             .pre-requisitos {
@@ -338,8 +375,7 @@
             }
 
             .floating-icon img {
-            width: 58%;
-            filter: invert(1) brightness(1.2);
+            width: 45%;
             }
 
             @keyframes levitar {

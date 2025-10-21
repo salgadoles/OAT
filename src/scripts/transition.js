@@ -97,3 +97,27 @@ function addTestButton() {
 }
 
 // addTestButton();
+
+
+// /src/scripts/global.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  // === BOTÃO VOLTAR UNIVERSAL ===
+  const btnVoltar = document.querySelector("[voltar]");
+  if (btnVoltar) {
+    btnVoltar.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "/src/pages/user/explorar.html";
+      }
+    });
+  }
+
+  // === OUTRAS FUNÇÕES GLOBAIS ===
+  // Exemplo: remover logo do Spline, iniciar transições, etc.
+  console.log("🌐 Script global carregado!");
+});
+  
