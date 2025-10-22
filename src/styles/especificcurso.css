@@ -786,7 +786,7 @@
                 width: 100%;
                 max-width: 1500px;
                 margin: 0 auto;
-                padding: clamp(40px, 15vw, 400px) clamp(18px, 4vw, 180px) clamp(60px, 10vw, 150px);
+                padding: clamp(40px, 40vw, 500px) clamp(18px, 4vw, 180px) clamp(60px, 10vw, 150px);
             }
 
             .dobra5-titulo {
