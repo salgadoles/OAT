@@ -119,8 +119,6 @@ border-style: double;
   align-items: center;
   width: 100%;
 }
-
-/* Cards quadrados (cursos) */
 [navbarlateral] [cursosandamento] [cardcurso] {
   width: 70%;
   max-width: 80px;
