@@ -11,7 +11,7 @@
 <body base>
 
   <!-- NAVBAR SUPERIOR -->
-   <div navbarsuperior class="navbar-superior">
+  <div navbarsuperior class="navbar-superior">
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/dashboard.html" logo class="nav-item">
         <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
@@ -47,127 +47,152 @@
 
   <!-- CONTEÚDO PRINCIPAL -->
   <div content>
+    <!-- EFEITOS DE BACKGROUND -->
+    <div class="content-bg">
+      <div class="gradient-top"></div>
+      <div class="grain"></div>
+    </div>
 
     <section class="btnvoltar" botaovoltar>
-      <button voltar><img src="/public/imagens/Vector (2).png" alt=""></button>
+      <button voltar><img src="/public/imagens/Vector (2).png" alt="Voltar"></button>
     </section>
 
-    <section class="dobraabsolute">
-      <section class="dobraabsolute-direita">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/AtmVH8N6oCg?si=n0AfvoFIauijhdPy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </section>
-      <section class="dobraabsolute-esquerda">
-        <section class="sidebar">
+    <main class="video-layout secaoconteudo">
+      <!-- SEÇÃO PRINCIPAL DO VÍDEO -->
+      <div class="video-main-content dobra1">
+        <!-- PLAYER DE VÍDEO -->
+        <section class="video-player-section">
+          <div class="video-player">
+            <div class="video-frame cardvideo">
+              <div class="video-placeholder">
+                <img src="/public/imagens/Design sem nome.png" alt="Placeholder de vídeo">
+                <p>Seu vídeo aparecerá aqui</p>
+              </div>
+              <div class="video-progress">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
 
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="" id="animaçao-webp">
+            <div class="video-controls">
+              <button class="play-btn">⏵</button>
+              <div class="time">00:00 / 00:00</div>
+              <div class="volume-bar">
+                <div class="volume-fill"></div>
+              </div>
+              <button class="config-btn">⚙️</button>
+              <button class="fullscreen-btn">⛶</button>
+            </div>
+          </div>
+
+          <!-- INFORMAÇÕES DO VÍDEO -->
+          <div class="video-info-section">
+            <h1 class="video-title titulo">Herança em Java - Um tutorial de orientação com Naruto #12</h1>
             
-            </section></a>
+            <div class="video-stats linhaavaliacao">
+              <span class="views avaliacao">6,9K visualizações</span>
+              <div class="linhaseparadora"></div>
+              <span class="date avaliacao">Há 11 dias</span>
+            </div>
 
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
+            <div class="video-actions">
+              <button class="action-btn like-btn">
+                <span class="icon"><img src="/public/imagens/ICON3.png" alt=""></span>
+              </button>
+              <button class="action-btn playlist-btn">
+                <span class="icon"><img src="/public/imagens/playlist.png" alt=""></span>
+              </button>
+             
+            </div>
 
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
-
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
-
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
-
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
-
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
-
-            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer"><section class="videozin">
-                <section class="infos">
-                <h4>Herança em Java - Um tutorial <br> de orientação com Naruto #12</h4>
-                <p>Fiasco</p>
-                <p>6,9 Mil visualizações</p>
-                <p>Há 11 dias</p>
-                </section>
-                <img src="img/fiasco - naruto cerveja.webp" width="160" height="90" alt="">
-            </section></a>
-        
-        
+            <!-- INFO DO CANAL -->
+            <div class="channel-section cardpecas">
+              <div class="channel-header">
+                <div class="channel-avatar"></div>
+                <div class="channel-text">
+                  <h3 class="channel-name professordocurso">Fiasco</h3>
+                  <p class="subscribers">152K inscritos</p>
+                </div>
+                <button class="subscribe-btn btn-inscrever">Inscrever-se</button>
+              </div>
+              <p class="video-description">
+                <img src="/public/imagens/Testepdf1.pdf (1).png" alt="">
+              </p>
+            </div>
+          </div>
         </section>
-      </section>
-    </section>
+      </div>
+
+      <!-- SIDEBAR COM VÍDEOS RECOMENDADOS -->
+      <aside class="recommended-sidebar dobra1-direita">
+        <h3 class="sidebar-title">Próximos vídeos</h3>
+        
+        <div class="video-recommendations">
+          <!-- Item de vídeo -->
+          <article class="recommended-video cardpecas">
+            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer">
+              <div class="video-thumb">
+                <img src="/public/imagens/Design sem nome.png" alt="Herança em Java com Naruto">
+                <div class="video-duration">12:45</div>
+              </div>
+              <div class="video-meta">
+                <h4>Herança em Java - Um tutorial de orientação com Naruto #12</h4>
+                <p class="channel">Fiasco</p>
+                <div class="video-stats-small">
+                  <span class="views">6,9K visualizações</span>
+                  <span class="date">• Há 11 dias</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Mais vídeos -->
+          <article class="recommended-video cardpecas">
+            <a href="https://youtu.be/TBh3Fp4MXFM?si=wgYFSmdUt4rckY7o" target="_blank" rel="noopener noreferrer">
+              <div class="video-thumb">
+                <img src="/public/imagens/Design sem nome.png" alt="Herança em Java com Naruto">
+                <div class="video-duration">15:22</div>
+              </div>
+              <div class="video-meta">
+                <h4>Polimorfismo em Java - Tutorial com Dragon Ball Z</h4>
+                <p class="channel">Fiasco</p>
+                <div class="video-stats-small">
+                  <span class="views">8,2K visualizações</span>
+                  <span class="date">• Há 5 dias</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Adicione mais vídeos aqui -->
+        </div>
+      </aside>
+    </main>
 
     <div navbarinferior>
       <section iconsferramentas>
-        <img src="/public/imagens/System  Code.png" alt="">
-        <img src="/public/imagens/Interface  Book_Open.png" alt="">
+        <img src="/public/imagens/System  Code.png" alt="Código">
+        <img src="/public/imagens/Interface  Book_Open.png" alt="Material">
       </section>
     </div>
   </div>
+
   <iframe id="caderno-do-aluno-iframe" 
         src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
         frameborder="0" 
         style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
-</iframe>
+  </iframe>
 
-<div class="transition-overlay">
-  <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
-  <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
-  <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
-  <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
-  <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
-</div>
-  <!-- SCRIPTS -->
+  <div class="transition-overlay">
+    <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
+    <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
+    <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
+    <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
+    <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
+  <script src="/src/scripts/video-animations.js"></script>
 </body>
 </html>
