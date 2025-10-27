@@ -317,7 +317,7 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   
 }
 
@@ -370,10 +370,6 @@
   padding-top: 1rem;
 }
 
-.video-description img{
-    width: 100%;
-    height: auto;
-}
 
 /* ================================
    SIDEBAR RECOMENDADOS - MINIMALISTA
@@ -553,3 +549,22 @@
     display: none;
   }
 }
+
+.sec-descricao-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner{
+    width: 90%;
+    height: auto;   
+}
+
+.tittle-banner{
+    margin-top: -40%;
+    width: 60%;
+    min-width: 350px;
+}
+
