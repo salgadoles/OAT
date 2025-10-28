@@ -10,7 +10,7 @@ p, label, h5, h6, span, a, button, input, textarea, option, select {
   padding: 0;
 }
 
-h1, h2, h3, h4   {
+h1, h2, h3, h4, strong {
   font-family: 'Anton', sans-serif;
   margin: 0;
   padding: 0;
