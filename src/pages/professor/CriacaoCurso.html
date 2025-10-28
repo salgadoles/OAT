@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criação de Vídeo-Aulas</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Lado esquerdo */
+    .left-panel {
+      width: 55%;
+      padding: 40px;
+      border-right: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .left-panel h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .video-box {
+      width: 85%;
+      height: 300px;
+      border: 1px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      overflow: hidden;
+      position: relative;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .upload-label {
+      background: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .upload-label:hover {
+      background: #ccc;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    /* Lado direito */
+    .right-panel {
+      width: 45%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .input-box {
+      background-color: #222;
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .input-box label {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      background-color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      color: white;
+      resize: none;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border: 1px solid #2a4;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    .course-name {
+      background-color: #333;
+      border: none;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 600;
+      color: #aaa;
+      padding: 15px;
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+    }
+
+    .confirm-btn {
+      background-color: #2a4;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      align-self: center;
+      width: 60%;
+    }
+
+    .confirm-btn:hover {
+      background-color: #3b5;
+    }
+
+    /* Ícones superiores */
+    header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    header .icon:hover {
+      background-color: #555;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Ícones -->
+  <header>
+    <div class="icon">👤</div>
+    <div class="icon">⚙️</div>
+  </header>
+
+  <!-- Painel esquerdo -->
+  <div class="left-panel">
+    <h1>Criação de Vídeo-Aulas<br>para alunos</h1>
+
+    <div class="video-box">
+      <video id="previewVideo" controls></video>
+      <label for="videoUpload" class="upload-label">Enviar vídeo</label>
+      <input type="file" id="videoUpload" accept="video/*">
+    </div>
+  </div>
+
+  <!-- Painel direito -->
+  <div class="right-panel">
+    <input type="text" class="course-name" placeholder="Nome do Curso">
+
+    <div class="input-box">
+      <label for="descricao">Descreva o curso:</label>
+      <textarea id="descricao" placeholder="Digite a descrição do curso aqui..."></textarea>
+    </div>
+
+    <div class="input-box">
+      <label for="roteiro">Roteiro de aulas:</label>
+      <textarea id="roteiro" placeholder="Digite o roteiro de aulas aqui..."></textarea>
+    </div>
+
+    <button class="confirm-btn">Confirmar</button>
+  </div>
+
+  <script>
+    // Função para mostrar o vídeo após upload
+    const videoInput = document.getElementById('videoUpload');
+    const videoPreview = document.getElementById('previewVideo');
+
+    videoInput.addEventListener('change', () => {
+      const file = videoInput.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        videoPreview.src = url;
+        videoPreview.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
