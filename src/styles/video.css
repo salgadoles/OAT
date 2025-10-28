@@ -707,6 +707,17 @@
             line-height: 1.4;
         }
 
+        .dobra3-desc{
+          padding: 0 10% 10% 10%;
+        }
+
+        .dobra3-desc h1{
+          font-size: clamp(28px, 4vw, 42px);
+        }
+
+        .dobra3-desc p{
+            font-size: clamp(14px, 0.9rem, 18px);
+        }
         /* Responsividade */
         @media (max-width: 768px) {
             .tecs-usadas {

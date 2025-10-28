@@ -3,77 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layout com 3 Navbars e Scroll Lateral</title>
-  <link rel="stylesheet" href="/src/styles/root-explore.css">
-  <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
+  <title>Pesquisa por Voz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      background: #1db954;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #18a34a;
+    }
+  </style>
 </head>
-<body base>
+<body>
+  <h2>🎙️ Pesquisa com Fala</h2>
+  <input type="text" id="campoPesquisa" placeholder="Diga algo..." />
+  <button id="btnVoz">🎤 Falar</button>
 
-  <!-- NAVBAR SUPERIOR -->
-   <div navbarsuperior class="navbar-superior">
-    <section iconesnavtop class="icones-navtop">
-      <a href="/src/pages/user/dashboard.html" logo class="nav-item">
-        <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
-      </a>
-      <a href="/src/pages/user/explorar.html" explorar class="nav-item">
-        <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
-      </a>
-    </section>
-    <section iconesnavtop class="icones-navtop">
-      <a href="/src/pages/user/perfil.html" profile class="nav-item">
-        <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
-      </a>
-      <a href="/src/pages/configbase.html" sino class="nav-item">
-        <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
-      </a>
-    </section>
-  </div>
+  <script>
+    const campo = document.getElementById('campoPesquisa');
+    const btn = document.getElementById('btnVoz');
 
-  <!-- NAVBAR LATERAL -->
-  <div navbarlateral>
-    <div cursosandamento>
-      <div cardcurso></div>
-      <div cardcurso></div>
-      <div cardcurso></div>
-    </div>
+    // Usa a API de reconhecimento de voz
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
 
-    <div canaisquesigo>
-      <div cardcanal></div>
-      <div cardcanal></div>
-      <div cardcanal></div>
-    </div>
-  </div>
+    recognition.lang = 'pt-BR';
+    recognition.continuous = false;
+    recognition.interimResults = false;
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <div content>
+    btn.addEventListener('click', () => {
+      recognition.start();
+      btn.textContent = "🎧 Ouvindo...";
+    });
 
-    <section class="btnvoltar" botaovoltar>
-      <button voltar><img src="/public/imagens/Vector (2).png" alt=""></button>
-    </section>
-<div id="jornada-aluno" style="width: 100%; height: 99vh;"></div>
+    recognition.onresult = (event) => {
+      const texto = event.results[0][0].transcript;
+      campo.value = texto;
+      btn.textContent = "🎤 Falar";
+      console.log("Você disse:", texto);
+    };
 
-<!-- Importa Phaser e o script da jornada -->
-<script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser.js"></script>
-<script src="/src/scripts/jornada-aluno.js"></script>
+    recognition.onerror = (event) => {
+      console.error(event.error);
+      btn.textContent = "🎤 Falar";
+    };
 
-    <div navbarinferior>
-      <section iconsferramentas>
-        <img src="/public/imagens/System  Code.png" alt="">
-        <img src="/public/imagens/Interface  Book_Open.png" alt="">
-      </section>
-    </div>
-  </div>
-<div class="transition-overlay">
-  <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
-  <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
-  <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
-  <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
-  <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
-</div>
-  <!-- SCRIPTS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="/src/scripts/transition.js"></script>
-  <script src="/src/scripts/global.js"></script>
-  <script src="/src/scripts/jornada.js"></script>
+    recognition.onend = () => {
+      btn.textContent = "🎤 Falar";
+    };
+  </script>
 </body>
 </html>

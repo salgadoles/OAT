@@ -242,3 +242,173 @@ document.addEventListener('DOMContentLoaded', () => {
         attributeFilter: ['style'] 
     });
 });
+
+
+
+
+
+
+//O CODIGO DO PESQUISA DE VOZ
+// voice-search.js
+class VoiceSearch {
+  constructor() {
+    this.isListening = false;
+    this.recognition = null;
+    
+    this.init();
+  }
+
+  init() {
+    this.setupModal();
+    this.setupVoiceRecognition();
+    this.setupEventListeners();
+  }
+
+  setupModal() {
+    this.modal = document.getElementById('voiceModal');
+    this.voiceBtn = document.getElementById('btnVoz');
+    this.startBtn = document.getElementById('startVoiceSearch');
+    this.stopBtn = document.getElementById('stopVoiceSearch');
+    this.closeBtn = document.querySelector('.close-modal');
+    this.voiceStatus = document.getElementById('voiceStatus');
+    this.searchInput = document.querySelector('.search-input');
+  }
+
+  setupVoiceRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    if (!SpeechRecognition) {
+      console.warn('Speech Recognition não suportada');
+      this.voiceBtn.style.display = 'none';
+      return;
+    }
+
+    this.recognition = new SpeechRecognition();
+    this.recognition.lang = 'pt-BR';
+    this.recognition.continuous = false;
+    this.interimResults = false;
+
+    this.recognition.onstart = () => {
+      this.isListening = true;
+      this.updateUI('Ouvindo... fale agora', true);
+    };
+
+    this.recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      this.searchInput.value = transcript;
+      this.voiceStatus.textContent = `Captado: "${transcript}"`;
+      
+      setTimeout(() => {
+        this.stopListening();
+        this.closeModal();
+        
+        // Auto-search
+        if (this.searchInput.value.trim()) {
+          this.performSearch();
+        }
+      }, 1500);
+    };
+
+    this.recognition.onerror = (event) => {
+      console.error('Erro:', event.error);
+      this.voiceStatus.textContent = `Erro: ${event.error}`;
+      this.stopListening();
+    };
+
+    this.recognition.onend = () => {
+      this.stopListening();
+    };
+  }
+
+  setupEventListeners() {
+    this.voiceBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.openModal();
+    });
+
+    this.startBtn.addEventListener('click', () => {
+      this.startListening();
+    });
+
+    this.stopBtn.addEventListener('click', () => {
+      this.stopListening();
+    });
+
+    this.closeBtn.addEventListener('click', () => {
+      this.closeModal();
+    });
+
+    this.modal.addEventListener('click', (e) => {
+      if (e.target === this.modal) {
+        this.closeModal();
+      }
+    });
+
+    // Enter para pesquisar
+    this.searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        this.performSearch();
+      }
+    });
+  }
+
+  openModal() {
+    this.modal.classList.add('active');
+    this.updateUI('Clique em falar para começar', false);
+  }
+
+  closeModal() {
+    this.modal.classList.remove('active');
+    this.stopListening();
+  }
+
+  startListening() {
+    if (this.recognition && !this.isListening) {
+      try {
+        this.recognition.start();
+      } catch (error) {
+        console.error('Erro ao iniciar reconhecimento:', error);
+        this.voiceStatus.textContent = 'Erro ao acessar microfone';
+      }
+    }
+  }
+
+  stopListening() {
+    if (this.recognition && this.isListening) {
+      this.recognition.stop();
+    }
+    this.isListening = false;
+    this.updateUI('Clique em falar para começar', false);
+  }
+
+  updateUI(status, isRecording) {
+    this.voiceStatus.textContent = status;
+    
+    if (isRecording) {
+      this.modal.classList.add('recording');
+    } else {
+      this.modal.classList.remove('recording');
+    }
+  }
+
+  performSearch() {
+    const searchTerm = this.searchInput.value.trim();
+    if (searchTerm) {
+      console.log('Realizando pesquisa por:', searchTerm);
+      // Aqui você pode adicionar a lógica de pesquisa
+      // Por exemplo: window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+      
+      // Feedback visual
+      const originalBorder = this.searchInput.style.border;
+      this.searchInput.style.border = '2px solid rgba(255, 255, 255, 0.8)';
+      setTimeout(() => {
+        this.searchInput.style.border = originalBorder;
+      }, 500);
+    }
+  }
+}
+
+// Inicializar quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+  new VoiceSearch();
+});
