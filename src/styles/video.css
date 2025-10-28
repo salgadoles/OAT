@@ -568,3 +568,166 @@
     min-width: 350px;
 }
 
+.dobra1-desc {
+  padding: 0 10% 10% 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.dobra1-desc h1{
+   font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 10px;
+}
+
+.dobra1-desc p {
+  font-size: clamp(14px, 0.9rem, 18px);
+}
+.dobra2-desc {
+            padding: 0 10% 10% 10%;
+        }
+
+        .dobra2-desc h1 {
+            font-size: clamp(28px, 4vw, 42px);
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tecs-usadas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            justify-content: center;
+        }
+
+        .card-tecnologia {
+            position: relative;
+            width: min(90vw, 280px);
+            height: min(60vw, 170px);
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.07);
+            border: 1px solid rgba(255, 122, 122, 0.12);
+            backdrop-filter: blur(14px) saturate(1.3);
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.02),
+                        0 10px 30px rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .card-tecnologia:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.55),
+                        inset 0 0 20px rgba(255,255,255,0.05);
+        }
+
+        .card-tecnologia::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: radial-gradient(circle at 20% 20%, #ff0000, transparent 60%),
+                        radial-gradient(circle at 80% 80%, #7c5cff, transparent 60%);
+            opacity: 0;
+            filter: blur(60px);
+            z-index: -1;
+            transition: opacity 0.8s ease;
+        }
+
+        .card-tecnologia:hover::before {
+            opacity: 0.6;
+        }
+
+        .card-logo {
+            position: absolute;
+            top: -20%;
+            left: -18%;
+            z-index: 5;
+        }
+
+        .logo-icon {
+            width: min(20vw, 80px);
+            height: min(20vw, 80px);
+            background: linear-gradient(145deg, #000, #0a0a0a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.5s ease;
+            animation: levitar 4s ease-in-out infinite alternate;
+        }
+
+        .logo-icon img {
+            width: 45%;
+            filter: brightness(0) invert(1);
+        }
+
+        @keyframes levitar {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* Conteúdo do card */
+        .card-content {
+            position: relative;
+            width: 88%;
+            height: 88%;
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: min(1.2rem, 4vw);
+            color: #f3f6ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            text-align: right;
+            transition: all 0.4s ease;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+            overflow: hidden;
+        }
+
+        .card-content h2 {
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: clamp(0.82rem, 3.5vw, 1rem);
+            opacity: 0.85;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .tecs-usadas {
+                row-gap: 60px;
+                column-gap: 30px;
+            }
+            
+            .card-logo {
+                top: -15%;
+                left: -10%;
+            }
+
+            .logo-icon {
+                width: min(18vw, 70px);
+                height: min(18vw, 70px);
+            }
+
+            .card-tecnologia {
+                height: min(70vw, 180px);
+            }
+            .dobra2-desc {
+            padding: 0 ;
+        }
+        }
