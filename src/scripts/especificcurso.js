@@ -55,3 +55,85 @@ document.addEventListener('click', (e) => {
     });
   }
 });
+
+const imagens = [
+  "/public/imagens/WhatsApp Image 2025-10-21 at 07.41.18.jpeg",
+  "/public/imagens/WhatsApp Image 2025-10-21 at 07.41.39.jpeg",
+  "/public/imagens/WhatsApp Image 2025-10-21 at 07.41.56.jpeg"
+];
+
+let index = 0;
+const imgEl = document.querySelector(".imagem-rotativa img");
+
+if (imgEl) {
+  setInterval(() => {
+    index = (index + 1) % imagens.length;
+    imgEl.classList.remove("img-ativa");
+    setTimeout(() => {
+      imgEl.src = imagens[index];
+      imgEl.classList.add("img-ativa");
+    }, );
+  }, 500);
+}
+
+  (function monitorSplineLogo() {
+    let tried = false;
+
+    function tryRemoveLogo() {
+      const viewer = document.querySelector("spline-viewer");
+      if (!viewer) {
+        requestAnimationFrame(tryRemoveLogo);
+        return;
+      }
+
+      const shadowRoot = viewer.shadowRoot;
+      if (!shadowRoot) {
+        requestAnimationFrame(tryRemoveLogo);
+        return;
+      }
+
+      const logo = shadowRoot.querySelector("#logo");
+      if (logo) {
+        logo.remove(); // remove do DOM diretamente
+        console.log("✅ Logo removido com sucesso");
+        return;
+      }
+
+      requestAnimationFrame(tryRemoveLogo);
+    }
+
+    requestAnimationFrame(tryRemoveLogo);
+
+    setInterval(() => {
+      if (!tried) {
+        tried = true;
+        tryRemoveLogo();
+        tried = false;
+      }
+    }, 2000);
+  })();
+
+
+  // DOBRA 5 - Acordeão Requisitos Mínimos
+document.addEventListener('DOMContentLoaded', function() {
+    const dobra5Headers = document.querySelectorAll('.dobra5-header');
+    
+    dobra5Headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.dobra5-toggle');
+            
+            // Fecha todos os outros
+            document.querySelectorAll('.dobra5-content.active').forEach(activeContent => {
+                if (activeContent !== content) {
+                    activeContent.classList.remove('active');
+                    activeContent.previousElementSibling.querySelector('.dobra5-toggle').classList.remove('rotate');
+                }
+            });
+            
+            // Alterna o atual
+            content.classList.toggle('active');
+            toggle.classList.toggle('rotate');
+        });
+    });
+});

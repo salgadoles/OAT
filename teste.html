@@ -1,259 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Card Apple Glass</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* ===== RESET E ESTILOS BASE ===== */
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      background: radial-gradient(1000px at 70% 10%, rgba(255,255,255,0.05), transparent),
-                  linear-gradient(160deg, #000000, #000000);
-      font-family: "Inter", sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
-    }
-
-    /* ===== CARD PRINCIPAL ===== */
-    .card-container {
-      position: relative;
-      width: min(90vw, 280px);
-      height: min(60vw, 170px);
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.07);
-      border: 1px solid rgba(255, 122, 122, 0.12);
-      backdrop-filter: blur(14px) saturate(1.3);
-      box-shadow: inset 0 0 10px rgba(255,255,255,0.02),
-                  0 10px 30px rgba(0, 0, 0, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .card-container:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.55),
-                  inset 0 0 20px rgba(255,255,255,0.05);
-    }
-
-    /* ===== ÍCONE FLUTUANTE ===== */
-    .floating-icon {
-      position: absolute;
-      top: -20%;
-      left: -18%;
-      width: min(20vw, 80px);
-      height: min(20vw, 80px);
-      background: linear-gradient(145deg, #000, #0a0a0a);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-      transition: transform 0.5s ease;
-      animation: levitar 4s ease-in-out infinite alternate;
-    }
-
-    .floating-icon img {
-      width: 58%;
-      filter: invert(1) brightness(1.2);
-      transform: translateZ(20px);
-    }
-
-    @keyframes levitar {
-      from { transform: translateY(0); }
-      to { transform: translateY(-10px); }
-    }
-
-    /* ===== CARD DE CONTEÚDO ===== */
-    .card-content {
-      position: relative;
-      width: 88%;
-      height: 88%;
-      background: rgba(255,255,255,0.03);
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.07);
-      padding: min(1.2rem, 4vw);
-      color: #f3f6ff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-end;
-      text-align: right;
-      transition: all 0.4s ease;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-      overflow: hidden;
-    }
-
-    .card-content p {
-      font-size: clamp(0.82rem, 3.5vw, 1rem);
-      opacity: 0.85;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    .info-icon {
-      width: min(26px, 7vw);
-      height: min(26px, 7vw);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
-    }
-
-    .card-content:hover .info-icon {
-      transform: rotate(90deg) scale(1.15);
-      filter: drop-shadow(0 0 10px #ff0000);
-    }
-
-    /* ===== ESTADO EXPANDIDO ===== */
-    .card-content.expanded {
-      height: min(80vw, 250px);
-      background: rgba(255,255,255,0.06);
-      box-shadow: 0 0 30px rgba(124,92,255,0.2),
-                  inset 0 0 10px rgba(255,255,255,0.05);
-    }
-
-    .expanded-content {
-      display: none;
-      font-size: clamp(0.75rem, 3vw, 0.9rem);
-      color: rgba(255,255,255,0.75);
-      opacity: 0.9;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    .card-content.expanded .expanded-content {
-      display: block;
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== EFEITO DE GLOW ===== */
-    .card-container::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      background: radial-gradient(circle at 20% 20%, #ff0000, transparent 60%),
-                  radial-gradient(circle at 80% 80%, #7c5cff, transparent 60%);
-      opacity: 0;
-      filter: blur(60px);
-      z-index: -1;
-      transition: opacity 0.8s ease;
-    }
-
-    .card-container:hover::before {
-      opacity: 0.6;
-    }
-
-    /* ===== RESPONSIVIDADE ===== */
-    @media (max-width: 480px) {
-      .floating-icon {
-        top: -15%;
-        left: -10%;
-        width: min(18vw, 70px);
-        height: min(18vw, 70px);
-      }
-
-      .card-container {
-        height: min(70vw, 180px);
-      }
-    }
-
-    /* ===== ACESSIBILIDADE ===== */
-    @media (prefers-reduced-motion: reduce) {
-      .card-container,
-      .floating-icon,
-      .info-icon,
-      .card-content {
-        transition: none;
-        animation: none;
-      }
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout com 3 Navbars e Scroll Lateral</title>
+  <link rel="stylesheet" href="/src/styles/root-explore.css">
+  <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
 </head>
+<body base>
 
-<body>
-  <div class="card-container" role="region" aria-labelledby="card-title">
-    <div class="floating-icon" aria-hidden="true">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"/>
-        <path d="M11 7H13V9H11V7ZM11 11H13V17H11V11Z" fill="white"/>
-      </svg>
+  <!-- NAVBAR SUPERIOR -->
+   <div navbarsuperior class="navbar-superior">
+    <section iconesnavtop class="icones-navtop">
+      <a href="/src/pages/user/dashboard.html" logo class="nav-item">
+        <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
+      </a>
+      <a href="/src/pages/user/explorar.html" explorar class="nav-item">
+        <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
+      </a>
+    </section>
+    <section iconesnavtop class="icones-navtop">
+      <a href="/src/pages/user/perfil.html" profile class="nav-item">
+        <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
+      </a>
+      <a href="/src/pages/configbase.html" sino class="nav-item">
+        <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
+      </a>
+    </section>
+  </div>
+
+  <!-- NAVBAR LATERAL -->
+  <div navbarlateral>
+    <div cursosandamento>
+      <div cardcurso></div>
+      <div cardcurso></div>
+      <div cardcurso></div>
     </div>
 
-    <div class="card-content">
-      <h2 id="card-title" class="sr-only">Informações sobre o sistema Apple Glass</h2>
-      <p>Mais informações sobre o sistema</p>
-      <div class="expanded-content">
-        Sistema otimizado com integração de IA, suporte modular e conectividade avançada. 
-        Design elegante com tecnologia de ponta para uma experiência imersiva.
-      </div>
-      <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Expandir informações">
-        <path d="M13 9H11V7H13V9ZM13 17H11V11H13V17ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"/>
-      </svg>
+    <div canaisquesigo>
+      <div cardcanal></div>
+      <div cardcanal></div>
+      <div cardcanal></div>
     </div>
   </div>
 
-  <script>
-    const infoIcon = document.querySelector('.info-icon');
-    const cardContent = document.querySelector('.card-content');
-    const cardContainer = document.querySelector('.card-container');
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div content>
 
-    function toggleExpand() {
-      const isExpanded = cardContent.classList.toggle('expanded');
-      cardContent.style.height = isExpanded ? 'min(80vw, 250px)' : '88%';
-    }
+    <section class="btnvoltar" botaovoltar>
+      <button voltar><img src="/public/imagens/Vector (2).png" alt=""></button>
+    </section>
+<div id="jornada-aluno" style="width: 100%; height: 99vh;"></div>
 
-    infoIcon.addEventListener('click', function(e) {
-      e.stopPropagation();
-      toggleExpand();
-    });
+<!-- Importa Phaser e o script da jornada -->
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser.js"></script>
+<script src="/src/scripts/jornada-aluno.js"></script>
 
-    cardContainer.addEventListener('click', function() {
-      toggleExpand();
-    });
-
-    cardContainer.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleExpand();
-      }
-    });
-
-    cardContainer.style.willChange = 'transform';
-    cardContent.style.willChange = 'height';
-  </script>
+    <div navbarinferior>
+      <section iconsferramentas>
+        <img src="/public/imagens/System  Code.png" alt="">
+        <img src="/public/imagens/Interface  Book_Open.png" alt="">
+      </section>
+    </div>
+  </div>
+<div class="transition-overlay">
+  <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
+  <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
+  <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
+  <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
+  <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
+</div>
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="/src/scripts/transition.js"></script>
+  <script src="/src/scripts/global.js"></script>
+  <script src="/src/scripts/jornada.js"></script>
 </body>
 </html>

@@ -95,5 +95,3 @@ function addTestButton() {
   });
   document.body.appendChild(testButton);
 }
-
-// addTestButton();
