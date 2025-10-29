@@ -14,7 +14,7 @@
 <body base>
 
   <!-- NAVBAR SUPERIOR -->
-   <div navbarsuperior class="navbar-superior">
+ <div navbarsuperior class="navbar-superior">
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/dashboard.html" logo class="nav-item">
         <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
@@ -23,6 +23,52 @@
         <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
       </a>
     </section>
+    </section>
+    <section barradepesquisa>
+  <div class="search-wrapper">
+    <input type="search" placeholder="Pesquisar cursos..." class="search-input">
+    <button class="btn-voz" id="btnVoz" title="Pesquisa por voz">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-width="2"/>
+        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="white" stroke-width="2"/>
+        <path d="M8 22H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <a class="btnsearch" href="#">
+      <img src="/public/imagens/Group 138.png" alt="Pesquisar">
+    </a>
+  </div>
+</section>
+
+<div id="voiceModal" class="voice-modal">
+  <div class="voice-modal-content">
+    <div class="voice-header">
+      <h3>PESQUISA POR VOZ</h3>
+      <span class="close-modal">&times;</span>
+    </div>
+    <div class="voice-visualization">
+      <div class="voice-wave">
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+      </div>
+    </div>
+    <p id="voiceStatus">Clique em falar para começar</p>
+    <div class="voice-controls">
+      <button id="startVoiceSearch" class="voice-btn">
+        <span><img src="/public/imagens/Media Pause.png" alt=""></span>
+      </button>
+      <button id="stopVoiceSearch" class="voice-btn stop">
+        <span><img src="/public/imagens/Media Play.png" alt=""></span>
+        </button>
+    </div>
+  </div>
+</div>
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/perfil.html" profile class="nav-item">
         <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
@@ -32,6 +78,7 @@
       </a>
     </section>
   </div>
+  
   <!-- NAVBAR LATERAL -->
   <div navbarlateral>
     <div cursosandamento>
@@ -260,7 +307,6 @@
             <p>Intel Core i5 ou AMD Ryzen 5 (10ª geração ou superior) - para garantir fluidez na compilação e execução dos projetos</p>
         </div>
     </div>
-    
     <div class="dobra5-item">
         <div class="dobra5-header">
             <span>Memória RAM</span>
@@ -270,7 +316,6 @@
             <p>16GB DDR4 - essencial para rodar IDEs, containers, servidores locais e múltiplas abas do navegador simultaneamente</p>
         </div>
     </div>
-    
     <div class="dobra5-item">
         <div class="dobra5-header">
             <span>Armazenamento</span>
@@ -280,7 +325,6 @@
             <p>SSD 256GB mínimo - agiliza carregamento de projetos, ferramentas e sistema operacional</p>
         </div>
     </div>
-    
     <div class="dobra5-item">
         <div class="dobra5-header">
             <span>Placa de Vídeo</span>
@@ -329,8 +373,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
  <script src="/src/scripts/especificcurso.js"></script>
+<<<<<<< HEAD
+ </body>
+=======
  <script src="/src/scripts/global.js"></script>
  
 
 </body>
+>>>>>>> 95f111344c54414a55de917c9b505961c2557c0f
 </html>
