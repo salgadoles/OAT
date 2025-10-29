@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta a charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turma 01 | Curso Ninjas do Excel - Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">OAT</span>
+            </div>
+            <div class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Turmas</span>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="header-center">
+            <div class="breadcrumb">
+                <span>📊</span>
+                <div class="breadcrumb-text">
+                    <div>Espaço para dúvidas</div>
+                    <div>Turma 01 | Curso Ninjas do Excel</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-percentage">41%</span>
+            </div>
+            <div class="settings-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="logo-right">
+                <span class="logo-text">OAT</span>
+            </div>
+            <div class="nav-item-right">
+                <i class="fas fa-users"></i>
+                <span>Turmas</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Chat Container -->
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="course-info">
+                    <div class="course-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <div class="course-details">
+                        <h3>Turma 01 | Curso Ninjas do Excel</h3>
+                        <p>Área de dúvidas</p>
+                        <p>Área de anotações</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contacts-section">
+                <h4>Mensagens da turma</h4>
+                
+                <!-- Chatbot Contact -->
+                <div class="contact-item active" data-contact="chatbot">
+                    <div class="contact-avatar chatbot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name">Bot Excel Helper</div>
+                        <div class="contact-last-message">Olá! Como posso ajudar com Excel?</div>
+                        <div class="contact-time">Agora</div>
+                    </div>
+                    <div class="contact-status online"></div>
+                </div>
+                
+                <!-- Student Contact -->
+                <div class="contact-item" data-contact="student1">
+                    <div class="contact-avatar student-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name">Maria Silva</div>
+                        <div class="contact-last-message">Professor, tenho uma dúvida sobre PROCV</div>
+                        <div class="contact-time">15:30</div>
+                    </div>
+                    <div class="contact-status offline"></div>
+                </div>
+                
+                <!-- Professor Notes -->
+                <div class="contact-item" data-contact="notes">
+                    <div class="contact-avatar notes-avatar">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name">Minhas Anotações</div>
+                        <div class="contact-last-message">Lembrar de revisar fórmulas avançadas</div>
+                        <div class="contact-time">14:20</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-contact-info">
+                    <div class="chat-avatar chatbot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chat-details">
+                        <h4 id="chat-contact-name">Bot Excel Helper</h4>
+                        <span id="chat-contact-status">Online</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="chat-action-btn">
+                        <i class="fas fa-phone"></i>
+                    </button>
+                    <button class="chat-action-btn">
+                        <i class="fas fa-video"></i>
+                    </button>
+                    <button class="chat-action-btn">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="messages-container" id="messages-container">
+                <!-- Chatbot Welcome Message -->
+                <div class="message received">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>Olá! Sou o Bot Excel Helper. Estou aqui para ajudar com suas dúvidas sobre Excel. Posso explicar fórmulas, funções, formatação e muito mais!</p>
+                        </div>
+                        <div class="message-time">Agora</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-container">
+                <div class="message-input-wrapper">
+                    <button class="attachment-btn">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <input type="text" id="message-input" placeholder="Digite sua mensagem..." />
+                    <button class="emoji-btn">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="send-btn" id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Content Section -->
+    <div class="top-content">
+        <div class="content-header">
+            <h3>Top Content</h3>
+        </div>
+        <div class="content-item">
+            <div class="content-avatar">
+                <img src="https://via.placeholder.com/40" alt="Geral">
+            </div>
+            <div class="content-info">
+                <span class="content-name">Geral</span>
+                <button class="content-action">
+                    <i class="fas fa-phone"></i>
+                    Call
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="crepper.js"></script>
+</body>
+</html>
