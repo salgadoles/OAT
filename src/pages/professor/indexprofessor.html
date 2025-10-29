@@ -1,106 +1,234 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OAT | Plataforma - Professores</title>
-  <link rel="stylesheet" href="/src/styles/professor.css" />
-  <link rel="stylesheet" href="/src/styles/root.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAT - Plataforma de Ensino</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-  <div id="app">
-    <aside class="sidebar">
-      <div class="logo">
-        <div class="logo-mark"><img src="/public/imagens/Group 209 (2).png" alt=""></div>
-      </div>
 
-      <nav class="side-nav">
-        <button class="nav-item" id="nav-turmas">
-          <img src="/public/imagens/turmas.png" alt="">
-        </button>
-      </nav>
-
-      <div class="sidebar-footer">
-        <div class="user">Professor</div>
-      </div>
-    </aside>
-    
-    <main class="main-area">
-      <header class="main"></header>
-      <!-- Top header -->
-      <header class="topbar">
-        <div class="top-left">
-          <h1 class="brand-title">Bem vindo de volta, Professor.</h1>
-          <p class="brand-sub">Avalie e tire as dúvidas de seus alunos.</p>
-        </div>
-        <div class="top-right">
-          <button id="btn-create-course" class="btn ghost">+ Criar Novo Curso</button>
-        </div>
-      </header>
-
-      <!-- content area where pages render -->
-      <section id="content" class="content">
-        <!-- Dashboard (courses grid) -->
-        <section id="page-dashboard" class="page active">
-          <div class="courses-grid" id="courses-grid">
-            <!-- cards injected by JS -->
-          </div>
-        </section>
-
-        <!-- Course detail: atividades list -->
-        <section id="page-course" class="page">
-          <div class="course-header">
-            <button class="btn back" id="back-to-dashboard">←</button>
-            <div>
-              <h2 id="course-title">Turma 01 | Curso Exemplo</h2>
-              <p id="course-desc" class="muted">Descrição do curso...</p>
+    <!-- Headerrrrr -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text"><img src="Group 7.png" alt=""></span>
             </div>
-          </div>
-
-          <div class="activities-list" id="activities-list">
-            <!-- atividades injetadas -->
-          </div>
-        </section>
-
-        <!-- Activity detail: entregas list -->
-        <section id="page-activity" class="page">
-          <div class="activity-header">
-            <button class="btn back" id="back-to-course">←</button>
-            <div>
-              <h3 id="activity-title">Realizar Primeiro PROCv</h3>
-              <p class="muted" id="activity-deadline">Prazo até 15/09/2025 às 12:00</p>
+            <nav class="nav-menu">
+                <div class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Turmas</span>
+                </div>
+            </nav>
+        </div>
+        <div class="header-center">
+            <div class="breadcrumb">
+                <span>14</span>
+                <div class="breadcrumb-text">
+                    <div>Turmas para ensino</div>
+                    <div>médio e fundamental</div>
+                </div>
             </div>
-          </div>
+        </div>
 
-          <div class="submissions-table" id="submissions-table">
-            <!-- linhas injetadas -->
-          </div>
+        <div class="header-right">
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-percentage">41%</span>
+            </div>
+            <div class="settings-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="nav-item-right">
+                <i class="fas fa-users"></i>
+                <span>Turmas</span>
+            </div>
+        </div>
+    </header>
+    <!-- Main Container -->
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-background">
+                <div class="gradient-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Bem vindo de volta, Professor.</h1>
+                    
+                    
+                    <p class="hero-subtitle">Avalie e tire as dúvidas de seus alunos.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-home"></i>
+                            <span>Criar Nova Turmayy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-      </section>
+
+        <!--Gridzada -->
+        <section class="classes-section">
+            <div class="classes-grid">
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUMTUM</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 01 | Curso Ninja do Excel</div>
+                </div>
+                <a href="chat.html">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <span class="class-tag">TUR</span>
+                            <div class="class-actions">
+                                <i class="fas fa-users class-icon"></i>
+                                <i class="fas fa-share class-icon"></i>
+                            </div>
+                        </div>
+                        <div class="class-title">Turma 02 | Curso Ninja do Excel</div>
+                    </div>
+
+
+                </a>
+                <a href="">
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
+                </div>
+            </a>
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 04 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 01 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                          c:\Users\21520230151\OAT-2\public\imagens\background.png  <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 02 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 04 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 01 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 02 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-header">
+                        <span class="class-tag">TUR</span>
+                        <div class="class-actions">
+                            <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-share class-icon"></i>
+                        </div>
+                    </div>
+                    <div class="class-title">Turma 04 | Curso Ninja do Excel</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Botao do nav bar -->
+        <section class="action-bar">
+            <div class="action-content">
+                <div class="action-text">
+                    <span>Cadastre-se para comentar, editar, inspecionar e outras ações.</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-primary">Crie sua conta</button>
+                    <button class="btn-secondary">
+                        <i class="fab fa-google"></i>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
     </main>
-  </div>
-
-  <!-- Modal para visualizar entrega -->
-  <div id="modal" class="modal hidden" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close">✕</button>
-      <h4 id="modal-student">Entrega de: Fulano</h4>
-      <p id="modal-email" class="muted">email@exemplo.com</p>
-      <div id="modal-body">
-        <!-- conteúdo da entrega -->
-      </div>
-      <div class="modal-actions">
-        <label>Nota:
-          <input id="grade-input" type="number" min="0" max="10" step="0.1" />
-        </label>
-        <button id="save-grade" class="btn primary">Salvar</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="/src/scripts/userProfessor.js" defer></script>
+<script src="trhee.js"></script>
+    <script src="crepper.js"></script>
 </body>
-
 </html>
