@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Criação de Atividades — OAT</title>
+  <link rel="stylesheet" href="/src/styles/dashboard.css">
+  <link rel="stylesheet" href="/src/styles/root.css">
+</head>
   <style>
     /* ====== Identidade visual OAT (sugestão) ======
        Paleta: Roxo principal, turquesa de apoio, cinza neutro
@@ -22,9 +25,7 @@
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background: black;}
 
-    header{
-      display:flex;align-items:center;gap:18px;padding:18px 28px;background:transparent;
-    }
+    
     .brand{
       display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit
     }
@@ -42,16 +43,16 @@
     /* CARD PRINCIPAL */
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(89, 91, 95, 0.06)}
 
-    .hero-title{display:flex;align-items:flex-start;gap:14px}
-    .hero-title h2{margin:0 0 6px 0;font-size:20px}
-    .hero-title p{margin:0;color:var(--muted);font-size:13px}
+    .hero-title{display:flex;align-items:flex-start;gap:14px;color: white;}
+    .hero-title h2{margin:0 0 6px 0;font-size:20px;color: white;}
+    .hero-title p{margin:0;color:var(--muted);font-size:13px;}
 
     .form{margin-top:16px;display:flex;flex-direction:column;gap:12px}
     label{font-size:13px;color:#ffffff;font-weight:600}
-    input[type=text], textarea, select{
+    input[type=text], textarea, select{ color: white;
       width:100%;padding:12px 14px;border-radius:10px;border:1px solid #E6E9EF;font-size:14px;resize:vertical;background:transparent
     }
-    textarea{min-height:120px}
+    textarea{min-height:120px; color: white;}
 
     .row{display:flex;gap:12px}
     .row .col{flex:1}
@@ -65,7 +66,7 @@
     .btn.ghost{background:transparent;border:1px solid #E6E9EF;color:var(--muted)}
 
     /* SIDEBAR */
-    .sidebar h3{margin:0 0 6px 0}
+    .sidebar h3{margin:0 0 6px 0; color: white}
     .preview{background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.85));border-radius:12px;padding:14px}
     .preview .title{font-weight:700;margin-bottom:8px}
     .preview .small{font-size:13px;color:var(--muted)}
@@ -83,16 +84,41 @@
 
   </style>
 </head>
-<body>
-  <header>
-    <a class="brand" href="#">
-      <div class="logo">OAT</div>
-      <div>
-        <h1>OAT — Oficina de Aprendizagem & Tecnologia</h1>
-        <p>Design e educação com foco em formação acessível</p>
-      </div>
-    </a>
-  </header>
+<body>  <!-- NAVBAR SUPERIOR -->
+  <div navbarsuperior class="navbar-superior">
+    <section iconesnavtop class="icones-navtop">
+      <a href="/src/pages/user/dashboard.html" logo class="nav-item">
+        <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
+      </a>
+      <a href="/src/pages/user/explorar.html" explorar class="nav-item">
+        <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
+      </a>
+    </section>
+    <section iconesnavtop class="icones-navtop">
+      <a href="/src/pages/user/perfil.html" profile class="nav-item">
+        <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
+      </a>
+      <a href="/src/pages/configbase.html" sino class="nav-item">
+        <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
+      </a>
+    </section>
+  </div>
+
+  <!-- NAVBAR LATERAL -->
+  <div navbarlateral>
+    <div cursosandamento>
+      <div cardcurso></div>
+      <div cardcurso></div>
+      <div cardcurso></div>
+    </div>
+    <div canaisquesigo>
+      <div cardcanal></div>
+      <div cardcanal></div>
+      <div cardcanal></div>
+    </div>
+  </div>
+
+ 
 
   <main class="container">
     <div class="grid">
@@ -180,7 +206,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#9CA3AF" stroke-width="1.5"/></svg>
             </div>
             <div>
-              <div style="font-weight:700">Turmas</div>
+              <div style="font-weight:700; color: white;">Turmas</div>
               <div style="font-size:13px;color:var(--muted)">Gerencie quais turmas terão acesso à atividade</div>
             </div>
           </div>
@@ -194,7 +220,7 @@
         <div style="height:18px"></div>
 
         <div class="card">
-          <h3>Recursos</h3>
+          <h3 style="color: rgb(207, 207, 207);">Recursos</h3>
           <ul style="margin:10px 0 0 18px;color:var(--muted)">
             <li>Modelos de atividades (PDF)</li>
             <li>Vídeo‑aula: Como montar roteiro</li>
