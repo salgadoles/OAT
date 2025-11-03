@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Turma - OAT</title>
+  <link rel="stylesheet" href="/src/styles/dashboard.css">
+  <link rel="stylesheet" href="/src/styles/root.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+
+    header h1 {
+      font-size: 1.8em;
+      color: #7b5cff;
+      letter-spacing: 1px;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      margin-top: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 20px rgba(123, 92, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      text-align: center;
+      color: #bdbdff;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #cfcfff;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 0.95em;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(123, 92, 255, 0.2);
+      box-shadow: 0 0 10px rgba(123, 92, 255, 0.5);
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #7b5cff, #4e4aff);
+      color: white;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #4e4aff, #7b5cff);
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(123, 92, 255, 0.5);
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.85em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OAT - Criação de Turma</h1>
+    <div navbarsuperior class="navbar-superior">
+      <section iconesnavtop class="icones-navtop">
+        <a href="/src/pages/user/dashboard.html" logo class="nav-item">
+          <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
+        </a>
+        <a href="/src/pages/user/explorar.html" explorar class="nav-item">
+          <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
+        </a>
+      </section>
+      <section iconesnavtop class="icones-navtop">
+        <a href="/src/pages/user/perfil.html" profile class="nav-item">
+          <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
+        </a>
+        <a href="/src/pages/configbase.html" sino class="nav-item">
+          <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
+        </a>
+      </section>
+    </div>
+  
+    <!-- NAVBAR LATERAL -->
+    <div navbarlateral>
+      <div cursosandamento>
+        <div cardcurso></div>
+        <div cardcurso></div>
+        <div cardcurso></div>
+      </div>
+      <div canaisquesigo>
+        <div cardcanal></div>
+        <div cardcanal></div>
+        <div cardcanal></div>
+      </div>
+    </div>
+  
+  </header>
+
+  <div class="form-container">
+    <h2>Criação de turma de curso</h2>
+    <form>
+      <label for="curso">Nome do curso</label>
+      <input type="text" id="curso" placeholder="Digite o nome do curso" required>
+
+      <label for="descricao">Descrição do curso</label>
+      <textarea id="descricao" placeholder="Escreva uma breve descrição..." required></textarea>
+
+      <label for="roteiro">Roteiro das aulas</label>
+      <textarea id="roteiro" placeholder="Ex: Aula 1 - Introdução, Aula 2 - HTML e CSS..." required></textarea>
+
+      <label for="inicio">Data de início</label>
+      <input type="date" id="inicio" required>
+
+      <label for="fim">Data de término</label>
+      <input type="date" id="fim" required>
+
+      <button type="submit">Criar Turma</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 OAT • Projeto Educacional</p>
+  </footer>
+</body>
+</html>
