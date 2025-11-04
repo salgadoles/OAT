@@ -11,6 +11,42 @@
     <link rel="stylesheet" type="text/css" href="/src/styles/login.css">
     <link rel="stylesheet" type="text/css" href="/src/styles/mediaquery.css">
     <link rel="stylesheet" href="/src/styles/root.css">
+    
+    <!-- ✅ ESTILOS PARA MENSAGENS -->
+    <style>
+        .message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .user-types-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body base>
@@ -32,29 +68,27 @@
                 <h3>Não possui conta?
                     <a href="/src/pages/user/cadastro.html">Cadastrar-se</a>
                 </h3>
-                <form class="loginForm" id="login-Form" action="" method="get">
+                <form class="loginForm" id="login-Form">
                     <header class="cabecalho-form">
                         <h1>ACESSE E DIVIRTA-SE APRENDENDO</h1>
                     </header>
                     <div class="form-fields">
                         <div class="field">
                             <label for="email">E-mail</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" required>
                         </div>
                         <div class="field">
                             <label for="password">Senha</label>
-                            <input type="password" name="password" id="password" maxlength="30" class="password-input">
+                            <input type="password" name="password" id="password" maxlength="30" class="password-input" required>
                             <img src="/public/imagens/visibility.png" alt="" class="icon show" id="toggleSenha">
                             <img src="/public//imagens/visibility_off.png" alt="" class="icon hide" id="toggleSenhaOff">
                         </div>
 
-                        <!-- Mensagem de erro -->
-                        <div id="loginError">
-
-                        </div>
+                        <!-- ✅ MENSAGEM DE ERRO/SUCESSO (integrada) -->
+                        <div id="loginError" class="message"></div>
 
                         <div class="field-button">
-                            <button type="submit">Entrar</button>
+                            <button type="submit" id="loginButton">Entrar</button>
                         </div>
                     </div>
                     <footer class="link-google">
@@ -68,12 +102,87 @@
                 <p style="text-align: center;">Esqueceu sua senha?
                     <a href="/src/pages/recuperarSenha.html">Recuperar</a>
                 </p>
+
+                <!-- ✅ INFORMAÇÃO SOBRE TIPOS DE USUÁRIO -->
+                <div class="user-types-info">
+                    <p><strong>👨‍🏫 Professores & 👨‍💼 Administradores:</strong> Use o login fornecido</p>
+                    <p><strong>🎓 Alunos:</strong> Faça cadastro ou use login se já tiver conta</p>
+                </div>
             </article>
         </section>
     </main>
 
+    <!-- ✅ SCRIPTS CORRETOS - AJUSTE OS CAMINHOS! -->
+    <script src="/backend-integration/js/api.js"></script>
+    <script src="/backend-integration/js/auth.js"></script>
+    <script src="/backend-integration/js/app.js"></script>
+
+    <!-- SEUS SCRIPTS ORIGINAIS -->
     <script src="/src/scripts/login.js"></script>
     <script src="/src/scripts/global.js"></script>
+
+    <!-- ✅ SCRIPT DE INTEGRAÇÃO DO LOGIN -->
+    <script>
+        // Integração do seu formulário com nossa API
+        document.getElementById('login-Form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const errorDiv = document.getElementById('loginError');
+
+            try {
+                // Mostrar loading
+                loginButton.disabled = true;
+                loginButton.textContent = 'Entrando...';
+                errorDiv.style.display = 'none';
+
+                console.log('🔐 Tentando login:', email);
+                
+                // Fazer login usando nossa API
+                await Auth.login(email, password);
+                
+                // ✅ Login bem-sucedido
+                showLoginMessage('✅ Login realizado com sucesso! Redirecionando...', 'success');
+                
+            } catch (error) {
+                console.error('❌ Erro no login:', error);
+                showLoginMessage('❌ ' + error.message, 'error');
+                loginButton.disabled = false;
+                loginButton.textContent = 'Entrar';
+            }
+        });
+
+        // Função para mostrar mensagens no SEU design
+        function showLoginMessage(message, type) {
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.textContent = message;
+            errorDiv.className = `message ${type}`;
+            errorDiv.style.display = 'block';
+
+            // Auto-esconder mensagens de sucesso
+            if (type === 'success') {
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Verificar se já está logado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof Auth !== 'undefined' && Auth.isAuthenticated()) {
+                const user = Auth.getUser();
+                showLoginMessage(`✅ Você já está logado como ${user.name}. Redirecionando...`, 'success');
+                setTimeout(() => {
+                    Auth.redirectToDashboard(user.role);
+                }, 2000);
+            }
+        });
+
+        // ✅ INTEGRAR SEU TOGGLE DE SENHA EXISTENTE
+        // Seu código original de mostrar/esconder senha continua funcionando
+    </script>
 
 </body>
 
