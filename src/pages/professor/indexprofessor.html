@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAT - Plataforma de Ensino</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/styles/professor.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -19,10 +19,7 @@
                 <span class="logo-text"><img src="Group 7.png" alt=""></span>
             </div>
             <nav class="nav-menu">
-                <div class="nav-item active">
-                    <i class="fas fa-users"></i>
-                    <span>Turmas</span>
-                </div>
+
             </nav>
         </div>
         <div class="header-center">
@@ -40,14 +37,7 @@
                 <div class="user-avatar">
                     <i class="fas fa-user"></i>
                 </div>
-                <span class="user-percentage">41%</span>
-            </div>
-            <div class="settings-icon">
-                <i class="fas fa-cog"></i>
-            </div>
-            <div class="nav-item-right">
-                <i class="fas fa-users"></i>
-                <span>Turmas</span>
+                <span class="user-percentage">Sair</span>
             </div>
         </div>
     </header>
@@ -58,13 +48,18 @@
                 <div class="gradient-overlay"></div>
                 <div class="hero-content">
                     <h1 class="hero-title">Bem vindo de volta, Professor.</h1>
-                    
-                    
+
+
                     <p class="hero-subtitle">Avalie e tire as dúvidas de seus alunos.</p>
+                    <!-- No hero-section, substitua o hero-stats atual por: -->
                     <div class="hero-stats">
+                        <div class="stat-item" onclick="window.location.href='/criarCurso'">
+                            <img src="/public/imagens/add_box.png" alt="">
+                            <span>Criar Novo Curso</span>
+                        </div>
                         <div class="stat-item">
-                            <i class="fas fa-home"></i>
-                            <span>Criar Nova Turmayy</span>
+                            <img src="/public/imagens/turmas.png" alt="" width="20px">
+                            <span>Criar Nova Turma</span>
                         </div>
                     </div>
                 </div>
@@ -99,17 +94,17 @@
 
                 </a>
                 <a href="">
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">TUR</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
+                    <div class="class-card">
+                        <div class="class-header">
+                            <span class="class-tag">TUR</span>
+                            <div class="class-actions">
+                                <i class="fas fa-users class-icon"></i>
+                                <i class="fas fa-share class-icon"></i>
+                            </div>
                         </div>
+                        <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
                     </div>
-                    <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
-                </div>
-            </a>
+                </a>
                 <div class="class-card">
                     <div class="class-header">
                         <span class="class-tag">TUR</span>
@@ -136,7 +131,7 @@
                     <div class="class-header">
                         <span class="class-tag">TUR</span>
                         <div class="class-actions">
-                          <i class="fas fa-users class-icon"></i>
+                            <i class="fas fa-users class-icon"></i>
                             <i class="fas fa-share class-icon"></i>
                         </div>
                     </div>
@@ -228,7 +223,9 @@
             </div>
         </section>
     </main>
-<script src="trhee.js"></script>
+    <script src="/src/scripts/professor-curso.js"></script>
+    <script src="trhee.js"></script>
     <script src="crepper.js"></script>
 </body>
+
 </html>

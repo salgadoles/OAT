@@ -4,7 +4,7 @@ export interface IActivity extends Document {
   title: string;
   description: string;
   instructions: string;
-  type: 'quiz' | 'assignment' | 'discussion' | 'project';
+  type: 'assignment' | 'project';
   points: number;
   deadline?: Date;
   lesson: Types.ObjectId;

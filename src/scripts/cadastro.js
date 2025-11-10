@@ -1,168 +1,186 @@
+// Função para validar email
 function validarEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 
 // ===== CADASTRO =====
-document.getElementById("cadastroForm").addEventListener("submit", async function(e) {
-e.preventDefault();
-console.log("Formulário enviado");
+document.addEventListener('DOMContentLoaded', function () {
+  const cadastroForm = document.getElementById("cadastroForm");
 
-const nome = document.getElementById("name").value.trim();
-const email = document.getElementById("email").value.trim();
-const senha = document.getElementById("password").value.trim();
-const data = document.getElementById("date").value.trim();
-const confirm = document.getElementById("confirmpassword").value.trim();
-const errorMsg = document.getElementById("cadastroError");
-const submitBtn = document.querySelector("#cadastroForm button[type='submit']");
-
-// Validações frontend
-if (!nome || !email || !senha || !data || !confirm) {
-  errorMsg.textContent = "Preencha todos os campos!";
-  return;
-}
-if (!validarEmail(email)) {
-  errorMsg.textContent = "Digite um email válido!";
-  return;
-}
-if (senha.length < 6) {
-  errorMsg.textContent = "A senha deve ter pelo menos 6 caracteres!";
-  return;
-}
-if (senha !== confirm) {
-  errorMsg.textContent = "As senhas não coincidem!";
-  return;
-}
-
-errorMsg.textContent = "";
-
-// Mostrar loading no botão
-const originalText = submitBtn.textContent;
-submitBtn.textContent = "Cadastrando...";
-submitBtn.disabled = true;
-
-try {
-  // Fazer requisição para o backend
-  const response = await fetch('http://localhost:3000/api/auth/register', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: nome,
-      email: email,
-      password: senha
-      // A data de nascimento não está no modelo do backend, 
-      // mas você pode adicionar se quiser
-    })
-  });
-
-  const data = await response.json();
-
-  if (response.ok) {
-    // Cadastro bem-sucedido
-    console.log('✅ Cadastro realizado com sucesso:', data);
-    
-    // Salvar o token no localStorage
-    if (data.token) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-    }
-    
-    // Redirecionar para a página de explorar
-    location.href = "src/pages/explorar.html";
-  } else {
-    // Erro do backend
-    errorMsg.textContent = data.message || 'Erro no cadastro. Tente novamente.';
-    console.error('❌ Erro no cadastro:', data);
-  }
-
-} catch (error) {
-  // Erro de rede ou outro erro
-  console.error('💥 Erro na requisição:', error);
-  errorMsg.textContent = 'Erro de conexão. Verifique se o servidor está rodando.';
-} finally {
-  // Restaurar botão
-  submitBtn.textContent = originalText;
-  submitBtn.disabled = false;
-}
-});
-
-// Visualizar senha 
-const inputSenha = document.getElementById("password");
-const btnToggle = document.getElementById("toggleSenha");
-const btnToggle2 = document.getElementById("toggleSenhaOff");
-
-btnToggle.addEventListener("click", () => {
-  if (inputSenha.type === "password") {
-      inputSenha.type = "text";
-      btnToggle2.style.display = "block";
-      btnToggle.style.display = "none";
-  }
-});
-
-btnToggle2.addEventListener("click", () => {
-  if (inputSenha.type === "text") {
-      inputSenha.type = "password";
-      btnToggle2.style.display = "none";
-      btnToggle.style.display = "block";
-  }
-});
-
-// login.js - se você tiver página de login
-document.getElementById("loginForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value.trim();
-  const senha = document.getElementById("password").value.trim();
-  const errorMsg = document.getElementById("loginError");
-  const submitBtn = document.querySelector("#loginForm button[type='submit']");
-
-  if (!email || !senha) {
-    errorMsg.textContent = "Preencha todos os campos!";
+  if (!cadastroForm) {
+    console.log('❌ Formulário de cadastro não encontrado');
     return;
   }
 
-  errorMsg.textContent = "";
-  
-  // Mostrar loading no botão
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = "Entrando...";
-  submitBtn.disabled = true;
+  cadastroForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    console.log("=== INICIANDO CADASTRO ===");
 
-  try {
-    const response = await fetch('http://localhost:3000/api/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: senha
-      })
-    });
+    const nome = document.getElementById("name")?.value.trim();
+    const email = document.getElementById("email")?.value.trim();
+    const senha = document.getElementById("password")?.value.trim();
+    const dataNascimento = document.getElementById("date")?.value.trim(); // ✅ Mudei o nome
+    const confirm = document.getElementById("confirmpassword")?.value.trim();
+    const errorMsg = document.getElementById("cadastroError");
+    const submitBtn = document.querySelector("#cadastroForm button[type='submit']");
 
-    const data = await response.json();
-
-    if (response.ok) {
-      console.log('✅ Login realizado com sucesso:', data);
-      
-      // Salvar o token e dados do usuário
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      
-      // Redirecionar
-      location.href = "src/pages/explorar.html";
-    } else {
-      errorMsg.textContent = data.message || 'Erro no login. Tente novamente.';
-      console.error('❌ Erro no login:', data);
+    // Verificar se todos os elementos existem
+    if (!nome || !email || !senha || !dataNascimento || !confirm || !errorMsg || !submitBtn) {
+      console.log('❌ Elementos do formulário não encontrados');
+      return;
     }
 
-  } catch (error) {
-    console.error('💥 Erro na requisição:', error);
-    errorMsg.textContent = 'Erro de conexão. Verifique se o servidor está rodando.';
-  } finally {
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
+    console.log('📝 Dados do formulário:', { nome, email, senha: '***', dataNascimento, confirm: '***' });
+
+    // Validações frontend
+    if (!nome || !email || !senha || !dataNascimento || !confirm) {
+      errorMsg.textContent = "Preencha todos os campos!";
+      errorMsg.style.color = 'red';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    if (!validarEmail(email)) {
+      errorMsg.textContent = "Digite um email válido!";
+      errorMsg.style.color = 'red';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    if (senha.length < 6) {
+      errorMsg.textContent = "A senha deve ter pelo menos 6 caracteres!";
+      errorMsg.style.color = 'red';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    if (senha !== confirm) {
+      errorMsg.textContent = "As senhas não coincidem!";
+      errorMsg.style.color = 'red';
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    errorMsg.textContent = "";
+    errorMsg.style.display = 'none';
+
+    // Mostrar loading no botão
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Cadastrando...";
+    submitBtn.disabled = true;
+
+    try {
+      console.log('📤 Enviando dados para API...');
+
+      const dadosParaEnviar = {
+        name: nome,
+        email: email,
+        password: senha,
+        nascimento: dataNascimento || undefined
+      };
+
+      console.log('🔧 Dados sendo enviados:', dadosParaEnviar);
+
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosParaEnviar)
+      });
+
+      console.log('📥 Status da resposta:', response.status);
+
+      // ✅ CORREÇÃO: Mudei o nome da variável para 'resultado'
+      const resultado = await response.json();
+      console.log('📋 Dados da resposta:', resultado);
+
+      if (response.ok) {
+        console.log('✅ Cadastro realizado com sucesso');
+
+        // Salvar o token no localStorage
+        if (resultado.token) {
+          localStorage.setItem('token', resultado.token);
+          localStorage.setItem('user', JSON.stringify(resultado.user));
+          console.log('🔐 Token salvo no localStorage');
+        }
+
+        // ✅ CORREÇÃO FINAL: Use 'resultado' em vez de 'result'
+        if (resultado.token && resultado.user) {
+          // Mostrar mensagem de sucesso
+          errorMsg.textContent = 'Cadastro realizado com sucesso! Redirecionando...';
+          errorMsg.style.color = 'green';
+          errorMsg.style.display = 'block';
+
+          setTimeout(() => {
+            // ✅ Redirecionar para explorar na MESMA página
+            window.location.href = '/explorar';
+          }, 1500);
+        }
+      } else {
+        console.error('❌ Erro no cadastro:', resultado);
+        errorMsg.textContent = resultado.message || `Erro ${response.status} no cadastro`;
+        errorMsg.style.color = 'red';
+        errorMsg.style.display = 'block';
+      }
+
+    } catch (error) {
+      console.error('💥 Erro na requisição:', error);
+
+      if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+        errorMsg.textContent = 'Erro de conexão. Verifique: 1) Backend está rodando? 2) CORS está configurado?';
+      } else {
+        errorMsg.textContent = 'Erro inesperado: ' + error.message;
+      }
+      errorMsg.style.color = 'red';
+      errorMsg.style.display = 'block';
+    } finally {
+      // Restaurar botão
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Visualizar senha (com verificação)
+  const inputSenha = document.getElementById("password");
+  const btnToggle = document.getElementById("toggleSenha");
+  const btnToggle2 = document.getElementById("toggleSenhaOff");
+
+  if (inputSenha && btnToggle && btnToggle2) {
+    btnToggle.addEventListener("click", () => {
+      if (inputSenha.type === "password") {
+        inputSenha.type = "text";
+        btnToggle2.style.display = "block";
+        btnToggle.style.display = "none";
+      }
+    });
+
+    btnToggle2.addEventListener("click", () => {
+      if (inputSenha.type === "text") {
+        inputSenha.type = "password";
+        btnToggle2.style.display = "none";
+        btnToggle.style.display = "block";
+      }
+    });
   }
+
+  // TESTE DE CONEXÃO
+  async function testarConexao() {
+    console.log('=== 🔍 TESTANDO CONEXÃO COM BACKEND ===');
+
+    try {
+      const response = await fetch('http://localhost:5000/api/health');
+      const healthData = await response.json(); // ✅ Mudei o nome aqui também
+      console.log('✅ BACKEND CONECTADO - Resposta:', healthData);
+      return true;
+    } catch (error) {
+      console.log('❌ ERRO DE CONEXÃO:', error.message);
+      console.log('💡 Verifique se:');
+      console.log('   1. Backend está rodando (npm run dev)');
+      console.log('   2. Porta 5000 está livre');
+      console.log('   3. Não há erros no terminal do backend');
+      return false;
+    }
+  }
+
+  // Teste automático ao carregar a página
+  testarConexao();
 });

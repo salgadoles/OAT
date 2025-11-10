@@ -1,53 +1,52 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+// /src/scripts/api.js
+const API_BASE_URL = 'http://localhost:5000/api'; // ✅ Use porta 5000
 
-class API {
-    static async request(endpoint, options = {}) {
-        const url = `${API_BASE_URL}${endpoint}`;
-        const config = {
+export const api = {
+    // Auth
+    async register(userData) {
+        const response = await fetch(`${API_BASE_URL}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        });
+        return await response.json();
+    },
+
+    async login(credentials) {
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentials)
+        });
+        return await response.json();
+    },
+
+    async getProfile() {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_BASE_URL}/auth/me`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return await response.json();
+    },
+
+    // Courses
+    async getCourses() {
+        const response = await fetch(`${API_BASE_URL}/courses`);
+        return await response.json();
+    },
+
+    async createCourse(courseData) {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_BASE_URL}/courses`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                ...options.headers
+                'Authorization': `Bearer ${token}`
             },
-            ...options
-        };
-
-        // Adicionar token se existir
-        const token = localStorage.getItem('token');
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        }
-
-        try {
-            const response = await fetch(url, config);
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.message || 'Erro na requisição');
-            }
-
-            return data;
-        } catch (error) {
-            console.error('API Error:', error);
-            throw error;
-        }
-    }
-
-    // Auth
-    static async login(email, password) {
-        return this.request('/auth/login', {
-            method: 'POST',
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify(courseData)
         });
+        return await response.json();
     }
-
-    static async register(name, email, password) {
-        return this.request('/auth/register', {
-            method: 'POST',
-            body: JSON.stringify({ name, email, password })
-        });
-    }
-
-    static async getMe() {
-        return this.request('/auth/me');
-    }
-}
+};

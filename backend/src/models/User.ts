@@ -10,6 +10,7 @@ export interface IUser extends Document {
     name: string;
     email: string;
     password: string;
+    nascimento?: Date;
     role: UserRole;
     createdAt: Date;
     updatedAt: Date;
@@ -32,11 +33,16 @@ const userSchema = new Schema<IUser>({
         type: String,
         required: true
     },
+    nascimento: {
+        type: Date,
+        required: false
+    },
     role: {
         type: String,
         enum: Object.values(UserRole),
         default: UserRole.STUDENT
     }
+    
 }, {
     timestamps: true
 });

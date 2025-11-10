@@ -1,0 +1,132 @@
+<!-- create-course.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Novo Curso - OAT</title>
+    <link rel="stylesheet" href="/src/styles/criarCurso.css">
+    <link rel="stylesheet" href="/src/styles/professor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (mesmo do seu código) -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text"><img src="Group 7.png" alt=""></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="/professor">
+                <div class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Voltar</span>
+                </div>
+                </a>
+            </nav>
+        </div>
+        <div class="header-center">
+            <div class="breadcrumb">
+                <span>14</span>
+                <div class="breadcrumb-text">
+                    <div>Turmas para ensino</div>
+                    <div>médio e fundamental</div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-percentage">41%</span>
+            </div>
+            <div class="settings-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="nav-item-right">
+                <i class="fas fa-users"></i>
+                <span>Turmas</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <div class="create-course-container">
+            <div class="course-form-header">
+                <h1><i class="fas fa-plus-circle"></i> Criar Novo Curso</h1>
+                <p>Preencha as informações básicas do curso</p>
+            </div>
+
+            <form id="createCourseForm" class="course-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title">Título do Curso *</label>
+                        <input type="text" id="title" name="title" required placeholder="Ex: Curso Ninja do Excel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Categoria *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="programming">Programação</option>
+                            <option value="design">Design</option>
+                            <option value="business">Negócios</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="personal-development">Desenvolvimento Pessoal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="level">Nível *</label>
+                        <select id="level" name="level" required>
+                            <option value="beginner">Iniciante</option>
+                            <option value="intermediate">Intermediário</option>
+                            <option value="advanced">Avançado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Preço (R$)</label>
+                        <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descrição do Curso *</label>
+                    <textarea id="description" name="description" rows="4" required placeholder="Descreva o que os alunos irão aprender..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="thumbnail">URL da Thumbnail</label>
+                    <input type="url" id="thumbnail" name="thumbnail" placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="requirements">Requisitos (um por linha)</label>
+                    <textarea id="requirements" name="requirements" rows="3" placeholder="Conhecimento básico de...
+Ferramentas necessárias..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="learningObjectives">Objetivos de Aprendizado (um por linha)</label>
+                    <textarea id="learningObjectives" name="learningObjectives" rows="3" placeholder="Ao final do curso, você será capaz de...
+Você aprenderá a..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="window.history.back()">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i>
+                        Criar Curso
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="/src/scripts/criarCurso.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { User } from '../models/User'; // Remova UserRole
+import { User } from '../models/User';
 import { AuthRequest } from '../middleware/auth';
 
 export const getUsers = async (req: AuthRequest, res: Response): Promise<Response> => {

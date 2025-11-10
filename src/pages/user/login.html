@@ -66,7 +66,7 @@
             <article class="content-form">
                 
                 <h3>Não possui conta?
-                    <a href="/src/pages/user/cadastro.html">Cadastrar-se</a>
+                    <a href="/cadastro">Cadastrar-se</a>
                 </h3>
                 <form class="loginForm" id="login-Form">
                     <header class="cabecalho-form">
@@ -84,7 +84,7 @@
                             <img src="/public//imagens/visibility_off.png" alt="" class="icon hide" id="toggleSenhaOff">
                         </div>
 
-                        <!-- ✅ MENSAGEM DE ERRO/SUCESSO (integrada) -->
+                        
                         <div id="loginError" class="message"></div>
 
                         <div class="field-button">
@@ -103,7 +103,7 @@
                     <a href="/src/pages/recuperarSenha.html">Recuperar</a>
                 </p>
 
-                <!-- ✅ INFORMAÇÃO SOBRE TIPOS DE USUÁRIO -->
+                <!-- INFORMAÇÃO SOBRE TIPOS DE USUÁRIO -->
                 <div class="user-types-info">
                     <p><strong>👨‍🏫 Professores & 👨‍💼 Administradores:</strong> Use o login fornecido</p>
                     <p><strong>🎓 Alunos:</strong> Faça cadastro ou use login se já tiver conta</p>
@@ -112,77 +112,11 @@
         </section>
     </main>
 
-    <!-- ✅ SCRIPTS CORRETOS - AJUSTE OS CAMINHOS! -->
-    <script src="/backend-integration/js/api.js"></script>
-    <script src="/backend-integration/js/auth.js"></script>
-    <script src="/backend-integration/js/app.js"></script>
-
-    <!-- SEUS SCRIPTS ORIGINAIS -->
-    <script src="/src/scripts/login.js"></script>
-    <script src="/src/scripts/global.js"></script>
-
-    <!-- ✅ SCRIPT DE INTEGRAÇÃO DO LOGIN -->
-    <script>
-        // Integração do seu formulário com nossa API
-        document.getElementById('login-Form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const loginButton = document.getElementById('loginButton');
-            const errorDiv = document.getElementById('loginError');
-
-            try {
-                // Mostrar loading
-                loginButton.disabled = true;
-                loginButton.textContent = 'Entrando...';
-                errorDiv.style.display = 'none';
-
-                console.log('🔐 Tentando login:', email);
-                
-                // Fazer login usando nossa API
-                await Auth.login(email, password);
-                
-                // ✅ Login bem-sucedido
-                showLoginMessage('✅ Login realizado com sucesso! Redirecionando...', 'success');
-                
-            } catch (error) {
-                console.error('❌ Erro no login:', error);
-                showLoginMessage('❌ ' + error.message, 'error');
-                loginButton.disabled = false;
-                loginButton.textContent = 'Entrar';
-            }
-        });
-
-        // Função para mostrar mensagens no SEU design
-        function showLoginMessage(message, type) {
-            const errorDiv = document.getElementById('loginError');
-            errorDiv.textContent = message;
-            errorDiv.className = `message ${type}`;
-            errorDiv.style.display = 'block';
-
-            // Auto-esconder mensagens de sucesso
-            if (type === 'success') {
-                setTimeout(() => {
-                    errorDiv.style.display = 'none';
-                }, 3000);
-            }
-        }
-
-        // Verificar se já está logado
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof Auth !== 'undefined' && Auth.isAuthenticated()) {
-                const user = Auth.getUser();
-                showLoginMessage(`✅ Você já está logado como ${user.name}. Redirecionando...`, 'success');
-                setTimeout(() => {
-                    Auth.redirectToDashboard(user.role);
-                }, 2000);
-            }
-        });
-
-        // ✅ INTEGRAR SEU TOGGLE DE SENHA EXISTENTE
-        // Seu código original de mostrar/esconder senha continua funcionando
-    </script>
+   <!-- SCRIPTS NA ORDEM CORRETA -->
+<script src="/src/scripts/Auth.js"></script>
+<script src="/src/scripts/api.js"></script>
+<script src="/src/scripts/app.js"></script>
+<script src="/src/scripts/login.js"></script>
 
 </body>
 

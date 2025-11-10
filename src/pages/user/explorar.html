@@ -1,18 +1,20 @@
-  <!DOCTYPE html>
-  <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OAT | Tela De Explorar</title>
-    <link rel="stylesheet" href="/src/styles/root-explore.css">
-      <link rel="stylesheet" href="/src/styles/explorar.css">
-      <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-      
-  </head>
-  <body base>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<div navbarsuperior class="navbar-superior">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAT | Tela De Explorar</title>
+  <link rel="stylesheet" href="/src/styles/root-explore.css">
+  <link rel="stylesheet" href="/src/styles/explorar.css">
+  <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+
+<body base>
+
+  <div navbarsuperior class="navbar-superior">
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/dashboard.html" logo class="nav-item">
         <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
@@ -20,53 +22,56 @@
       <a href="/src/pages/user/explorar.html" explorar class="nav-item">
         <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
       </a>
+
     </section>
     </section>
     <section barradepesquisa>
-  <div class="search-wrapper">
-    <input type="search" placeholder="Pesquisar cursos..." class="search-input">
-    <button class="btn-voz" id="btnVoz" title="Pesquisa por voz">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-width="2"/>
-        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="white" stroke-width="2"/>
-        <path d="M8 22H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <a class="btnsearch" href="#">
-      <img src="/public/imagens/Group 138.png" alt="Pesquisar">
-    </a>
-  </div>
-</section>
+      <div class="search-wrapper">
+        <input type="search" placeholder="Pesquisar cursos..." class="search-input">
+        <button class="btn-voz" id="btnVoz" title="Pesquisa por voz">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15Z"
+              stroke="white" stroke-width="2" />
+            <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="white" stroke-width="2" />
+            <path d="M8 22H16" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <a class="btnsearch" href="#">
+          <img src="/public/imagens/Group 138.png" alt="Pesquisar">
+        </a>
+      </div>
+    </section>
 
-<div id="voiceModal" class="voice-modal">
-  <div class="voice-modal-content">
-    <div class="voice-header">
-      <h3>PESQUISA POR VOZ</h3>
-      <span class="close-modal">&times;</span>
-    </div>
-    <div class="voice-visualization">
-      <div class="voice-wave">
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
+    <div id="voiceModal" class="voice-modal">
+      <div class="voice-modal-content">
+        <div class="voice-header">
+          <h3>PESQUISA POR VOZ</h3>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="voice-visualization">
+          <div class="voice-wave">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+        </div>
+        <p id="voiceStatus">Clique em falar para começar</p>
+        <div class="voice-controls">
+          <button id="startVoiceSearch" class="voice-btn">
+            <span><img src="/public/imagens/Media Pause.png" alt=""></span>
+          </button>
+          <button id="stopVoiceSearch" class="voice-btn stop">
+            <span><img src="/public/imagens/Media Play.png" alt=""></span>
+          </button>
+        </div>
       </div>
     </div>
-    <p id="voiceStatus">Clique em falar para começar</p>
-     <div class="voice-controls">
-      <button id="startVoiceSearch" class="voice-btn">
-        <span><img src="/public/imagens/Media Pause.png" alt=""></span>
-      </button>
-      <button id="stopVoiceSearch" class="voice-btn stop">
-        <span><img src="/public/imagens/Media Play.png" alt=""></span>
-        </button>
-    </div>
-  </div>
-</div>
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/perfil.html" profile class="nav-item">
         <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
@@ -74,111 +79,115 @@
       <a href="/src/pages/configbase.html" sino class="nav-item">
         <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
       </a>
+      <button onclick="logout()" class="nav-item logout-btn" title="Sair">SAIR
+      </button>
     </section>
   </div>
- 
 
-    <!-- NAVBAR LATERAL -->
-    <div navbarlateral>
-      <div cursosandamento>
-        <div cardcurso></div>
-        <div cardcurso></div>
-        <div cardcurso></div>
-      </div>
 
-      <div canaisquesigo>
-        <div cardcanal></div>
-        <div cardcanal></div>
-        <div cardcanal></div>
-      </div>
+  <!-- NAVBAR LATERAL -->
+  <div navbarlateral>
+    <div cursosandamento>
+      <div cardcurso></div>
+      <div cardcurso></div>
+      <div cardcurso></div>
     </div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div content>
-   <aside class="sidebar-filtro">
-  <header class="filtro-topo">
-    <h2>FILTROS</h2>
-    <button class="fechar"><img src="/public/imagens/Group 210.png" alt=""></button>
-  </header>
-
-  <div class="filtro-conteudo">
-    <div class="campo">
-      <label>Categoria</label>
-      <select>
-        <option>UI/UX Design</option>
-      </select>
+    <div canaisquesigo>
+      <div cardcanal></div>
+      <div cardcanal></div>
+      <div cardcanal></div>
     </div>
-
-    <div class="campo">
-      <label>Criador</label>
-      <select>
-        <option>Chrystian Allday</option>
-      </select>
-    </div>
-
-    <div class="campo range-campo">
-      <label>score</label>
-      <input type="range" min="1" max="5" value="3">
-      <div class="range-labels">
-        <span>1</span>
-        <span>5</span>
-      </div>
-    </div>
-
-    <div class="skills-header">
-      <span>skills que quero</span>
-      <button class="reset">reset</button>
-    </div>
-
-    <div class="skills-grid">
-      <button>lorem ipsum</button>
-      <button>lorem ipsum</button>
-      <button>lorem ipsum</button>
-      <button>lorem ipsum</button>
-      <button>lorem ipsum</button>
-      <button>lorem ipsum</button>
-    </div>
-
-    <button class="btn-procurar">procurar</button>
   </div>
-</aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div content>
+    <aside class="sidebar-filtro">
+      <header class="filtro-topo">
+        <h2>FILTROS</h2>
+        <button class="fechar"><img src="/public/imagens/Group 210.png" alt=""></button>
+      </header>
+
+      <div class="filtro-conteudo">
+        <div class="campo">
+          <label>Categoria</label>
+          <select>
+            <option>UI/UX Design</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label>Criador</label>
+          <select>
+            <option>Chrystian Allday</option>
+          </select>
+        </div>
+
+        <div class="campo range-campo">
+          <label>score</label>
+          <input type="range" min="1" max="5" value="3">
+          <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+          </div>
+        </div>
+
+        <div class="skills-header">
+          <span>skills que quero</span>
+          <button class="reset">reset</button>
+        </div>
+
+        <div class="skills-grid">
+          <button>lorem ipsum</button>
+          <button>lorem ipsum</button>
+          <button>lorem ipsum</button>
+          <button>lorem ipsum</button>
+          <button>lorem ipsum</button>
+          <button>lorem ipsum</button>
+        </div>
+
+        <button class="btn-procurar">procurar</button>
+      </div>
+    </aside>
 
 
 
     <section class="carrossel-hero">
-    
-    <div class="carrossel-wrapper">
-      <div class="carrossel-slide">
 
-        <img id="curso-img" src="" alt="Curso em alta">
-        <div class="carrossel-overlay">
-              <div class="carrossel-linha1"><h2>CURSO EM ALTA.</h2></div>  
-          <div class="overlay-info">
-            <h3 id="curso-titulo"></h3>
-            <p id="curso-texto"></p>
-            
+      <div class="carrossel-wrapper">
+        <div class="carrossel-slide">
+
+          <img id="curso-img" src="" alt="Curso em alta">
+          <div class="carrossel-overlay">
+            <div class="carrossel-linha1">
+              <h2>CURSO EM ALTA.</h2>
+            </div>
+            <div class="overlay-info">
+              <h3 id="curso-titulo"></h3>
+              <p id="curso-texto"></p>
+
+            </div>
           </div>
         </div>
+
+        <!-- Barras de progresso embaixo -->
+        <div class="carrossel-progress" id="progress-container"></div>
       </div>
-
-      <!-- Barras de progresso embaixo -->
-      <div class="carrossel-progress" id="progress-container"></div>
-    </div>
-  </section>
+    </section>
 
 
-      <section class="secaoconteudo">
+    <section class="secaoconteudo">
 
-        <section class="post-curso">
-      <section class="post-imagem">
+      <section class="post-curso">
+        <section class="post-imagem">
           <img src="/public/imagens/imgtestecardscursos.png" alt="">
           <a href="" class="flecha-post"><img src="/public/imagens/Arrow 3.png" alt=""></a>
-      </section>
-      <section class="postdobra1">
-        <h6>lorem ipsum.</h6>
-        <p>laldj dlkjs aqui anaq</p>
-      </section>
-      <section class="postdobra2">
+        </section>
+        <section class="postdobra1">
+          <h6>lorem ipsum.</h6>
+          <p>laldj dlkjs aqui anaq</p>
+        </section>
+        <section class="postdobra2">
           <section class="post-dobra2-esquerda">
             <p class="avaliacao">SCORE <span>5/5</span></p>
           </section>
@@ -186,20 +195,20 @@
             <p class="promocao">90% OFF <br> /free</p>
             <p class="preco"><strong>10</strong>USD</p>
           </section>
+        </section>
       </section>
-  </section>
 
-        
-  <section class="post-curso">
-      <section class="post-imagem">
+
+      <section class="post-curso">
+        <section class="post-imagem">
           <img src="/public/imagens/imgtestecardscursos.png" alt="">
           <a href="" class="flecha-post"><img src="/public/imagens/Arrow 3.png" alt=""></a>
-      </section>
-      <section class="postdobra1">
-        <h6>lorem ipsum.</h6>
-        <p>laldj dlkjs aqui anaq</p>
-      </section>
-      <section class="postdobra2">
+        </section>
+        <section class="postdobra1">
+          <h6>lorem ipsum.</h6>
+          <p>laldj dlkjs aqui anaq</p>
+        </section>
+        <section class="postdobra2">
           <section class="post-dobra2-esquerda">
             <p class="avaliacao">SCORE <span>5/5</span></p>
           </section>
@@ -207,19 +216,19 @@
             <p class="promocao">90% OFF <br> /free</p>
             <p class="preco"><strong>10</strong>USD</p>
           </section>
+        </section>
       </section>
-  </section>
 
-  <section class="post-curso">
-      <section class="post-imagem">
+      <section class="post-curso">
+        <section class="post-imagem">
           <img src="/public/imagens/imgtestecardscursos.png" alt="">
           <a href="" class="flecha-post"><img src="/public/imagens/Arrow 3.png" alt=""></a>
-      </section>
-      <section class="postdobra1">
-        <h6>lorem ipsum.</h6>
-        <p>laldj dlkjs aqui anaq</p>
-      </section>
-      <section class="postdobra2">
+        </section>
+        <section class="postdobra1">
+          <h6>lorem ipsum.</h6>
+          <p>laldj dlkjs aqui anaq</p>
+        </section>
+        <section class="postdobra2">
           <section class="post-dobra2-esquerda">
             <p class="avaliacao">SCORE <span>5/5</span></p>
           </section>
@@ -227,20 +236,20 @@
             <p class="promocao">90% OFF <br> /free</p>
             <p class="preco"><strong>10</strong>USD</p>
           </section>
+        </section>
       </section>
-  </section>
 
 
-  <section class="post-curso">
-      <section class="post-imagem">
+      <section class="post-curso">
+        <section class="post-imagem">
           <img src="/public/imagens/imgtestecardscursos.png" alt="">
           <a href="" class="flecha-post"><img src="/public/imagens/Arrow 3.png" alt=""></a>
-      </section>
-      <section class="postdobra1">
-        <h6>lorem ipsum.</h6>
-        <p>laldj dlkjs aqui anaq</p>
-      </section>
-      <section class="postdobra2">
+        </section>
+        <section class="postdobra1">
+          <h6>lorem ipsum.</h6>
+          <p>laldj dlkjs aqui anaq</p>
+        </section>
+        <section class="postdobra2">
           <section class="post-dobra2-esquerda">
             <p class="avaliacao">SCORE <span>5/5</span></p>
           </section>
@@ -248,20 +257,20 @@
             <p class="promocao">90% OFF <br> /free</p>
             <p class="preco"><strong>10</strong>USD</p>
           </section>
+        </section>
       </section>
-  </section>
 
 
-  <section class="post-curso">
-      <section class="post-imagem">
+      <section class="post-curso">
+        <section class="post-imagem">
           <img src="/public/imagens/imgtestecardscursos.png" alt="">
           <a href="" class="flecha-post"><img src="/public/imagens/Arrow 3.png" alt=""></a>
-      </section>
-      <section class="postdobra1">
-        <h6>lorem ipsum.</h6>
-        <p>laldj dlkjs aqui anaq</p>
-      </section>
-      <section class="postdobra2">
+        </section>
+        <section class="postdobra1">
+          <h6>lorem ipsum.</h6>
+          <p>laldj dlkjs aqui anaq</p>
+        </section>
+        <section class="postdobra2">
           <section class="post-dobra2-esquerda">
             <p class="avaliacao">SCORE <span>5/5</span></p>
           </section>
@@ -269,20 +278,20 @@
             <p class="promocao">90% OFF <br> /free</p>
             <p class="preco"><strong>10</strong>USD</p>
           </section>
+        </section>
       </section>
-  </section>
 
 
-  <section class="post-curso">
-      <section class="post-imagem">
+      <section class="post-curso">
+        <section class="post-imagem">
           <img src="/public/imagens/imgtestecardscursos.png" alt="">
           <a href="" class="flecha-post"><img src="/public/imagens/Arrow 3.png" alt=""></a>
-      </section>
-      <section class="postdobra1">
-        <h6>lorem ipsum.</h6>
-        <p>laldj dlkjs aqui anaq</p>
-      </section>
-      <section class="postdobra2">
+        </section>
+        <section class="postdobra1">
+          <h6>lorem ipsum.</h6>
+          <p>laldj dlkjs aqui anaq</p>
+        </section>
+        <section class="postdobra2">
           <section class="post-dobra2-esquerda">
             <p class="avaliacao">SCORE <span>5/5</span></p>
           </section>
@@ -290,8 +299,8 @@
             <p class="promocao">90% OFF <br> /free</p>
             <p class="preco"><strong>10</strong>USD</p>
           </section>
+        </section>
       </section>
-  </section>
 
 
       <div navbarinferior>
@@ -300,28 +309,26 @@
           <img src="/public/imagens/Interface  Book_Open.png" alt="">
         </section>
       </div>
-    </div>
-
+  </div>
+  <div class="transition-overlay">
+    <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
+    <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
+    <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
+    <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
+    <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
+  </div>
+  <!-- <iframe id="caderno-do-aluno-iframe"
+    src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec"
+    frameborder="0"
+    style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
+  </iframe> -->
+    <script src="/src/scripts/load-courses.js"></script>
   <script src="/src/scripts/explorar.js"></script>
-  <iframe id="caderno-do-aluno-iframe" 
-        src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
-        frameborder="0" 
-        style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
-</iframe>
 
-<div class="transition-overlay">
-  <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
-  <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
-  <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
-  <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
-  <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
-</div>
   <!-- SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
-  </body>
+</body>
 
-  </html>
-
-
+</html>
