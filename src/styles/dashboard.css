@@ -1,129 +1,255 @@
+.grafico-contribuicoes {
+  background-color: var(--cor-fundo, #0d1117);
+  padding: 40px;
+  border-radius: 20px;
+  margin: 30px;
+  box-shadow: 0 0 25px rgba(3, 0, 182, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.grafico-contribuicoes:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px #ff0000,   /* sombra laranja */
+  0 0 20px #291e46,   /* sombra amarela */
+  inset 0 0 5px #0004ff; /* sombra interna avermelhada */;
+}
 
+.grafico-contribuicoes h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fdfdfd;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #f0f6fc;
-      font-weight: 500;
-    }
+.chart-wrapper {
+  display: flex;
+}
 
-    .chart-wrapper {
-      display: flex;
-    }
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-right: 5px;
+  font-size: 10px;
+  color: #d1d5db;
+}
 
-    .days {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-right: 5px;
-      font-size: 10px;
-      color: #8b949e;
-    }
+.months {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #d1d5db;
+  margin-bottom: 5px;
+  padding: 0 4px;
+}
 
-    .months {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: #8b949e;
-      margin-bottom: 5px;
-      padding: 0 4px;
-    }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 4px;
+  width: max-content;
+  padding: 5px;
+}
 
-    .chart-container {
-      overflow-x: auto;
-      padding-bottom: 10px;
-    }
+.grid-item {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  background-color: #161b22;
+  transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
+}
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(53, 1fr);
-      grid-template-rows: repeat(7, 1fr);
-      gap: 4px;
-      width: max-content;
-      padding: 5px;
-    }
+.grid-item:hover {
+  transform: scale(1.2);
+  border: 1px solid #0003a7;
+  box-shadow: 0 0 10px rgba(0, 59, 168, 0.4);
+  z-index: 2;
+}
 
-    .grid-item {
-      width: 14px;
-      height: 14px;
-      border-radius: 2px;
-      background-color: #161b22;
-      transition: transform 0.2s, border 0.2s;
-    }
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #d1d5db;
+}
 
-    .grid-item:hover {
-      transform: scale(1.2);
-      border: 1px solid white;
-      z-index: 2;
-    }
+.legend-items {
+  display: flex;
+  margin-left: 10px;
+}
 
-    .legend {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      margin-top: 10px;
-      font-size: 12px;
-    }
+.legend-item {
+  width: 14px;
+  height: 14px;
+  margin: 0 2px;
+  border-radius: 2px;
+}
 
-    .legend-items {
-      display: flex;
-      margin-left: 10px;
-    }
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #30363d;
+}
 
-    .legend-item {
-      width: 14px;
-      height: 14px;
-      margin: 0 2px;
-      border-radius: 2px;
-    }
+.stat-item {
+  text-align: center;
+}
 
-    .stats {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid #30363d;
-    }
+.stat-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff00009a;
+  transition: color 0.3s ease;
+}
 
-    .stat-item {
-      text-align: center;
-    }
+.stat-value:hover {
+  color: #000986a8;
+}
 
-    .stat-value {
-      font-size: 22px;
-      font-weight: bold;
-      color: #58a6ff;
-    }
+.stat-label {
+  font-size: 14px;
+  color: #c5c5c5;
+}
 
-    .stat-label {
-      font-size: 14px;
-      color: #8b949e;
-    }
+@media (max-width: 768px) {
+  .grid-item {
+    width: 10px;
+    height: 10px;
+  }
+  .months { font-size: 9px; }
+  .days { font-size: 8px; }
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+.jornada-aluno {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 80px;
+  background-color: #e9ecff; /* fundo OAT */
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #111;
+  width: 85%;
+}
 
-    @media (max-width: 768px) {
-      .grid-item {
-        width: 10px;
-        height: 10px;
-      }
-      .months { font-size: 9px; }
-      .days { font-size: 8px; }
-      .stats {
-        flex-direction: column;
-        gap: 15px;
-      }
-    }
+/* ======== GRÁFICO ======== */
+.grafico-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .tooltip {
-      position: absolute;
-      background-color: rgba(22, 27, 34, 0.95);
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 8px 10px;
-      font-size: 12px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 100;
-      color: #f0f6fc;
-    }
+.grafico {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.grafico svg {
+  transform: rotate(-90deg);
+}
+
+.grafico-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff9f00;
+}
+
+.legenda {
+  margin-left: 30px;
+}
+
+.legenda h2 {
+  font-size: 1.8em;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.legenda p {
+  font-size: 0.9em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.legenda ul {
+  list-style: none;
+  padding: 0;
+}
+
+.legenda li {
+  font-size: 0.95em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cor {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.web { background-color: #ff9f00; }
+.edf { background-color: #ff6600; }
+.pdm { background-color: #ffaa00; }
+.ti { background-color: #ff8c1a; }
+
+/* ======== CARD TAREFAS ======== */
+.card-tarefas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffb000;
+  color: #000;
+  border-radius: 14px;
+  padding: 25px 40px;
+  box-shadow: 0 0 10px #ffb00080, 0 0 25px #ffaa00a0;
+  transition: transform 0.3s ease;
+}
+
+.card-tarefas:hover {
+  transform: scale(1.02);
+}
+
+.numero {
+  font-size: 80px;
+  font-weight: 900;
+}
+
+.info {
+  text-align: left;
+}
+
+.porcentagem {
+  color: #0020ff;
+  font-weight: bold;
+  margin: 0;
+  font-size: 18px;
+}
+
+.descricao {
+  font-size: 15px;
+  margin: 0;
+}
+
+.seta {
+  font-size: 60px;
+  font-weight: 700;
+  color: white;
+}
+
