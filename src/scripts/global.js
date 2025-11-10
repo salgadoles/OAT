@@ -60,7 +60,6 @@
   }
 
   function init() {
-    console.log("js inicializado ronaldo");
     document.addEventListener("click", onDocumentClick, true);
     document.addEventListener("keydown", onDocumentKeydown, true);
   }
@@ -411,4 +410,24 @@ class VoiceSearch {
 // Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
   new VoiceSearch();
+});
+// Funções globais
+function logout() {
+    // Implementação do logout
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+}
+
+// Outras funções globais
+function algumaFuncaoGlobal() {
+    // ...
+}
+
+// Transition functions
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded');
+    
+    // Seu código de transições...
+    const links = document.querySelectorAll('a[data-transition]');
+    console.log(`Links encontrados: ${links.length}`);
 });
