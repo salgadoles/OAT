@@ -1,68 +1,430 @@
-/* ==========================
-   GRID PRINCIPAL DE 3 COLUNAS
-========================== */
-.grade-principal {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  height: 100%;
+.mapa-jornada {
+  position: relative;
   width: 100%;
-  padding: 2rem;
-  gap: 1.5rem;
-  box-sizing: border-box;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
 }
 
-/* Coluna do meio (vazia) */
-.coluna-central {
-  background: transparent;
-  border-radius: 10px;
-}
-
-/* ==========================
-   SUBGRIDS LATERAIS
-========================== */
-.subgrid-lado {
+/* ===== CÉU MAIOR E MELHOR ESTRUTURADO ===== */
+.ceu {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0.8rem;
-  border-radius: 15px;
-  padding: 0.8rem;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: clamp(250px, 35vh, 400px);
+  background: #000;
+  padding: 0 clamp(30px, 10vw, 150px);
+  position: relative;
+  z-index: 1;
 }
 
-/* Cada quadradinho (você pode colocar conteúdo neles) */
-.subgrid-lado .quadrado {
-  aspect-ratio: 1 / 1;
-  border-radius: 8px;
+.nuvem {
+  filter: grayscale(1) brightness(1.2);
+  animation: moverNuvem 40s linear infinite alternate;
+}
+
+.nuvem.n1 {
+  width: clamp(200px, 30vw, 350px);
+  justify-self: start;
+}
+
+.nuvem.n2 {
+  width: clamp(120px, 20vw, 250px);
+  justify-self: end;
+  animation-duration: 45s;
+  animation-direction: alternate-reverse;
+}
+
+.sol img {
+  width: clamp(120px, 25vw, 280px);
+  height: auto;
+  filter: brightness(1.1);
+}
+
+@keyframes moverNuvem {
+  0% { transform: translateX(-40px) translateY(5px); }
+  100% { transform: translateX(40px) translateY(-5px); }
+}
+
+/* ===== CASA MAIOR ===== */
+.inicio {
+  text-align: center;
+  margin-top: clamp(-50px, -8vh, -40px);
+  color: white;
+  z-index: 10;
+  position: relative;
+}
+
+.inicio img { 
+  width: clamp(250px, 40vw, 450px); 
+  filter: grayscale(1) contrast(1.3); 
+}
+
+.inicio h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-top: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ===== ESTRADA CENTRAL MELHORADA ===== */
+.jornada-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  position: relative;
+  margin-top: clamp(40px, 8vh, 80px);
+  min-height: 2000px;
+}
+
+/* ===== LATERAIS COM GRID IRREGULAR NATURAL ===== */
+.coluna-lado {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: min-content;
+  gap: clamp(20px, 8vh, 60px) clamp(10px, 3vw, 30px);
+  padding: 0 clamp(15px, 4vw, 50px);
+  align-content: start;
+  height: fit-content;
+}
+
+/* Posicionamento irregular usando grid areas */
+.coluna-lado.esquerda {
+  grid-template-areas: 
+    "elemento1 ."
+    ". elemento2"
+    "elemento3 ."
+    ". elemento4"
+    "elemento5 ."
+    ". elemento6"
+    "elemento7 ."
+    ". elemento8";
+}
+
+.coluna-lado.direita {
+  grid-template-areas: 
+    ". elemento1"
+    "elemento2 ."
+    ". elemento3"
+    "elemento4 ."
+    ". elemento5"
+    "elemento6 ."
+    ". elemento7"
+    "elemento8 .";
+}
+
+/* Atribuição das áreas */
+.coluna-lado.esquerda .elemento:nth-child(1) { grid-area: elemento1; justify-self: start; }
+.coluna-lado.esquerda .elemento:nth-child(2) { grid-area: elemento2; justify-self: end; }
+.coluna-lado.esquerda .elemento:nth-child(3) { grid-area: elemento3; justify-self: start; }
+.coluna-lado.esquerda .elemento:nth-child(4) { grid-area: elemento4; justify-self: end; }
+.coluna-lado.esquerda .elemento:nth-child(5) { grid-area: elemento5; justify-self: start; }
+.coluna-lado.esquerda .elemento:nth-child(6) { grid-area: elemento6; justify-self: end; }
+.coluna-lado.esquerda .elemento:nth-child(7) { grid-area: elemento7; justify-self: start; }
+.coluna-lado.esquerda .elemento:nth-child(8) { grid-area: elemento8; justify-self: end; }
+
+.coluna-lado.direita .elemento:nth-child(1) { grid-area: elemento1; justify-self: end; }
+.coluna-lado.direita .elemento:nth-child(2) { grid-area: elemento2; justify-self: start; }
+.coluna-lado.direita .elemento:nth-child(3) { grid-area: elemento3; justify-self: end; }
+.coluna-lado.direita .elemento:nth-child(4) { grid-area: elemento4; justify-self: start; }
+.coluna-lado.direita .elemento:nth-child(5) { grid-area: elemento5; justify-self: end; }
+.coluna-lado.direita .elemento:nth-child(6) { grid-area: elemento6; justify-self: start; }
+.coluna-lado.direita .elemento:nth-child(7) { grid-area: elemento7; justify-self: end; }
+.coluna-lado.direita .elemento:nth-child(8) { grid-area: elemento8; justify-self: start; }
+
+/* Elementos com transformações para naturalidade */
+.coluna-lado .elemento {
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.coluna-lado .elemento:hover {
+  transform: scale(1.15) rotate(2deg);
+  z-index: 5;
+}
+
+/* Rotação e posicionamento orgânico */
+.coluna-lado.esquerda .elemento:nth-child(odd) { transform: rotate(-3deg); }
+.coluna-lado.esquerda .elemento:nth-child(even) { transform: rotate(2deg); }
+.coluna-lado.direita .elemento:nth-child(odd) { transform: rotate(3deg); }
+.coluna-lado.direita .elemento:nth-child(even) { transform: rotate(-2deg); }
+
+/* Tamanhos diferentes para os elementos */
+.elemento.pequeno img {
+  width: clamp(40px, 8vw, 90px);
+}
+
+.elemento.medio img {
+  width: clamp(60px, 12vw, 140px);
+}
+
+.elemento.grande img {
+  width: clamp(90px, 18vw, 200px);
+}
+
+/* ===== ESTRADA CENTRAL REDESENHADA ===== */
+/* ===== ESTRADA COM IMAGEM REAL NO HTML ===== */
+.estrada-central {
+  position: relative;
+  width: clamp(220px, 38vw, 400px);
+  min-height: 2000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.estrada-inicio-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
+.estrada-percurso {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/imagens/estradapercurso.png');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: contain;
+  z-index: 1;
+}
+
+.estrada-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 20%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.05) 60%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 2;
+}
+
+.cards-jornada {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(100px, 22vh, 220px);
+  margin-top: 400px; /* Ajuste este valor conforme a altura da sua imagem inicial */
+  z-index: 3;
+  position: relative;
+  width: 100%;
+}
+
+/* ===== CADERNOS MELHOR POSICIONADOS ===== */
+.cards-jornada {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(100px, 22vh, 220px);
+  margin-top: clamp(80px, 15vh, 150px);
+  z-index: 3;
+  position: relative;
+  width: 100%;
+}
+
+.card-jornada {
+  width: clamp(70px, 14vw, 140px);
+  height: clamp(90px, 18vw, 180px);
+  position: relative;
   transition: all 0.3s ease;
   cursor: pointer;
-}
-
-.quadrado img{
-    width: 100%;
-}
-
-.subgrid-lado .quadrado:hover {
-  transform: scale(1.05);
-}
-
-/* Específico para cada lado */
-.subgrid-esquerda {
-  justify-items: center;
+  background: transparent;
+  border: none;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.subgrid-direita {
-  justify-items: center;
+.card-jornada:hover {
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(0 5px 15px rgba(255,255,255,0.2));
+}
+
+.card-jornada img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Estados dos cadernos */
+.card-jornada[data-status="bloqueado"] img {
+  filter: grayscale(1) brightness(0.3);
+  cursor: not-allowed;
+}
+
+.card-jornada[data-status="concluido"]::after {
+  content: "✓";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 22px;
+  height: 22px;
+  background: limegreen;
+  border-radius: 50%;
+  color: white;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 4;
+  border: 2px solid white;
 }
 
-.coluna-central {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: repeat(4,1fr);
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
+.card-jornada[data-status="bloqueado"]::after {
+  content: "🔒";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  z-index: 4;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.9));
 }
 
+/* Posições zig-zag melhoradas */
+[data-pos="esquerda"] { 
+  align-self: flex-start; 
+  margin-left: clamp(-25px, -5vw, -50px);
+  transform: rotate(-5deg);
+}
 
+[data-pos="centro"] { 
+  align-self: center; 
+  transform: rotate(2deg);
+}
+
+[data-pos="direita"] { 
+  align-self: flex-end; 
+  margin-right: clamp(-25px, -5vw, -50px);
+  transform: rotate(5deg);
+}
+
+.card-jornada:hover {
+  transform: scale(1.1) rotate(0deg) translateY(-5px);
+}
+
+/* ===== MODAL DO CADERNO ===== */
+.modal-caderno {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px) brightness(0.6);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-caderno.ativo {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-conteudo {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-conteudo img {
+  width: auto;
+  height: auto;
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(255,255,255,0.1));
+}
+
+.fechar-modal {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: bold;
+  z-index: 10001;
+  transition: all 0.3s ease;
+}
+
+.fechar-modal:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: black;
+  transform: scale(1.1);
+}
+
+/* ===== BOTÃO TELA CHEIA ===== */
+.btn-tela-cheia {
+  position: fixed;
+  top: clamp(25px, 5vh, 50px);
+  right: clamp(35px, 5vw, 70px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  border-radius: 12px;
+  padding: clamp(10px, 1.5vh, 16px) clamp(14px, 2vw, 28px);
+  cursor: pointer;
+  font-size: clamp(20px, 3vw, 32px);
+  z-index: 2000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btn-tela-cheia:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.15);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .ceu {
+    height: clamp(180px, 25vh, 250px);
+    padding: 0 20px;
+  }
+  
+  .coluna-lado {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
+  
+  .estrada-central {
+    width: clamp(150px, 60vw, 300px);
+  }
+}

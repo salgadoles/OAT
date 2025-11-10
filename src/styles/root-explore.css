@@ -495,3 +495,43 @@ html, body {
   opacity: 0;
   transform: scale(1.1);
 }
+
+
+
+.btn-tela-cheia {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.btn-tela-cheia:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Modo tela cheia */
+.fullscreen-mode [navbarsuperior],
+.fullscreen-mode [navbarlateral],
+.fullscreen-mode [navbarinferior],
+.fullscreen-mode iframe {
+  display: none !important;
+}
+
+.fullscreen-mode [content] {
+  position: fixed !important;
+  inset: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  z-index: 5000;
+  background-color: black;
+  transition: all 0.5s ease;
+}
