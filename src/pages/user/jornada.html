@@ -98,45 +98,99 @@
       <button voltar><img src="/public/imagens/Vector (2).png" alt=""></button>
     </section>
 
+<button id="btnTelaCheia" class="btn-tela-cheia">⛶</button>
 
-    <div class="grade-principal">
-  <!-- Subgrid Esquerda -->
-  <div class="subgrid-lado subgrid-esquerda">
-    <div class="quadrado" id="q1"><img src="/public/imagens/player.png" alt=""></div>
-    <div class="quadrado" id="q2"></div>
-    <div class="quadrado" id="q3"></div>
-    <div class="quadrado" id="q4"></div>
-    <div class="quadrado" id="q5"></div>
-    <div class="quadrado" id="q6"></div>
-    <div class="quadrado" id="q7"></div>
-    <div class="quadrado" id="q8"></div>
-    <div class="quadrado" id="q9"></div>
-  </div>
+<section class="mapa-jornada">
 
-  <!-- Coluna Central (vazia) -->
-  <div class="coluna-central">
-    <div class="linhasecentral-esquerda">
-        cardcanal
+  <!-- CAMADA 1: CÉU -->
+  <div class="ceu">
+    <div class="nuvens">
+      <img src="/public/imagens/nuvemmaiorsol.png" alt="Nuvem" class="nuvem n1">
     </div>
-    <div class="linhasecentral-centro"></div>
-    <div class="linhasecentral-direita"></div>
+    <div class="sol">
+      <img src="/public/imagens/sol (2).png" alt="Sol">
+    </div>
+    <div class="nuvens">
+      <img src="/public/imagens/nuvemmenorsol.png" alt="Nuvem" class="nuvem n2">
+    </div>
   </div>
 
-  <!-- Subgrid Direita -->
-  <div class="subgrid-lado subgrid-direita">
-    <div class="quadrado" id="d1"></div>
-    <div class="quadrado" id="d2"></div>
-    <div class="quadrado" id="d3"></div>
-    <div class="quadrado" id="d4"></div>
-    <div class="quadrado" id="d5"></div>
-    <div class="quadrado" id="d6"></div>
-    <div class="quadrado" id="d7"></div>
-    <div class="quadrado" id="d8"></div>
-    <div class="quadrado" id="d9"></div>
+  <!-- CAMADA 2: CASA -->
+  <div class="inicio">
+    <img src="/public/imagens/casa.png" alt="Casa do Aluno">
+    <h2>Início da Jornada</h2>
+  </div>
+
+  <!-- CAMADA 3: ESTRADA -->
+  <div class="jornada-container">
+
+    <!-- Coluna Esquerda -->
+    <div class="coluna-lado esquerda">
+      <div class="elemento medio"><img src="/public/imagens/cacto.png" alt="Cacto"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
+      <div class="elemento medio"><img src="/public/imagens/cactogordo.png" alt="Cacto Gordo"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/grama1.png" alt="Grama"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/cacto.png" alt="Cacto"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
+    </div>
+
+    <!-- Estrada Central -->
+    <div class="estrada-central">
+      <img src="/public/imagens/estradainicio.png" alt="Início da Estrada" class="estrada-inicio-img">
+      <div class="estrada-percurso"></div>
+      <div class="estrada-overlay"></div>
+      
+      <div class="cards-jornada">
+        <div class="card-jornada" data-pos="esquerda" data-status="concluido" data-modulo="1">
+          <img src="/public/imagens/livro1fechado.png" alt="Módulo 1">
+        </div>
+        <div class="card-jornada" data-pos="centro" data-status="aberto" data-modulo="2">
+          <img src="/public/imagens/livro2fechado.png" alt="Módulo 2">
+        </div>
+        <div class="card-jornada" data-pos="direita" data-status="concluido" data-modulo="3">
+          <img src="/public/imagens/livro3fechado.png" alt="Módulo 3">
+        </div>
+        <div class="card-jornada" data-pos="centro" data-status="bloqueado" data-modulo="4">
+          <img src="/public/imagens/livro4fechado.png" alt="Módulo 4">
+        </div>
+        <div class="card-jornada" data-pos="esquerda" data-status="bloqueado" data-modulo="5">
+          <img src="/public/imagens/livro1fechado.png" alt="Módulo 5">
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna Direita -->
+    <div class="coluna-lado direita">
+      <div class="elemento medio"><img src="/public/imagens/cacto.png" alt="Cacto"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
+      <div class="elemento medio"><img src="/public/imagens/cactogordo.png" alt="Cacto Gordo"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/grama1.png" alt="Grama"></div>
+      <div class="elemento medio"><img src="/public/imagens/cactogordo.png" alt="Cacto Gordo"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODAL PARA CADERNO ABERTO -->
+<div id="modalCaderno" class="modal-caderno">
+  <div class="modal-conteudo">
+    <button class="fechar-modal">&times;</button>
+    <img id="imagemCadernoAberto" src="" alt="Caderno Aberto">
   </div>
 </div>
 
-
+<!-- MODAL PARA CADERNO ABERTO -->
+<div id="modalCaderno" class="modal-caderno">
+  <div class="modal-conteudo">
+    <button class="fechar-modal">&times;</button>
+    <img id="imagemCadernoAberto" src="" alt="Caderno Aberto">
+  </div>
+</div>
 
     <div navbarinferior>
       <section iconsferramentas>
@@ -162,5 +216,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
+  <script src="/src/scripts/jornada.js"></script>
 </body>
 </html>
