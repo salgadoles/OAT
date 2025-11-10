@@ -72,7 +72,7 @@ function initializeClassCards() {
                 // Determina a ação baseada no ícone
                 const isUsersIcon = this.querySelector('.fa-users');
                 const isShareIcon = this.querySelector('.fa-share');
-                
+               
                 if (isUsersIcon) {
                     handleUsersAction(card);
                 } else if (isShareIcon) {
@@ -80,13 +80,13 @@ function initializeClassCards() {
                 }
             });
         });
-        
+       
         // Efeito de hover aprimorado
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-6px)';
             this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.4)';
         });
-        
+       
         card.addEventListener('mouseleave', function() {
             this.style.transform = '';
             this.style.boxShadow = '';
@@ -99,7 +99,7 @@ function handleUsersAction(card) {
     console.log('Visualizando alunos da:', turmaName);
     // Simula abertura de modal de alunos
     showNotification(`Visualizando alunos da ${turmaName}`);
-    
+   
     // Aqui você pode implementar um modal real
     // showStudentsModal(turmaName);
 }
@@ -107,7 +107,7 @@ function handleUsersAction(card) {
 function handleShareAction(card) {
     const turmaName = card.querySelector('.class-title').textContent;
     console.log('Compartilhando:', turmaName);
-    
+   
     // Simula funcionalidade de compartilhamento
     if (navigator.share) {
         navigator.share({
@@ -121,12 +121,12 @@ function handleShareAction(card) {
         showNotification('Link copiado para a área de transferência!');
     }
 }
-
+ 
 // Menu do usuário
 function initializeUserMenu() {
     const userMenu = document.querySelector('.user-menu');
     const settingsIcon = document.querySelector('.settings-icon');
-    
+   
     if (userMenu) {
         userMenu.addEventListener('click', function() {
             // Animação de clique
@@ -134,15 +134,15 @@ function initializeUserMenu() {
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
-            
+           
             console.log('User menu clicked');
             showNotification('Menu do usuário');
-            
+           
             // Aqui você pode implementar um dropdown menu
             // toggleUserDropdown();
         });
     }
-    
+   
     if (settingsIcon) {
         settingsIcon.addEventListener('click', function() {
             // Animação de rotação
@@ -151,21 +151,21 @@ function initializeUserMenu() {
             setTimeout(() => {
                 icon.style.transform = '';
             }, 300);
-            
+           
             console.log('Settings clicked');
             showNotification('Configurações');
-            
+           
             // Aqui você pode implementar as configurações
             // openSettingsModal();
         });
     }
 }
-
+ 
 // Botões de ação
 function initializeActionButtons() {
     const btnPrimary = document.querySelector('.btn-primary');
     const btnSecondary = document.querySelector('.btn-secondary');
-    
+   
     if (btnPrimary) {
         btnPrimary.addEventListener('click', function() {
             // Animação de clique
@@ -173,10 +173,10 @@ function initializeActionButtons() {
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
-            
+           
             console.log('Create account clicked');
             showNotification('Redirecionando para criação de conta...');
-            
+           
             // Simula redirecionamento
             setTimeout(() => {
                 // window.location.href = '/register';
@@ -184,7 +184,7 @@ function initializeActionButtons() {
             }, 1000);
         });
     }
-    
+   
     if (btnSecondary) {
         btnSecondary.addEventListener('click', function() {
             // Animação de clique
@@ -192,10 +192,10 @@ function initializeActionButtons() {
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
-            
+           
             console.log('Continue with Google clicked');
             showNotification('Conectando com Google...');
-            
+           
             // Simula autenticação com Google
             setTimeout(() => {
                 // Implementar OAuth do Google aqui
@@ -204,7 +204,7 @@ function initializeActionButtons() {
         });
     }
 }
-
+ 
 // Animações e efeitos visuais
 function initializeAnimations() {
     // Observador de interseção para animações de entrada
@@ -212,7 +212,7 @@ function initializeAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+   
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -221,7 +221,7 @@ function initializeAnimations() {
             }
         });
     }, observerOptions);
-    
+   
     // Observa elementos para animação
     const animatedElements = document.querySelectorAll('.class-card, .hero-content, .action-bar');
     animatedElements.forEach(el => {
@@ -230,30 +230,30 @@ function initializeAnimations() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-    
+   
     // Efeito de paralaxe sutil no hero
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const heroSection = document.querySelector('.hero-section');
-        
+       
         if (heroSection) {
             const rate = scrolled * -0.5;
             heroSection.style.transform = `translateY(${rate}px)`;
         }
     });
 }
-
+ 
 // Recursos responsivos
 function initializeResponsiveFeatures() {
     // Detecta mudanças de orientação e redimensionamento
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
-    
+   
     function handleResize() {
         // Ajusta layout baseado no tamanho da tela
         const width = window.innerWidth;
         const classesGrid = document.querySelector('.classes-grid');
-        
+       
         if (classesGrid) {
             if (width <= 480) {
                 classesGrid.style.gridTemplateColumns = '1fr';
@@ -265,14 +265,14 @@ function initializeResponsiveFeatures() {
                 classesGrid.style.gridTemplateColumns = 'repeat(4, 1fr)';
             }
         }
-        
+       
         console.log('Layout adjusted for width:', width);
     }
-    
+   
     // Chama uma vez para configuração inicial
     handleResize();
 }
-
+ 
 // Funções utilitárias
 function showNotification(message, duration = 3000) {
     // Remove notificação existente se houver
@@ -280,12 +280,12 @@ function showNotification(message, duration = 3000) {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+   
     // Cria nova notificação
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
-    
+   
     // Estilos da notificação
     Object.assign(notification.style, {
         position: 'fixed',
@@ -304,14 +304,14 @@ function showNotification(message, duration = 3000) {
         maxWidth: '300px',
         wordWrap: 'break-word'
     });
-    
+   
     document.body.appendChild(notification);
-    
+   
     // Animação de entrada
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+   
     // Remove após duração especificada
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
@@ -363,28 +363,28 @@ function initializeAccessibility() {
     const focusableElements = document.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
-    
+   
     focusableElements.forEach(element => {
         element.addEventListener('focus', function() {
             this.style.outline = '2px solid #4a90e2';
             this.style.outlineOffset = '2px';
         });
-        
+       
         element.addEventListener('blur', function() {
             this.style.outline = '';
             this.style.outlineOffset = '';
         });
     });
 }
-
+ 
 // Inicializa acessibilidade
 initializeAccessibility();
-
+ 
 // Funcionalidades de performancee
 function optimizePerformance() {
     // Lazy loading para imagens (se houver)
     const images = document.querySelectorAll('img[data-src]');
-    
+   
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -396,21 +396,21 @@ function optimizePerformance() {
                 }
             });
         });
-        
+       
         images.forEach(img => imageObserver.observe(img));
     }
-    
+   
     // Debounce para eventos de scrollllll e resize
     let scrollTimeout;
     let resizeTimeout;
-    
+   
     window.addEventListener('scroll', function() {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
             // Lógica de scroll otimizada
         }, 16); // ~60fps
     });
-    
+   
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
@@ -418,10 +418,10 @@ function optimizePerformance() {
         }, 250);
     });
 }
-
+ 
 // Inicializa otimizações de performance
 optimizePerformance();
-
+ 
 // Estado da aplicaçãoes
 const appState = {
     currentUser: null,
@@ -433,7 +433,7 @@ const appState = {
 function updateAppState(key, value) {
     appState[key] = value;
     console.log('App state updated:', key, value);
-    
+   
     // Salva no localStorage para persistência
     localStorage.setItem('oat_app_state', JSON.stringify(appState));
 }
@@ -447,15 +447,15 @@ function loadAppState() {
 }
 // Carrega estado na inicialização
 loadAppState();
-
+ 
 // Funcionalidades de tema (para futuras implementaçõesssss)
 function toggleTheme() {
     const currentTheme = appState.theme;
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+   
     document.body.classList.remove(`theme-${currentTheme}`);
     document.body.classList.add(`theme-${newTheme}`);
-    
+   
     updateAppState('theme', newTheme);
     showNotification(`Tema alterado para ${newTheme === 'dark' ? 'escuro' : 'claro'}`);
 }
@@ -467,3 +467,48 @@ window.OATApp = {
     appState
 };
 console.log('OAT Platform JavaScript loaded successfully');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Interatividade da lista de atividades
+    const activityItems = document.querySelectorAll('.activity-item');
+    activityItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const title = item.querySelector('.activity-title').textContent;
+            alert(`Você clicou na atividade: "${title}".`);
+        });
+    });
+ 
+    // 2. Interatividade do botão "Criar Atividade"
+    const createActivityBtn = document.querySelector('.create-activity-btn');
+    if (createActivityBtn) {
+        createActivityBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que o clique se propague para outros elementos
+            alert('Funcionalidade: Abrir modal/formulário para criar nova atividade.');
+        });
+    }
+ 
+    // 3. Interatividade da barra de ferramentas (apenas o botão de envio)
+    const sendButtonTop = document.querySelector('.top-message-bar .send-button');
+    if (sendButtonTop) {
+        sendButtonTop.addEventListener('click', () => {
+            const input = document.querySelector('.top-message-bar input');
+            if (input.value.trim() !== "") {
+                alert(`Mensagem enviada: "${input.value}"`);
+                input.value = ''; // Limpa o campo
+            } else {
+                alert('Digite uma mensagem para enviar.');
+            }
+        });
+    }
+ 
+    // 4. Interatividade da barra de ferramentas inferior (simulação de clique)
+    const toolbarButtons = document.querySelectorAll('.editor-toolbar button');
+    toolbarButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const icon = button.querySelector('i');
+            if (icon) {
+                alert(`Ícone clicado: ${icon.className}`);
+            }
+        });
+    });
+});
