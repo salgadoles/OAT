@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAT | Canal da Turma</title>
+  <link rel="stylesheet" href="/src/styles/root.css">
+  <link rel="stylesheet" href="/src/styles/canal_turma.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Canal.css">
+</head>
+<body base>
+    <div navbarsuperior class="navbar-superior">
+        <section iconesnavtop class="icones-navtop">
+          <a href="/src/pages/user/dashboard.html" logo class="nav-item">
+            <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
+          </a>
+          <a href="/src/pages/user/explorar.html" explorar class="nav-item">
+            <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
+          </a>
+        </section>
+        <section iconesnavtop class="icones-navtop">
+          <a href="/src/pages/user/perfil.html" profile class="nav-item">
+            <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
+          </a>
+          <a href="/src/pages/configbase.html" sino class="nav-item">
+            <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
+          </a>
+        </section>
+      </div>
+    
+      <!-- NAVBAR LATERAL -->
+      <div navbarlateral>
+        <div cursosandamento>
+          <div cardcurso ><a href="CanalDeCursoDesing.html"><img src="/public/imagens/download (2) 1.png" alt=""></a></div>
+          <div cardcurso><img src="CanalDeCurso IA.html" alt=""></div>
+          <div cardcurso><img src="CanalDeCursoTI.html" alt=""></div>
+        </div>
+        <div canaisquesigo>
+          <div cardcanal></div>
+          <div cardcanal></div>
+          <div cardcanal></div>
+        </div>
+      </div>
+    
+    </header>
+  <!-- CONTEÚDO PRINCIPAL -->
+   <div content>
+  <main class="conteudo-canal">
+    <header class="topo-canal">
+      <img src="/public/imagens/download (5).jpg" alt="Banner do Curso" class="banner-canal">
+      <div class="infos-canal">
+        <h1>Canal da Turma - Web Design</h1>
+        <p>Espaço dedicado para conversas sobre as aulas, tirar dúvidas e compartilhar ideias com o professor.</p>
+      </div>
+    </header>
+
+    <section class="postar">
+      <textarea placeholder="Compartilhe uma dúvida ou comentário..." class="input-post"></textarea>
+      <button class="btn-enviar">Enviar</button>
+    </section>
+
+    <section class="feed-posts">
+      <div class="post">
+        <div class="perfil">
+          <img src="/public/imagens/casa.png" alt="Aluno" class="foto">
+          <div class="info">
+            <h3>José Walter</h3>
+            <span>há 2h</span>
+          </div>
+        </div>
+        <p class="texto-post">Professor, fiquei com dúvida sobre o posicionamento dos elementos no flexbox. Poderia explicar novamente?</p>
+      </div>
+
+      <div class="post professor">
+        <div class="perfil">
+          <img src="/public/imagens/heart.png" alt="Professor" class="foto">
+          <div class="info">
+            <h3>Prof. Leonardo</h3>
+            <span>há 1h</span>
+          </div>
+        </div>
+        <p class="texto-post">Claro, José! O flexbox controla alinhamento e espaçamento dos itens dentro do container. Amanhã revisamos com exemplos práticos 😉</p>
+      </div>
+    </section>
+  </main>
+  
+</div>
+  <script src="/src/scripts/transition.js"></script>
+</body>
+</html>

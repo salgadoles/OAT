@@ -1,0 +1,351 @@
+body {
+    background-color: #0d0d0f;
+    color: #f1f1f1;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+  }
+  
+  /* NAVBAR LATERAL */
+  .navbar-lateral {
+    width: 220px;
+    background-color: #101014;
+    padding: 25px;
+    border-right: 2px solid #1f1f23;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .titulo-lateral {
+    font-weight: 600;
+    color: #888;
+    font-size: 0.9em;
+  }
+  
+  .canal-item {
+    text-decoration: none;
+    color: #d0d0d0;
+    background: #18181c;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .canal-item:hover {
+    background-color: #252530;
+    color: #ff3b3b;
+  }
+  
+  .canal-item.ativo {
+    background-color: #ff3b3b;
+    color: white;
+  }
+  
+  /* CONTEÚDO */
+  .conteudo-canal {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .topo-canal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .banner-canal {
+    width: 220px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 0 10px #0033ff, 0 0 25px #ff3b3b80;
+  }
+  
+  .infos-canal h1 {
+    font-size: 1.8em;
+    color: #fff;
+  }
+  
+  .infos-canal p {
+    color: #aaa;
+    max-width: 600px;
+  }
+  
+  /* POSTAGEM */
+  .postar {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .input-post {
+    flex: 1;
+    background: #18181c;
+    color: #fff;
+    border: 1px solid #2d2d34;
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
+    height: 80px;
+  }
+  
+  .btn-enviar {
+    background: linear-gradient(135deg, #ff3b3b, #0033ff);
+    border: none;
+    border-radius: 10px;
+    padding: 0 25px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .btn-enviar:hover {
+    transform: scale(1.05);
+  }
+  
+  /* FEED */
+  .feed-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .post {
+    background-color: #151518;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(255, 59, 59, 0.1);
+  }
+  
+  .post.professor {
+    border-left: 4px solid #0033ff;
+  }
+  
+  .perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .foto {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  body {
+    background-color: #0d0d0f;
+    color: #f1f1f1;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+  }
+  
+  /* NAVBAR LATERAL */
+  .navbar-lateral {
+    width: 220px;
+    background-color: #101014;
+    padding: 25px;
+    border-right: 2px solid #1f1f23;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .titulo-lateral {
+    font-weight: 600;
+    color: #888;
+    font-size: 0.9em;
+  }
+  
+  .canal-item {
+    text-decoration: none;
+    color: #d0d0d0;
+    background: #18181c;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .canal-item:hover {
+    background-color: #252530;
+    color: #ff3b3b;
+  }
+  
+  .canal-item.ativo {
+    background-color: #ff3b3b;
+    color: white;
+  }
+  
+  /* CONTEÚDO */
+  .conteudo-canal {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .topo-canal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .banner-canal {
+    width: 220px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 0 10px #0033ff, 0 0 25px #ff3b3b80;
+  }
+  
+  .infos-canal h1 {
+    font-size: 1.8em;
+    color: #fff;
+  }
+  
+  .infos-canal p {
+    color: #aaa;
+    max-width: 600px;
+  }
+  
+  /* POSTAGEM */
+  .postar {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .input-post {
+    flex: 1;
+    background: #18181c;
+    color: #fff;
+    border: 1px solid #2d2d34;
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
+    height: 80px;
+  }
+  
+  .btn-enviar {
+    background: linear-gradient(135deg, #ff3b3b, #0033ff);
+    border: none;
+    border-radius: 10px;
+    padding: 0 25px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .btn-enviar:hover {
+    transform: scale(1.05);
+  }
+  
+  /* FEED */
+  .feed-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .post {
+    background-color: #151518;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(255, 59, 59, 0.1);
+  }
+  
+  .post.professor {
+    border-left: 4px solid #0033ff;
+  }
+  
+  .perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .foto {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .info h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .info span {
+    font-size: 0.8em;
+    color: #888;
+  }
+  
+  .texto-post {
+    color: #ddd;
+    line-height: 1.4em;
+    font-size: 0.95em;
+  }
+  
+  .info h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .info span {
+    font-size: 0.8em;
+    color: #888;
+  }
+  
+  .texto-post {
+    color: #ddd;
+    line-height: 1.4em;
+    font-size: 0.95em;
+  }
+  
+.postar {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .input-post {
+    flex: 1;
+    background: #18181c;
+    color: #fff;
+    border: 1px solid #2d2d34;
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
+    height: 80px;
+    transition: border-color 0.2s;
+  }
+  
+  .input-post:focus {
+    border-color: #0033ff;
+    outline: none;
+  }
+  
+  .btn-enviar {
+    background: linear-gradient(135deg, #ff3b3b, #0033ff);
+    border: none;
+    border-radius: 10px;
+    padding: 0 25px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    height: 80px;
+    transition: transform 0.2s ease, box-shadow 0.2s;
+  }
+  
+  .btn-enviar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px #ff3b3b, 0 0 24px #0033ff;
+  }
+  
