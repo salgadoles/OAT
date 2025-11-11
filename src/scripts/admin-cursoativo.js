@@ -1,6 +1,3 @@
-// admin-three.js
-// Renderiza o shader como fundo animado vermelho-cartunesco dentro de #content
-
 (function(){
   const container = document.getElementById('content');
   if(!container){
@@ -8,7 +5,6 @@
     return;
   }
 
-  // ===== Renderer =====
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.domElement.style.position = 'absolute';
@@ -21,11 +17,9 @@
   container.style.position = container.style.position || 'absolute';
   container.appendChild(renderer.domElement);
 
-  // ===== Cena e câmera =====
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-  // ===== Uniforms =====
   const uniforms = {
     u_time: { value: 0.0 },
     u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
@@ -34,7 +28,6 @@
     u_clickRipple: { value: 0.0 }
   };
 
-  // ===== Shader =====
   const frag = `
   precision highp float;
   uniform vec2 u_resolution;
@@ -93,10 +86,10 @@
     float ring = smoothstep(radius*0.45, radius*0.4, r + 0.06*fbm(p*8.0 + u_time*0.5));
 
     // ===== CORES CARTUNESCAS (vermelho → laranja → amarelo) =====
-    vec3 core  = vec3(1.0, 0.1, 0.0);   // vermelho forte
-    vec3 mid   = vec3(1.0, 0.4, 0.0);   // laranja vibrante
-    vec3 outer = vec3(0.05, 0.0, 0.0);  // bordas avermelhadas escuras
-    vec3 glow  = vec3(1.0, 0.9, 0.2);   // brilho amarelado quente
+    vec3 core  = vec3(1.0, 0.1, 0.0);  
+    vec3 mid   = vec3(1.0, 0.4, 0.0);   
+    vec3 outer = vec3(0.05, 0.0, 0.0); 
+    vec3 glow  = vec3(1.0, 0.9, 0.2);   
 
     float noiseMask = smoothstep(0.0, 1.0, fbm(p*2.5 + u_time*0.25) * 0.6 + 0.4);
     float t = clamp(1.0 - r / (radius*1.6 ) + 0.08*noiseMask, 0.0, 1.0);
@@ -116,7 +109,6 @@
   }
   `;
 
-  // ===== Material e mesh =====
   const mat = new THREE.ShaderMaterial({
     fragmentShader: frag,
     uniforms: uniforms,
@@ -128,7 +120,6 @@
   const mesh = new THREE.Mesh(geom, mat);
   scene.add(mesh);
 
-  // ===== Ajuste dinâmico (viewport real) =====
   function fitToScreen(){
     const w = window.innerWidth;
     const h = window.innerHeight;
@@ -139,7 +130,6 @@
   fitToScreen();
   window.addEventListener('resize', fitToScreen);
 
-  // ===== Mouse =====
   let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
   let mouseSmoothed = { x: mouse.x, y: mouse.y };
   const lerp = (a,b,t) => a + (b-a) * t;
@@ -155,7 +145,6 @@
     uniforms.u_clickRipple.value = 1.0;
   });
 
-  // ===== Loop =====
   const clock = new THREE.Clock();
   function tick(){
     const t = clock.getElapsedTime();
