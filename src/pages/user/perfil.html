@@ -100,10 +100,16 @@
     </section>
 
     <section class="contentperfil">
-      <section class="conteudodeimg">
-        <section class="banner"></section>
-        <section class="fotodeperfil"></section>
-      </section>
+      <section class="banner" id="banner">
+  <input type="file" id="inputBanner" accept="image/*" hidden>
+  <button id="btnBanner" class="btn-editar">Alterar Banner</button>
+</section>
+
+<section class="fotodeperfil" id="fotoPerfil">
+  <input type="file" id="inputFotoPerfil" accept="image/*" hidden>
+  <button id="btnFotoPerfil" class="btn-editar">Alterar Foto</button>
+</section>
+
 
       <section class="dobra1">
         <section class="dobra1-esquerda">
@@ -193,5 +199,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
+  <script src="/src/scripts/perfil.js"></script>
 </body>
 </html>
