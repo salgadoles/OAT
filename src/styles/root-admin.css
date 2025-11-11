@@ -485,7 +485,7 @@ label {
 
 .btn {
     background-color: #000;
-    padding: 5px;
+    padding: 10px 20px;
     border-radius: 20px;
     color: #fafafa;
     outline: none;
@@ -493,7 +493,7 @@ label {
 }
 
 .btn:hover {
-    box-shadow: 0px 2px 10px 0px #7a7a7a;
+    box-shadow: 0px 2px 10px 0px #000000;
 }
 
 #content{
