@@ -10,6 +10,8 @@
   
   <link rel="stylesheet" href="/src/styles/root.css">
   <link rel="stylesheet" href="/src/styles/dashboard.css">
+  <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+
 </head>
 
 <body base>
@@ -215,6 +217,26 @@
       });
     });
   </script>
+<!-- ===== MODAL ===== -->
+<div id="editor-modal" class="editor-modal">
+  <div class="editor-header">
+    <span>Playground VSCode-like</span>
+    <div>
+      <button id="add-file">＋</button>
+      <button id="run-code">▶</button>
+      <button id="close-editor">✖</button>
+    </div>
+  </div>
 
+  <div class="editor-body">
+    <aside class="sidebar">
+      <ul id="file-list"></ul>
+    </aside>
+    <div class="workspace">
+      <div id="monaco-editor" class="editor-container"></div>
+      <iframe id="preview-frame" class="preview"></iframe>
+    </div>
+  </div>
+</div>
 </body>
 </html>

@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="/src/styles/root-explore.css">
   <link rel="stylesheet" href="/src/styles/jornada.css">
   <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
+  <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
 </head>
 <body base>
 
-  <!-- NAVBAR SUPERIOR -->
    <div navbarsuperior class="navbar-superior">
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/dashboard.html" logo class="nav-item">
@@ -76,7 +76,6 @@
     </section>
   </div>
 
-  <!-- NAVBAR LATERAL -->
   <div navbarlateral>
     <div cursosandamento>
       <div cardcurso ><a href="/src/pages/professor/CanalDeCursoDesing.html"><img src="/public/imagens/2017-04-27-dicas-para-se-destacar-como-designer-grafico.webp" alt=""></a></div>
@@ -91,92 +90,178 @@
     </div>
   </div>
 
-  <!-- CONTEÚDO PRINCIPAL -->
   <div content>
 
-    <section class="btnvoltar" botaovoltar>
+   
+<section class="mapa-jornada">
+
+  <section class="btnvoltar" botaovoltar>
       <button voltar><img src="/public/imagens/Vector (2).png" alt=""></button>
     </section>
 
 <button id="btnTelaCheia" class="btn-tela-cheia">⛶</button>
 
-<section class="mapa-jornada">
 
-  <!-- CAMADA 1: CÉU -->
   <div class="ceu">
     <div class="nuvens">
-      <img src="/public/imagens/nuvemmaiorsol.png" alt="Nuvem" class="nuvem n1">
+      <img src="/public/imagens/nuvemmaiorlua.png" alt="Nuvem" class="nuvem n1">
     </div>
     <div class="sol">
-      <img src="/public/imagens/sol (2).png" alt="Sol">
+      <img src="/public/imagens/lua.png" alt="Sol">
     </div>
     <div class="nuvens">
-      <img src="/public/imagens/nuvemmenorsol.png" alt="Nuvem" class="nuvem n2">
+      <img src="/public/imagens/nuvemmenorlua.png" alt="Nuvem" class="nuvem n2">
     </div>
   </div>
 
-  <!-- CAMADA 2: CASA -->
-  <div class="inicio">
+  <section class="dobrainicial">
+    <div class="inicio">
     <img src="/public/imagens/casa.png" alt="Casa do Aluno">
-    <h2>Início da Jornada</h2>
+   
   </div>
-
-  <!-- CAMADA 3: ESTRADA -->
+  <section class="prejornada">
+     <img src="/public/imagens/placajornadadoaluno.png" alt="">
+  </section>
+  </section>
   <div class="jornada-container">
 
-    <!-- Coluna Esquerda -->
     <div class="coluna-lado esquerda">
-      <div class="elemento medio"><img src="/public/imagens/cacto.png" alt="Cacto"></div>
-      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
-      <div class="elemento medio"><img src="/public/imagens/cactogordo.png" alt="Cacto Gordo"></div>
-      <div class="elemento pequeno"><img src="/public/imagens/grama1.png" alt="Grama"></div>
-      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
-      <div class="elemento medio"><img src="/public/imagens/cacto.png" alt="Cacto"></div>
-      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
-      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+       <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Feno"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Cacto"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramadepe2.png" alt="Feno"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Feno"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Cacto"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramadepe2.png" alt="Feno"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+        <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
     </div>
 
-    <!-- Estrada Central -->
     <div class="estrada-central">
-      <img src="/public/imagens/estradainicio.png" alt="Início da Estrada" class="estrada-inicio-img">
       <div class="estrada-percurso"></div>
       <div class="estrada-overlay"></div>
-      
+     
       <div class="cards-jornada">
         <div class="card-jornada" data-pos="esquerda" data-status="concluido" data-modulo="1">
           <img src="/public/imagens/livro1fechado.png" alt="Módulo 1">
         </div>
-        <div class="card-jornada" data-pos="centro" data-status="aberto" data-modulo="2">
+        <div class="card-jornada" data-pos="centro" data-status="concluido" data-modulo="2">
           <img src="/public/imagens/livro2fechado.png" alt="Módulo 2">
         </div>
         <div class="card-jornada" data-pos="direita" data-status="concluido" data-modulo="3">
           <img src="/public/imagens/livro3fechado.png" alt="Módulo 3">
         </div>
-        <div class="card-jornada" data-pos="centro" data-status="bloqueado" data-modulo="4">
+        <div class="card-jornada" data-pos="centro" data-status="concluido" data-modulo="4">
           <img src="/public/imagens/livro4fechado.png" alt="Módulo 4">
         </div>
-        <div class="card-jornada" data-pos="esquerda" data-status="bloqueado" data-modulo="5">
-          <img src="/public/imagens/livro1fechado.png" alt="Módulo 5">
+        <div class="card-jornada" data-pos="esquerda" data-status="concluido" data-modulo="5">
+          <img src="/public/imagens/livro5fechado.png" alt="Módulo 5">
+        </div>
+
+       <div class="card-jornada" data-pos="esquerda" data-status="concluido" data-modulo="6">
+          <img src="/public/imagens/livro6fechado.png" alt="Módulo 6">
+        </div>
+        <div class="card-jornada" data-pos="centro" data-status="aberto" data-modulo="7">
+          <img src="/public/imagens/livro7fechado.png" alt="Módulo 7">
+        </div>
+        <div class="card-jornada" data-pos="direita" data-status="bloqueado" data-modulo="8">
+          <img src="/public/imagens/livro8fechado.png" alt="Módulo 8">
+        </div>
+        <div class="card-jornada" data-pos="centro" data-status="bloqueado" data-modulo="9">
+          <img src="/public/imagens/livro9fechado.png" alt="Módulo 9">
+        </div>
+        <div class="card-jornada" data-pos="esquerda" data-status="bloqueado" data-modulo="10">
+          <img src="/public/imagens/livro10fechado.png" alt="Módulo 10">
         </div>
       </div>
     </div>
 
-    <!-- Coluna Direita -->
     <div class="coluna-lado direita">
-      <div class="elemento medio"><img src="/public/imagens/cacto.png" alt="Cacto"></div>
-      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
-      <div class="elemento medio"><img src="/public/imagens/cactogordo.png" alt="Cacto Gordo"></div>
-      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
-      <div class="elemento pequeno"><img src="/public/imagens/grama1.png" alt="Grama"></div>
-      <div class="elemento medio"><img src="/public/imagens/cactogordo.png" alt="Cacto Gordo"></div>
-      <div class="elemento pequeno"><img src="/public/imagens/feno.png" alt="Feno"></div>
-      <div class="elemento grande"><img src="/public/imagens/arvoreseca.png" alt="Árvore Seca"></div>
-    </div>
-
+       <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+       <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Feno"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Cacto"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramadepe2.png" alt="Feno"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+          <div class="elemento medio"><img src="/public/imagens/gramadepe2.png" alt="Feno"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+      <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Feno"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Cacto"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramadepe2.png" alt="Feno"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+        <div class="elemento pequeno"><img src="/public/imagens/gramadepe1.png" alt="Grama"></div>
+       <div class="elemento grande"><img src="/public/imagens/arvoreseca (2).png" alt="Árvore Seca"></div>
+      <div class="elemento medio"><img src="/public/imagens/gramabaixadepe.png" alt="Árvore Seca"></div>
+      <div class="elemento pequeno"><img src="/public/imagens/gramadepe2.png" alt="Grama"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/cacto1.png" alt="Árvore Seca"></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/gramabaixadepe.png" alt=""></div>
+      <div class="elemento medio-alto"><img src="/public/imagens/feno.png" alt="Cacto"></div>
+          <div class="elemento medio"><img src="/public/imagens/gramadepe2.png" alt="Feno"></div>
   </div>
 </section>
 
-<!-- MODAL PARA CADERNO ABERTO -->
 <div id="modalCaderno" class="modal-caderno">
   <div class="modal-conteudo">
     <button class="fechar-modal">&times;</button>
@@ -184,7 +269,6 @@
   </div>
 </div>
 
-<!-- MODAL PARA CADERNO ABERTO -->
 <div id="modalCaderno" class="modal-caderno">
   <div class="modal-conteudo">
     <button class="fechar-modal">&times;</button>
@@ -199,11 +283,34 @@
       </section>
     </div>
   </div>
-  <iframe id="caderno-do-aluno-iframe" 
-        src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
-        frameborder="0" 
+  <iframe id="caderno-do-aluno-iframe"
+        src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec"
+        frameborder="0"
         style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
 </iframe>
+
+<!-- ===== MODAL ===== -->
+<div id="editor-modal" class="editor-modal">
+  <div class="editor-header">
+    <span>Playground VSCode-like</span>
+    <div>
+      <button id="add-file">＋</button>
+      <button id="run-code">▶</button>
+      <button id="close-editor">✖</button>
+    </div>
+  </div>
+
+  <div class="editor-body">
+    <aside class="sidebar">
+      <ul id="file-list"></ul>
+    </aside>
+    <div class="workspace">
+      <div id="monaco-editor" class="editor-container"></div>
+      <iframe id="preview-frame" class="preview"></iframe>
+    </div>
+  </div>
+</div>
+
 
 <div class="transition-overlay">
   <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
@@ -212,10 +319,12 @@
   <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
   <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
 </div>
-  <!-- SCRIPTS -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
   <script src="/src/scripts/jornada.js"></script>
 </body>
 </html>
+
+

@@ -406,28 +406,102 @@ class VoiceSearch {
     }
   }
 }
-
-// Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
   new VoiceSearch();
 });
-// Funções globais
 function logout() {
-    // Implementação do logout
     localStorage.removeItem('token');
     window.location.href = '/login';
 }
 
-// Outras funções globais
 function algumaFuncaoGlobal() {
     // ...
 }
 
-// Transition functions
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
     
-    // Seu código de transições...
     const links = document.querySelectorAll('a[data-transition]');
     console.log(`Links encontrados: ${links.length}`);
 });
+
+
+
+
+
+require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' } });
+
+let editorInstance;
+let files = {
+  "index.html": { language: "html", content: "<h1>Hello!</h1>" },
+  "style.css": { language: "css", content: "h1 { color: green; }" },
+  "script.js": { language: "javascript", content: "console.log('Rodando!');" }
+};
+let currentFile = "index.html";
+
+const modal = document.getElementById('editor-modal');
+const previewFrame = document.getElementById('preview-frame');
+const fileList = document.getElementById('file-list');
+
+function openEditor() {
+  modal.style.display = 'flex';
+  renderFileList();
+
+  require(['vs/editor/editor.main'], function() {
+    editorInstance = monaco.editor.create(document.getElementById('monaco-editor'), {
+      value: files[currentFile].content,
+      language: files[currentFile].language,
+      theme: 'vs-dark',
+      automaticLayout: true,
+      fontSize: 14,
+      minimap: { enabled: false }
+    });
+  });
+}
+
+function renderFileList() {
+  fileList.innerHTML = '';
+  Object.keys(files).forEach(filename => {
+    const li = document.createElement('li');
+    li.textContent = filename;
+    li.className = filename === currentFile ? 'active' : '';
+    li.onclick = () => switchFile(filename);
+    fileList.appendChild(li);
+  });
+}
+
+function switchFile(filename) {
+  files[currentFile].content = editorInstance.getValue(); 
+  currentFile = filename;
+  editorInstance.setValue(files[filename].content);
+  monaco.editor.setModelLanguage(editorInstance.getModel(), files[filename].language);
+  renderFileList();
+}
+
+function runCode() {
+  const html = files['index.html']?.content || '';
+  const css = `<style>${files['style.css']?.content || ''}</style>`;
+  const js = `<script>${files['script.js']?.content || ''}<\/script>`;
+  previewFrame.srcdoc = html + css + js;
+}
+
+function addFile() {
+  const name = prompt("Nome do arquivo (ex: script.py)");
+  if (name && !files[name]) {
+    const ext = name.split('.').pop();
+    const language = {
+      html: "html", css: "css", js: "javascript",
+      py: "python", c: "c", cpp: "cpp", java: "java"
+    }[ext] || "plaintext";
+
+    files[name] = { language, content: "" };
+    renderFileList();
+  }
+}
+
+document.getElementById('close-editor').onclick = () => modal.style.display = 'none';
+document.getElementById('add-file').onclick = addFile;
+document.getElementById('run-code').onclick = runCode;
+
+// vincula à imagem System Code
+document.querySelector('img[src="/public/imagens/System  Code.png"]').onclick = openEditor;
