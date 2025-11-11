@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layout com 3 Navbars e Scroll Lateral</title>
-  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="/src/styles/root.css">
   <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
-
+<script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
 </head>
 <body base>
 
@@ -54,11 +54,49 @@
       </section>
     </div>
   </div>
-  <iframe id="caderno-do-aluno-iframe" 
-        src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
-        frameborder="0" 
-        style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
-</iframe>
+<!-- ===== MODAL ===== -->
+<div id="editor-modal" class="editor-modal">
+  <div class="editor-header">
+    <span>Playground VSCode-like</span>
+    <div>
+      <button id="add-file">＋</button>
+      <button id="run-code">▶</button>
+      <button id="close-editor">✖</button>
+    </div>
+  </div>
+
+  <div class="editor-body">
+    <aside class="sidebar">
+      <ul id="file-list"></ul>
+    </aside>
+    <div class="workspace">
+      <div id="monaco-editor" class="editor-container"></div>
+      <iframe id="preview-frame" class="preview"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div id="editor-modal" class="editor-modal">
+  <div class="editor-header">
+    <span>Playground VSCode-like</span>
+    <div>
+      <button id="add-file">＋</button>
+      <button id="run-code">▶</button>
+      <button id="close-editor">✖</button>
+    </div>
+  </div>
+
+  <div class="editor-body">
+    <aside class="sidebar">
+      <ul id="file-list"></ul>
+    </aside>
+    <div class="workspace">
+      <div id="monaco-editor" class="editor-container"></div>
+      <iframe id="preview-frame" class="preview"></iframe>
+    </div>
+  </div>
+</div>
 
 <div class="transition-overlay">
   <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
@@ -72,5 +110,4 @@
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
 </body>
-
 </html>
