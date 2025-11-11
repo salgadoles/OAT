@@ -427,8 +427,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
 require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' } });
 
 let editorInstance;
@@ -442,21 +440,27 @@ let currentFile = "index.html";
 const modal = document.getElementById('editor-modal');
 const previewFrame = document.getElementById('preview-frame');
 const fileList = document.getElementById('file-list');
+let editorLoaded = false;
 
 function openEditor() {
-  modal.style.display = 'flex';
+  modal.classList.add('active');
   renderFileList();
 
-  require(['vs/editor/editor.main'], function() {
-    editorInstance = monaco.editor.create(document.getElementById('monaco-editor'), {
-      value: files[currentFile].content,
-      language: files[currentFile].language,
-      theme: 'vs-dark',
-      automaticLayout: true,
-      fontSize: 14,
-      minimap: { enabled: false }
+  if (!editorLoaded) {
+    require(['vs/editor/editor.main'], function () {
+      editorInstance = monaco.editor.create(document.getElementById('monaco-editor'), {
+        value: files[currentFile].content,
+        language: files[currentFile].language,
+        theme: 'vs-dark',
+        automaticLayout: true,
+        fontSize: 14,
+        minimap: { enabled: false },
+      });
+      editorLoaded = true;
     });
-  });
+  } else {
+    editorInstance.setValue(files[currentFile].content);
+  }
 }
 
 function renderFileList() {
@@ -471,7 +475,8 @@ function renderFileList() {
 }
 
 function switchFile(filename) {
-  files[currentFile].content = editorInstance.getValue(); 
+  if (!editorInstance) return;
+  files[currentFile].content = editorInstance.getValue();
   currentFile = filename;
   editorInstance.setValue(files[filename].content);
   monaco.editor.setModelLanguage(editorInstance.getModel(), files[filename].language);
@@ -479,6 +484,9 @@ function switchFile(filename) {
 }
 
 function runCode() {
+  if (!editorInstance) return;
+  files[currentFile].content = editorInstance.getValue();
+
   const html = files['index.html']?.content || '';
   const css = `<style>${files['style.css']?.content || ''}</style>`;
   const js = `<script>${files['script.js']?.content || ''}<\/script>`;
@@ -499,9 +507,11 @@ function addFile() {
   }
 }
 
-document.getElementById('close-editor').onclick = () => modal.style.display = 'none';
+// === BOTÕES E EVENTOS ===
+document.getElementById('close-editor').onclick = () => modal.classList.remove('active');
 document.getElementById('add-file').onclick = addFile;
 document.getElementById('run-code').onclick = runCode;
 
-// vincula à imagem System Code
-document.querySelector('img[src="/public/imagens/System  Code.png"]').onclick = openEditor;
+// === ABRIR PELO BOTÃO/IMAGEM ===
+const openBtn = document.querySelector('img[src="/public/imagens/System  Code.png"]');
+if (openBtn) openBtn.addEventListener('click', openEditor);
