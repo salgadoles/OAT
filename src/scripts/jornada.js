@@ -5,26 +5,26 @@ const cardsJornada = document.querySelectorAll('.card-jornada');
 
 function abrirCaderno(card) {
   const status = card.getAttribute('data-status');
-  
+ 
   if (status === 'bloqueado') {
     return;
   }
-  
+ 
   const modulo = card.getAttribute('data-modulo');
   const imagemFechada = card.querySelector('img').src;
-  
+ 
   const imagemAberta = imagemFechada.replace('fechado', 'aberto');
-  
+ 
   console.log('Abrindo caderno:', { modulo, status, imagemAberta });
-  
+ 
   imagemCadernoAberto.src = imagemAberta;
   imagemCadernoAberto.alt = `Caderno do Módulo ${modulo} - Aberto`;
-  
+ 
   imagemCadernoAberto.onerror = function() {
     console.warn('Imagem aberta não encontrada, usando fallback');
     imagemCadernoAberto.src = '/public/imagens/placeholder-caderno-aberto.png';
   };
-  
+ 
   modalCaderno.classList.add('ativo');
   document.body.style.overflow = 'hidden';
 }
@@ -61,7 +61,7 @@ document.addEventListener('keydown', (e) => {
 window.addEventListener('scroll', () => {
   const estradaPercurso = document.querySelector('.estrada-percurso');
   const scrollTop = window.scrollY;
-  
+ 
   if (estradaPercurso) {
     estradaPercurso.style.backgroundPositionY = `${scrollTop * 0.3}px`;
   }
@@ -69,15 +69,15 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Jornada do aluno inicializada!');
-  
+ 
   const elementos = document.querySelectorAll('.coluna-lado .elemento');
-  
+ 
   elementos.forEach(elemento => {
     const img = elemento.querySelector('img');
     const src = img.src.toLowerCase();
-    
+   
     elemento.classList.remove('pequeno', 'medio', 'grande');
-    
+   
     if (src.includes('grama')) {
       elemento.classList.add('pequeno');
     } else if (src.includes('feno')) {
@@ -91,3 +91,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('popup-pergaminho');
+    const fechar = document.getElementById('fecharPergaminho');
+
+    // aparece toda vez
+    setTimeout(() => {
+      popup.classList.add('ativo');
+    }, 600);
+
+    fechar.addEventListener('click', () => {
+      popup.classList.remove('ativo');
+    });
+  });
+
+
