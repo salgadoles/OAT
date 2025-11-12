@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>OAT | Spinner</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/src/styles/spinner.css'>
+    <script src='main.js'></script>
+    <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
+</head>
+<body>
+
+<section class="content">
+    <div class="loader" loader1>
+  <svg viewBox="0 0 80 80">
+    <circle r="32" cy="40" cx="40" id="test"></circle>
+  </svg>
+</div>
+
+<div class="loader triangle" loader2>
+  <svg viewBox="0 0 86 80">
+    <polygon points="43 8 79 72 7 72"></polygon>
+  </svg>
+</div>
+
+<div class="loader" loader3>
+  <svg viewBox="0 0 80 80">
+    <rect height="64" width="64" y="8" x="8"></rect>
+  </svg>
+</div>
+</section>
+
+<script>
+  setTimeout(() => {
+    window.location.href = "/src/pages/user/jornada.html"; 
+  }, 2000);
+</script>
+
+</body>
+</html>
