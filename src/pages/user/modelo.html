@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layout com 3 Navbars e Scroll Lateral</title>
-  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="/src/styles/root.css">
   <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
-
+<script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
 </head>
 <body base>
 
@@ -33,9 +33,9 @@
   <!-- NAVBAR LATERAL -->
   <div navbarlateral>
     <div cursosandamento>
-      <div cardcurso></div>
-      <div cardcurso></div>
-      <div cardcurso></div>
+     <div cardcurso ><a href="/src/pages/professor/CanalDeCursoDesing.html"><img src="/public/imagens/2017-04-27-dicas-para-se-destacar-como-designer-grafico.webp" alt=""></a></div>
+      <div cardcurso><a href="/src/pages/professor/CanalDeCursoTI.html"><img src="/public/imagens/images.png" alt=""></a></div>
+      <div cardcurso><a href="/src/pages/professor/CanalDeCursoBanco.html"><img src="/public/imagens/Sem título.jpeg" alt=""></a></div>
     </div>
 
     <div canaisquesigo>
@@ -54,6 +54,29 @@
       </section>
     </div>
   </div>
+<!-- ===== MODAL CODESPACE ===== -->
+<div id="editor-modal" class="editor-modal">
+  <div class="editor-header">
+    <span>CODE SPACE</span>
+    <div>
+      <button id="add-file">＋</button>
+      <button id="run-code">▶</button>
+      <button id="close-editor">✖</button>
+    </div>
+  </div>
+
+  <div class="editor-body">
+    <aside class="sidebar">
+      <ul id="file-list"></ul>
+    </aside>
+
+    <div class="workspace">
+      <div id="monaco-editor" class="editor-container"></div>
+      <iframe id="preview-frame" class="preview"></iframe>
+    </div>
+  </div>
+</div>
+
   <iframe id="caderno-do-aluno-iframe" 
         src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
         frameborder="0" 
@@ -72,5 +95,4 @@
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
 </body>
-
 </html>

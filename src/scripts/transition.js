@@ -95,3 +95,41 @@ function addTestButton() {
   });
   document.body.appendChild(testButton);
 }
+
+  const btnEnviar = document.querySelector(".btn-enviar");
+  const inputPost = document.querySelector(".input-post");
+  const feedPosts = document.querySelector(".feed-posts");
+
+  btnEnviar.addEventListener("click", () => {
+    const texto = inputPost.value.trim();
+    if (texto === "") return; // impede post vazio
+
+    // Criar estrutura do novo post
+    const novoPost = document.createElement("div");
+    novoPost.classList.add("post");
+
+    novoPost.innerHTML = `
+      <div class="perfil">
+        <img src="/public/imagens/profile_default.png" alt="Aluno" class="foto">
+        <div class="info">
+          <h3>José Walter</h3>
+          <span>agora mesmo</span>
+        </div>
+      </div>
+      <p class="texto-post">${texto}</p>
+    `;
+
+    // Adiciona o post no início do feed
+    feedPosts.prepend(novoPost);
+
+    // Limpa o campo
+    inputPost.value = "";
+  });
+
+  // Permite enviar com Enter + Ctrl
+  inputPost.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && e.ctrlKey) {
+      btnEnviar.click();
+    }
+  });
+

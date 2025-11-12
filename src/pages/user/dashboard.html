@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>OAT | Tela Inicial</title>
-  <!-- CSP para permitir o carregamento do iframe do Google Apps Script -->
+
+  <!-- CSP -->
   <meta http-equiv="Content-Security-Policy" content="frame-src https://script.google.com;">
-  <link rel="stylesheet" href="/src/styles/dashboard.css">
+  
   <link rel="stylesheet" href="/src/styles/root.css">
+  <link rel="stylesheet" href="/src/styles/dashboard.css">
+  <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+
 </head>
+
 <body base>
 
   <!-- NAVBAR SUPERIOR -->
@@ -35,9 +39,9 @@
   <!-- NAVBAR LATERAL -->
   <div navbarlateral>
     <div cursosandamento>
-      <div cardcurso></div>
-      <div cardcurso></div>
-      <div cardcurso></div>
+      <div cardcurso ><a href="/src/pages/professor/CanalDeCursoDesing.html"><img src="/public/imagens/2017-04-27-dicas-para-se-destacar-como-designer-grafico.webp" alt=""></a></div>
+      <div cardcurso><a href="/src/pages/professor/CanalDeCursoTI.html"><img src="/public/imagens/images.png" alt=""></a></div>
+      <div cardcurso><a href="/src/pages/professor/CanalDeCursoBanco.html"><img src="/public/imagens/Sem título.jpeg" alt=""></a></div>
     </div>
     <div canaisquesigo>
       <div cardcanal></div>
@@ -45,49 +49,196 @@
       <div cardcanal></div>
     </div>
   </div>
+  
 
   <!-- CONTEÚDO PRINCIPAL -->
   <div content>
     <section class="sec1">
       <section class="linha1">
-        <section class="linha1-direita">
+        <section class="linha1-direita" >
           <h1>BEM VINDO DE VOLTA, SALGADO.</h1>
-          <p>analise suas metricas.</p>
+          <p>Analise suas métricas e seu progresso.</p>
         </section>
         <section class="linha1-esquerda"></section>
       </section>
     </section>
-
-    <section class="linha2">
-      <section class="linha2-direita"></section>
-      <section class="linha2-direita"></section>
+    <section class="jornada-aluno">
+      <div class="grafico-container">
+        <div class="grafico">
+          <svg width="160" height="160" viewBox="0 0 36 36" class="donut">
+            <circle class="donut-ring" cx="18" cy="18" r="15.9155" fill="transparent" stroke="#2b2b2b" stroke-width="3" />
+            <circle class="donut-segment" cx="18" cy="18" r="15.9155" fill="transparent" stroke="#ff9f00" stroke-width="3" stroke-dasharray="25 75" stroke-dashoffset="0" />
+            <circle class="donut-segment" cx="18" cy="18" r="15.9155" fill="transparent" stroke="#ff6600" stroke-width="3" stroke-dasharray="25 75" stroke-dashoffset="25" />
+            <circle class="donut-segment" cx="18" cy="18" r="15.9155" fill="transparent" stroke="#ffaa00" stroke-width="3" stroke-dasharray="25 75" stroke-dashoffset="50" />
+          </svg>
+          <span class="grafico-texto">10h</span>
+        </div>
+    
+        <div class="legenda">
+          <h2>Jornada do aluno.</h2>
+          <p>horas semanais estudadas</p>
+          <ul>
+            <li><span class="cor web"></span> Web Design – 1h05</li>
+            <li><span class="cor edf"></span> EDF – 2h05</li>
+            <li><span class="cor pdm"></span> PDM – 1h25</li>
+            <li><span class="cor ti"></span> TI – 1h15</li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="card-tarefas">
+        <div class="numero">14</div>
+        <div class="info">
+          <p class="porcentagem">📘 8%</p>
+          <p class="descricao">tarefas a fazer.</p>
+        </div>
+        <div class="seta">→</div>
+      </div>
     </section>
+    
+    <!-- GRÁFICO DE CONTRIBUIÇÕES -->
+     
+    <section class="grafico-contribuicoes">
+      <h1 class="animar-titulo">Atividades Recentes</h1>
 
+      <div class="chart-container">
+        <div class="months">
+          <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span>
+          <span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span><span>Nov</span>
+        </div>
+        <div class="chart-wrapper">
+          <div class="days">
+            <span>Dom</span>
+            <span>Ter</span>
+            <span>Qui</span>
+            <span>Sáb</span>
+          </div>
+          <div class="grid-container" id="grafico"></div>
+        </div>
+      </div>
+
+      <div class="legend animar-legenda">
+        <span>Menos ativo</span>
+        <div class="legend-items">
+          <div class="legend-item" style="background-color: #44444d;"></div>
+          <div class="legend-item" style="background-color: #2d1bd1;"></div>
+          <div class="legend-item" style="background-color: #1f22e0;"></div>
+          <div class="legend-item" style="background-color: #2427f1;"></div>
+          <div class="legend-item" style="background-color: #4753ff;"></div>
+        </div>
+        <span>Mais ativo</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value" data-valor="24">0</div>
+          <div class="stat-label">Dias Ativos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-valor="5">0</div>
+          <div class="stat-label">Projetos em Curso</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-valor="89">0%</div>
+          <div class="stat-label">Desempenho</div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- NAVBAR INFERIOR -->
     <div navbarinferior>
       <section iconsferramentas>
         <img src="/public/imagens/System  Code.png" alt="">
         <img src="/public/imagens/Interface  Book_Open.png" alt="">
-      
       </section>
     </div>
+
+    <!-- CADERNO DO ALUNO -->
     <iframe id="caderno-do-aluno-iframe" 
         src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
         frameborder="0" 
-        style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
-</iframe>
-
+        style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1);">
+    </iframe>
   </div>
-<div class="transition-overlay">
-  <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
-  <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
-  <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
-  <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
-  <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
-</div>
+
+  <!-- TRANSIÇÕES VISUAIS -->
+  <div class="transition-overlay">
+    <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
+    <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
+    <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
+    <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
+    <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
+  </div>
+
   <!-- SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
   <script src="/src/scripts/global.js"></script>
   <script src="/src/scripts/integracao_caderno.js"></script>
+
+  <!-- SCRIPT DE ANIMAÇÃO -->
+  <script>
+    // GERA O GRÁFICO COM CORES ALEATÓRIAS
+    const grafico = document.getElementById('grafico');
+    const colors = ['#44444d', '#2d1bd1', '#1f22e0', '#2427f1', '#4753ff'];
+    for (let i = 0; i < 7 * 53; i++) {
+      const div = document.createElement('div');
+      div.classList.add('grid-item');
+      div.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      grafico.appendChild(div);
+    }
+
+    // GSAP ANIMAÇÕES
+    window.addEventListener('load', () => {
+      gsap.from(".animar-titulo", { y: -30, opacity: 0, duration: 1 });
+      gsap.from(".grid-item", {
+        opacity: 0,
+        scale: 0.6,
+        stagger: { amount: 2.5, grid: "auto", from: "random" },
+        duration: 0.6,
+        ease: "back.out(1.7)"
+      });
+      gsap.from(".animar-legenda", { opacity: 0, y: 20, duration: 1.2, delay: 2 });
+
+      // Contagem animada dos números
+      document.querySelectorAll(".stat-value").forEach(el => {
+        const valor = parseInt(el.dataset.valor);
+        gsap.to(el, {
+          innerText: valor,
+          duration: 2,
+          delay: 1,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+          onUpdate: () => {
+            if (el.textContent.includes("%")) el.textContent = Math.floor(el.textContent) + "%";
+          }
+        });
+      });
+    });
+  </script>
+<!-- ===== MODAL CODESPACE ===== -->
+<div id="editor-modal" class="editor-modal">
+  <div class="editor-header">
+    <span>CODE SPACE</span>
+    <div>
+      <button id="add-file">＋</button>
+      <button id="run-code">▶</button>
+      <button id="close-editor">✖</button>
+    </div>
+  </div>
+
+  <div class="editor-body">
+    <aside class="sidebar">
+      <ul id="file-list"></ul>
+    </aside>
+
+    <div class="workspace">
+      <div id="monaco-editor" class="editor-container"></div>
+      <iframe id="preview-frame" class="preview"></iframe>
+    </div>
+  </div>
+</div>
+<script src="/src/scripts/global.js"></script>
 </body>
 </html>
