@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Vídeo - OAT</title>
+    <link rel="stylesheet" href="/src/styles/professor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/styles/curseProfessor.css">
+    <link rel="stylesheet" href="/src/styles/root.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text"><img src="/public/imagens/Group%207.png" alt="OAT"></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar</span>
+                </a>
+            </nav>
+        </div>
+        <div class="header-center">
+            <div class="breadcrumb">
+                <span id="courseInitials">CD</span>
+                <div class="breadcrumb-text">
+                    <div>Adicionar Vídeo</div>
+                    <div id="courseTitleShort">Carregando...</div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-percentage">Sair</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="form-container">
+            <div class="form-header">
+                <h1><i class="fas fa-video"></i> Adicionar Novo Vídeo</h1>
+                <p>Preencha as informações do vídeo para seu curso</p>
+            </div>
+
+            <form id="videoForm" class="video-form">
+                <div class="form-section">
+                    <h3>Informações Básicas</h3>
+                    
+                    <div class="form-group">
+                        <label for="videoTitle">Título do Vídeo *</label>
+                        <input type="text" id="videoTitle" name="title" required 
+                               placeholder="Ex: Introdução ao JavaScript">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="videoDescription">Descrição</label>
+                        <textarea id="videoDescription" name="description" rows="3"
+                                  placeholder="Descreva o conteúdo deste vídeo..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="videoUrl">URL do Vídeo *</label>
+                            <input type="url" id="videoUrl" name="url" required 
+                                   placeholder="https://www.youtube.com/watch?v=...">
+                            <small class="form-help">YouTube, Vimeo, ou link direto para arquivo de vídeo</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="videoDuration">Duração (minutos) *</label>
+                            <input type="number" id="videoDuration" name="duration" required 
+                                   min="1" placeholder="Ex: 15">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="videoOrder">Ordem no Curso *</label>
+                            <input type="number" id="videoOrder" name="order" required 
+                                   min="1" placeholder="Ex: 1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="videoThumbnail">Thumbnail (URL)</label>
+                            <input type="url" id="videoThumbnail" name="thumbnail" 
+                                   placeholder="https://exemplo.com/thumbnail.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Configurações</h3>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="isPreview" name="isPreview">
+                            <span class="checkmark"></span>
+                            Disponível como prévia gratuita
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="isProcessed" name="isProcessed" checked>
+                            <span class="checkmark"></span>
+                            Vídeo processado e pronto para exibição
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="history.back()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Salvar Vídeo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="/src/scripts/professor/criar-video.js"></script>
+</body>
+</html>

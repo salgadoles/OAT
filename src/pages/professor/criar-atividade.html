@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Atividade - OAT</title>
+    <link rel="stylesheet" href="/src/styles/professor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/styles/curseProfessor.css">
+    <link rel="stylesheet" href="/src/styles/root.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text"><img src="/public/imagens/Group 7.png" alt="OAT"></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="/src/pages/professor/indexProfessor.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Voltar para Cursos</span>
+                </a>
+                <a href="#" class="nav-item" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar</span>
+                </a>
+            </nav>
+        </div>
+        <div class="header-center">
+            <div class="breadcrumb">
+                <span id="courseInitials">CD</span>
+                <div class="breadcrumb-text">
+                    <div>Criar Atividade</div>
+                    <div id="courseTitleShort">Carregando...</div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-percentage">Sair</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="form-container">
+            <div class="form-header">
+                <h1><i class="fas fa-tasks"></i> Criar Nova Atividade</h1>
+                <p>Adicione uma nova atividade para o curso: <strong id="currentCourseName">Carregando...</strong></p>
+            </div>
+
+            <form id="activityForm" class="activity-form">
+                <div class="form-section">
+                    <h3><i class="fas fa-info-circle"></i> Informações Básicas</h3>
+                    
+                    <div class="form-group">
+                        <label for="activityTitle">Título da Atividade *</label>
+                        <input type="text" id="activityTitle" name="title" required 
+                               placeholder="Ex: Exercício de Revisão, Projeto Final, Quiz 1">
+                        <span class="form-help">Um título claro e descritivo para a atividade</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activityType">Tipo de Atividade *</label>
+                            <select id="activityType" name="type" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="quiz">Quiz/Avaliação</option>
+                                <option value="assignment">Trabalho/Exercício</option>
+                                <option value="project">Projeto</option>
+                                <option value="discussion">Discussão</option>
+                                <option value="exam">Prova</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activityOrder">Ordem no Curso</label>
+                            <input type="number" id="activityOrder" name="order" min="1" 
+                                   placeholder="Ordem de exibição">
+                            <span class="form-help">Define a sequência no curso (opcional)</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activityInstructions">Instruções da Atividade *</label>
+                        <textarea id="activityInstructions" name="instructions" required 
+                                  placeholder="Descreva claramente o que os alunos devem fazer..."></textarea>
+                        <span class="form-help">Instruções detalhadas para os alunos</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activityDescription">Descrição (Opcional)</label>
+                        <textarea id="activityDescription" name="description" 
+                                  placeholder="Informações adicionais, contexto ou recursos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-cog"></i> Configurações</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="maxScore">Pontuação Máxima</label>
+                            <input type="number" id="maxScore" name="maxScore" value="100" min="1" max="1000">
+                            <span class="form-help">Pontos totais da atividade</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deadline">Prazo de Entrega</label>
+                            <input type="datetime-local" id="deadline" name="deadline">
+                            <span class="form-help">Data e hora limite para entrega</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section" id="fileUploadSection" style="display: none;">
+                    <h3><i class="fas fa-upload"></i> Upload de Arquivos</h3>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="allowFileUpload" name="allowFileUpload">
+                            <span class="checkmark"></span>
+                            Permitir upload de arquivos
+                        </label>
+                    </div>
+
+                    <div id="fileUploadConfig" style="display: none; margin-top: 1rem;">
+                        <div class="form-group">
+                            <label>Tipos de Arquivo Permitidos</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowedFileTypes" value="pdf" checked>
+                                    <span class="checkmark"></span>
+                                    PDF Documents
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowedFileTypes" value="doc" checked>
+                                    <span class="checkmark"></span>
+                                    Word Documents
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowedFileTypes" value="image">
+                                    <span class="checkmark"></span>
+                                    Imagens (JPG, PNG, GIF)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowedFileTypes" value="zip">
+                                    <span class="checkmark"></span>
+                                    Arquivos Compactados
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowedFileTypes" value="other">
+                                    <span class="checkmark"></span>
+                                    Outros Tipos
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="maxFileSize">Tamanho Máximo por Arquivo (MB)</label>
+                            <input type="number" id="maxFileSize" name="maxFileSize" value="10" min="1" max="100">
+                            <span class="form-help">Tamanho máximo permitido para cada arquivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="history.back()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Criar Atividade
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="/src/scripts/professor/criar-atividade.js"></script>
+</body>
+</html>

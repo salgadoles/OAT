@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,247 +12,82 @@
     <link rel="stylesheet" href="/src/styles/dashboard.css">
     <link rel="stylesheet" href="/src/styles/root.css">
 </head>
- 
+
 <body>
- 
+
     <!-- NAVBAR SUPERIOR -->
     <div navbarsuperior class="navbar-superior">
         <section iconesnavtop class="icones-navtop">
-          <a href="/src/pages/user/dashboard.html" logo class="nav-item">
-            <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
-          </a>
-          <a href="/src/pages/user/explorar.html" explorar class="nav-item">
-            <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
-          </a>
+            <a href="/src/pages/user/dashboard.html" logo class="nav-item">
+                <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
+            </a>
         </section>
         <section iconesnavtop class="icones-navtop">
-          <a href="/src/pages/user/perfil.html" profile class="nav-item">
-            <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
-          </a>
-          <a href="/src/pages/configbase.html" sino class="nav-item">
-            <img src="/public/imagens/Vector (7).png" alt="Notificações" class="nav-icon">
-          </a>
-        </section>
-      </div>
-    
-      <!-- NAVBAR LATERAL -->
-      <div navbarlateral>
-        <div cursosandamento>
-          <div cardcurso></div>
-          <div cardcurso></div>
-          <div cardcurso></div>
-        </div>
-        <div canaisquesigo>
-          <div cardcanal></div>
-          <div cardcanal></div>
-          <div cardcanal></div>
-        </div>
-
-        <div class="header-right">
-            <div class="user-menu">
+            <div class="user-menu" onclick="logout()">
                 <div class="user-avatar">
                     <i class="fas fa-user"></i>
                 </div>
                 <span class="user-percentage">Sair</span>
             </div>
-        </div>
-    </header>
-    <!-- Main Container -->
-    <div content>
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-background">
-                <div class="gradient-overlay"></div>
-                <div class="hero-content">
-                    <h1 class="hero-title">Bem vindo de volta, Professor.</h1>
 
-
-                    <p class="hero-subtitle">Avalie e tire as dúvidas de seus alunos.</p>
-                    <!-- No hero-section, substitua o hero-stats atual por: -->
-                    <div class="hero-stats">
-                        <div class="stat-item" onclick="window.location.href='/criarCurso'">
-                            <img src="/public/imagens/add_box.png" alt="">
-                            <span>Criar Novo Curso</span>
-                        </div>
-                        <div class="stat-item">
-                            <img src="/public/imagens/turmas.png" alt="" width="20px">
-                            <span>Criar Nova Turma</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
- 
-        <!--Gridzada -->
-        <section class="classes-section">
-            <div class="classes-grid">
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turmas</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 01 | Curso Ninja do Excel</div>
-                </div>
-                <a href="chat.html">
-                    <div class="class-card">
-                        <div class="class-header">
-                            <span class="class-tag">Turma</span>
-                            <div class="class-actions">
-                                <i class="fas fa-users class-icon"></i>
-                                <i class="fas fa-share class-icon"></i>
-                            </div>
-                        </div>
-                        <div class="class-title">Turma 02 | Curso Ninja do Excel</div>
-                    </div>
-
-
-                </a>
-                <a href="">
-                    <div class="class-card">
-                        <div class="class-header">
-                            <span class="class-tag">TUR</span>
-                            <div class="class-actions">
-                                <i class="fas fa-users class-icon"></i>
-                                <i class="fas fa-share class-icon"></i>
-                            </div>
-                        </div>
-                        <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
-                    </div>
-                </a>
-                <div class="class-card">
-                    <a href="chat3.html"></a>
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 04 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <a href="chat4.html"></a>
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 01 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 02 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 04 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 01 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 02 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 03 | Curso Ninja do Excel</div>
-                </div>
- 
-                <div class="class-card">
-                    <div class="class-header">
-                        <span class="class-tag">Turma</span>
-                        <div class="class-actions">
-                            <i class="fas fa-users class-icon"></i>
-                            <i class="fas fa-share class-icon"></i>
-                        </div>
-                    </div>
-                    <div class="class-title">Turma 04 | Curso Ninja do Excel</div>
-                </div>
- 
-            </div>
-        </section>
- 
-        <!-- Botao do nav bar -->
-        <section class="action-bar">
-            <div class="action-content">
-                <div class="action-text">
-                    <span>Cadastre-se para comentar, editar, inspecionar e outras ações.</span>
-                </div>
-                <div class="action-buttons">
-                    <button class="btn-primary">Crie sua conta</button>
-                    <button class="btn-secondary">
-                        <i class="fab fa-google"></i>
-                        Continuar
-                    </button>
-                </div>
-            </div>
         </section>
     </div>
-        <div navbarinferior>
-            <section iconsferramentas>
-              <img src="/public/imagens/System  Code.png" alt="">
-              <img src="/public/imagens/Interface  Book_Open.png" alt="">
-            
+
+    <!-- Main Container -->
+    <div content>
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-background">
+                    <div class="gradient-overlay"></div>
+                    <div class="hero-content">
+                        <h1 class="hero-title" id="professorname">Bem vindo de volta,
+                            <script>
+                                const user = JSON.parse(localStorage.getItem('user'));
+                                if (user && user.name) {
+                                    document.write(user.name);
+                                } else {
+                                    document.write('Professor');
+                                }
+                            </script>
+                        </h1>
+
+
+                        <p class="hero-subtitle">Avalie e tire as dúvidas de seus alunos.</p>
+                        <!-- No hero-section, substitua o hero-stats atual por: -->
+                        <div class="hero-stats">
+                            <div class="stat-item" onclick="window.location.href='/criarCurso'">
+                                <img src="/public/imagens/add_box.png" alt="">
+                                <span>Criar Novo Curso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-          </div>
+
+            <!--Gridzada -->
+            <!-- Seção de Cursos do Professor -->
+            <section class="classes-section">
+                <div class="section-header">
+                    <h2>Meus Cursos</h2>
+                </div>
+
+                <!-- Estados da página -->
+                <div id="loading" class="loading" style="display: none;">Carregando cursos...</div>
+                <div id="error" class="error" style="display: none;"></div>
+                <div id="noCourses" class="no-courses" style="display: none;">
+                    <p>Nenhum curso encontrado.</p>
+                    <button class="btn-primary" onclick="createNewCourse()">Criar Primeiro Curso</button>
+                </div>
+
+                <!-- Grid de cursos -->
+                <div class="classes-grid">
+                    <!-- Os cursos serão carregados aqui via JavaScript -->
+                </div>
+            </section>
+    </div>
     </main>
     <script src="/src/scripts/professor-curso.js"></script>
-    <script src="trhee.js"></script>
-    <script src="crepper.js"></script>
+    <script src="/src/scripts/global.js"></script>
 </body>
 
 </html>

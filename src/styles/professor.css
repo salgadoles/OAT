@@ -258,11 +258,12 @@ body {
 .hero-content {
     position: relative;
     z-index: 3;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 .hero-title {
     font-size: 48px;
+    text-align: left;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 12px;
@@ -289,7 +290,7 @@ body {
     align-items: center;
     gap: 8px;
     padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, #D3005E 0%, #000000 100%);
     border-radius: 12px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -352,7 +353,7 @@ body {
 .class-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    border-color: #4a90e2;
+    border-color: #D3005E;
 }
 
 .class-card:hover::before {
@@ -544,6 +545,44 @@ body {
     }
 }
 
+/* Estilos específicos para a página de cursos do professor */
+/* Status colors - Adicione ao seu CSS existente */
+.class-tag.published { background: #10b981; }
+.class-tag.draft { background: #6b7280; }
+.class-tag.submitted { background: #f59e0b; }
+.class-tag.approved { background: #3b82f6; }
+.class-tag.rejected { background: #ef4444; }
+
+/* Loading states */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.error {
+    background: #fee;
+    color: #c33;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.no-courses {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.no-courses p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
 @media (max-width: 480px) {
     .classes-grid {
         grid-template-columns:1fr;
@@ -959,3 +998,30 @@ body {
     padding: 20px;
     border-bottom: 1px solid #3a3a3a;
 }
+/* Cores para os status dos cursos - MANTENDO O MESMO DESIGN */
+.class-tag.draft { 
+    background: #6b7280; 
+    color: white; 
+}
+
+.class-tag.published { 
+    background: #10b981; 
+    color: white; 
+}
+
+.class-tag.submitted { 
+    background: #f59e0b; 
+    color: white; 
+}
+
+.class-tag.approved { 
+    background: #3b82f6; 
+    color: white; 
+}
+
+.class-tag.rejected { 
+    background: #ef4444; 
+    color: white; 
+}
+
+/* Mantenha todo o resto do seu CSS original igual */

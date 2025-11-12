@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Curso - OAT</title>
+    <link rel="stylesheet" href="/src/styles/professor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/styles/curseProfessor.css">
+    <link rel="stylesheet" href="/src/styles/root.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text"><img src="/public/imagens/Group 7.png" alt="OAT"></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="/src/pages/professor/indexProfessor.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Voltar para Cursos</span>
+                </a>
+            </nav>
+        </div>
+        <div class="header-center">
+            <div class="breadcrumb">
+                <span id="courseInitials">CD</span>
+                <div class="breadcrumb-text">
+                    <div>Detalhes do Curso</div>
+                    <div id="courseTitleShort">Carregando...</div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-percentage">Sair</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="course-details-container">
+            <!-- Cabeçalho do Curso -->
+            <div class="course-header">
+                <div class="course-header-content">
+                    <h1 class="course-title" id="courseTitle">Carregando...</h1>
+                    <p class="course-description" id="courseDescription">Carregando descrição...</p>
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i>
+                            <span id="courseCategory">Categoria</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-signal"></i>
+                            <span id="courseLevel">Nível</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="courseDuration">Duração</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="status-badge" id="courseStatus">Status</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navegação por Abas -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="showTab('overview')">
+                    <i class="fas fa-chart-pie"></i> Visão Geral
+                </button>
+                <button class="tab-btn" onclick="showTab('students')">
+                    <i class="fas fa-users"></i> Alunos
+                </button>
+                <button class="tab-btn" onclick="showTab('content')">
+                    <i class="fas fa-play-circle"></i> Conteúdo
+                </button>
+                <button class="tab-btn" onclick="showTab('activities')">
+                    <i class="fas fa-tasks"></i> Atividades
+                </button>
+                <button class="tab-btn" onclick="showTab('analytics')">
+                    <i class="fas fa-chart-line"></i> Analytics
+                </button>
+            </div>
+
+            <!-- Conteúdo das Abas -->
+            <div id="overview-tab" class="tab-content">
+                <!-- Estatísticas -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="studentsCount">0</div>
+                        <div class="stat-label">Alunos Matriculados</div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-value" id="videosCount">0</div>
+                        <div class="stat-label">Vídeos</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value" id="activitiesCount">0</div>
+                        <div class="stat-label">Atividades</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-value" id="completionRate">0%</div>
+                        <div class="stat-label">Taxa de Conclusão</div>
+                    </div>
+                </div>
+
+                <div class="grid-2-col">
+                    <!-- Ações Rápidas -->
+                    <div class="section">
+                        <h3 class="section-title">
+                            <i class="fas fa-bolt"></i> Ações Rápidas
+                        </h3>
+                        <div class="quick-actions">
+                            <a href="#" class="action-btn" onclick="editCourse()">
+                                <div class="action-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="action-label">Editar Curso</div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="showTab('students')">
+                                <div class="action-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="action-label">Gerenciar Alunos</div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="showTab('content')">
+                                <div class="action-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="action-label">Adicionar Conteúdo</div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="showTab('activities')">
+                                <div class="action-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <div class="action-label">Criar Atividade</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Informações do Curso -->
+                    <div class="section">
+                        <h3 class="section-title">
+                            <i class="fas fa-info-circle"></i> Informações do Curso
+                        </h3>
+                        <div class="grid-2-col">
+                            <div>
+                                <h3>Requisitos</h3>
+                                <ul id="courseRequirements">
+                                    <li>Carregando...</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Objetivos de Aprendizado</h3>
+                                <ul id="courseObjectives">
+                                    <li>Carregando...</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Alunos -->
+            <div id="students-tab" class="tab-content" style="display: none;">
+                <!-- Conteúdo será carregado via JavaScript -->
+            </div>
+
+            <!-- Aba Conteúdo -->
+            <div id="content-tab" class="tab-content" style="display: none;">
+                <!-- Conteúdo será carregado via JavaScript -->
+            </div>
+
+            <!-- Aba Atividades -->
+            <div id="activities-tab" class="tab-content" style="display: none;">
+                <!-- Conteúdo será carregado via JavaScript -->
+            </div>
+
+            <!-- Aba Analytics -->
+            <div id="analytics-tab" class="tab-content" style="display: none;">
+                <!-- Conteúdo será carregado via JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="/src/scripts/professor/professor-curso-detalhes.js"></script>
+</body>
+
+</html>

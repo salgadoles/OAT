@@ -1,81 +1,59 @@
-<!-- create-course.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Novo Curso - OAT</title>
     <link rel="stylesheet" href="/src/styles/criarCurso.css">
-    <link rel="stylesheet" href="/src/styles/professor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-    <!-- Header (mesmo do seu código) -->
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">
-                <span class="logo-text"><img src="Group 7.png" alt=""></span>
-            </div>
-            <nav class="nav-menu">
-                <a href="/professor">
-                <div class="nav-item active">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Voltar</span>
+    <div class="create-course-container">
+        <!-- Progresso -->
+        <div class="form-progress">
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span>Informações Básicas</span>
                 </div>
-                </a>
-            </nav>
-        </div>
-        <div class="header-center">
-            <div class="breadcrumb">
-                <span>14</span>
-                <div class="breadcrumb-text">
-                    <div>Turmas para ensino</div>
-                    <div>médio e fundamental</div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Conteúdo</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Revisão</span>
                 </div>
             </div>
-        </div>
-        <div class="header-right">
-            <div class="user-menu">
-                <div class="user-avatar">
-                    <i class="fas fa-user"></i>
-                </div>
-                <span class="user-percentage">41%</span>
-            </div>
-            <div class="settings-icon">
-                <i class="fas fa-cog"></i>
-            </div>
-            <div class="nav-item-right">
-                <i class="fas fa-users"></i>
-                <span>Turmas</span>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 33%"></div>
             </div>
         </div>
-    </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="main-content">
-        <div class="create-course-container">
-            <div class="course-form-header">
-                <h1><i class="fas fa-plus-circle"></i> Criar Novo Curso</h1>
-                <p>Preencha as informações básicas do curso</p>
-            </div>
+        <form id="createCourseForm" class="course-form">
+            <!-- PASSO 1: Informações Básicas -->
+            <div class="form-step active" data-step="1">
+                <div class="step-header">
+                    <h2>Informações Básicas do Curso</h2>
+                    <p>Comece com as informações essenciais sobre seu curso</p>
+                </div>
 
-            <form id="createCourseForm" class="course-form">
                 <div class="form-grid">
-                    <div class="form-group">
+                    <div class="form-group full-width">
                         <label for="title">Título do Curso *</label>
-                        <input type="text" id="title" name="title" required placeholder="Ex: Curso Ninja do Excel">
+                        <input type="text" id="title" name="title" required
+                            placeholder="Ex: JavaScript Moderno do Zero ao Avançado">
                     </div>
 
                     <div class="form-group">
                         <label for="category">Categoria *</label>
                         <select id="category" name="category" required>
                             <option value="">Selecione uma categoria</option>
-                            <option value="programming">Programação</option>
-                            <option value="design">Design</option>
-                            <option value="business">Negócios</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="personal-development">Desenvolvimento Pessoal</option>
+                            <option value="Programação">Programação</option>
+                            <option value="Design">Design</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Negócios">Negócios</option>
                         </select>
                     </div>
 
@@ -90,43 +68,163 @@
 
                     <div class="form-group">
                         <label for="price">Preço (R$)</label>
-                        <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
+                        <input type="number" id="price" name="price" min="0" max="100" step="0.01" placeholder="0.00"
+                            value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Duração (horas) *</label>
+                        <input type="number" id="duration" name="duration" min="1" max="500" required
+                            placeholder="Ex: 45" value="10">
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group full-width">
                     <label for="description">Descrição do Curso *</label>
-                    <textarea id="description" name="description" rows="4" required placeholder="Descreva o que os alunos irão aprender..."></textarea>
+                    <textarea id="description" name="description" rows="5" required
+                        placeholder="Descreva o que os alunos irão aprender..."></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group full-width">
                     <label for="thumbnail">URL da Thumbnail</label>
                     <input type="url" id="thumbnail" name="thumbnail" placeholder="https://exemplo.com/imagem.jpg">
                 </div>
 
-                <div class="form-group">
-                    <label for="requirements">Requisitos (um por linha)</label>
-                    <textarea id="requirements" name="requirements" rows="3" placeholder="Conhecimento básico de...
-Ferramentas necessárias..."></textarea>
+                <div class="step-actions">
+                    <button type="button" class="btn-secondary" onclick="window.history.back()">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn-primary next-step" data-next="2">
+                        Próximo
+                    </button>
+                </div>
+            </div>
+
+            <!-- PASSO 2: Conteúdo & Requisitos -->
+            <div class="form-step" data-step="2">
+                <div class="step-header">
+                    <h2>Conteúdo & Requisitos</h2>
+                    <p>Defina o que os alunos precisam saber e o que vão aprender</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="learningObjectives">Objetivos de Aprendizado (um por linha)</label>
-                    <textarea id="learningObjectives" name="learningObjectives" rows="3" placeholder="Ao final do curso, você será capaz de...
-Você aprenderá a..."></textarea>
+                <div class="form-group full-width">
+                    <label for="requirements">Requisitos do Curso (Opcional)</label>
+                    <div class="text" style="border: 2px solid #4b5563; border-radius: 8px; overflow: hidden;">
+                        <div style="display: flex; padding: 10px; background: black;">
+                            <input type="text" id="requirement-input" placeholder="Ex: Conhecimento básico de HTML"
+                                style="flex: 1; border: none; padding: 10px;">
+                            <button type="button" id="add-requirement"
+                                style="background: #734FDC; color: white; border: none; border-radius: 4px; padding: 10px 15px; margin-left: 10px; cursor: pointer;">
+                                Adicionar
+                            </button>
+                        </div>
+                        <div id="requirements-list" style="max-height: 200px; overflow-y: auto; background: black;">
+                            <div style="padding: 20px; text-align: center; color: #6b7280;">Nenhum requisito adicionado
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" onclick="window.history.back()">Cancelar</button>
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-save"></i>
+                <div class="form-group full-width">
+                    <label for="learningObjectives">Objetivos de Aprendizado (Opcional)</label>
+                    <div style="border: 2px solid #4b5563; border-radius: 8px; overflow: hidden;">
+                        <div style="display: flex; padding: 10px; background: black;">
+                            <input type="text" id="objective-input" placeholder="Ex: Ser capaz de criar aplicações web"
+                                style="flex: 1; border: none; padding: 10px;">
+                            <button type="button" id="add-objective"
+                                style="background: #734FDC; color: white; border: none; border-radius: 4px; padding: 10px 15px; margin-left: 10px; cursor: pointer;">
+                                Adicionar
+                            </button>
+                        </div>
+                        <div id="objectives-list" style="max-height: 200px; overflow-y: auto; background: black;">
+                            <div style="padding: 20px; text-align: center; color: #6b7280; background: black;">Nenhum objetivo adicionado
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn-secondary prev-step" data-prev="1">
+                        Voltar
+                    </button>
+                    <button type="button" class="btn-primary next-step" data-next="3">
+                        Próximo
+                    </button>
+                </div>
+            </div>
+
+            <!-- PASSO 3: Revisão -->
+            <div class="form-step" data-step="3">
+                <div class="step-header">
+                    <h2>Revisão do Curso</h2>
+                    <p>Confirme todas as informações antes de criar o curso</p>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-section">
+                        <h3>Informações Básicas</h3>
+                        <div class="review-item">
+                            <strong>Título:</strong>
+                            <span id="review-title">-</span>
+                        </div>
+                        <div class="review-item">
+                            <strong>Categoria:</strong>
+                            <span id="review-category">-</span>
+                        </div>
+                        <div class="review-item">
+                            <strong>Nível:</strong>
+                            <span id="review-level">-</span>
+                        </div>
+                        <div class="review-item">
+                            <strong>Preço:</strong>
+                            <span id="review-price">-</span>
+                        </div>
+                        <div class="review-item">
+                            <strong>Duração:</strong>
+                            <span id="review-duration">-</span>
+                        </div>
+                    </div>
+
+                    <div class="review-section">
+                        <h3>Descrição</h3>
+                        <p id="review-description" style="color: white; line-height: 1.5;">-</p>
+                    </div>
+
+                    <div class="review-section">
+                        <h3>Requisitos</h3>
+                        <ul id="review-requirements" style="color: white; padding-left: 20px;">
+                            <li>Nenhum requisito definido</li>
+                        </ul>
+                    </div>
+
+                    <div class="review-section">
+                        <h3>Objetivos de Aprendizado</h3>
+                        <ul id="review-objectives" style="color: white; padding-left: 20px;">
+                            <li>Nenhum objetivo definido</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="terms" required style="width: 20px; height: 20px;">
+                        <span>Confirmo que todas as informações estão corretas</span>
+                    </label>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn-secondary prev-step" data-prev="2">
+                        Voltar
+                    </button>
+                    <button type="submit" class="btn-success" id="submit-course">
                         Criar Curso
                     </button>
                 </div>
-            </form>
-        </div>
-    </main>
+            </div>
+        </form>
+    </div>
 
     <script src="/src/scripts/criarCurso.js"></script>
 </body>
+
 </html>
