@@ -24,12 +24,14 @@ import {
     deleteActivity,
     // NOVAS FUNÇÕES PARA ALUNOS
     getCourseStudents,
-    getCourseAnalytics
+    getCourseAnalytics,
+    debugCourse
 } from '../controllers/courseController';
 import { authenticate, requireRole } from '../middleware/auth';
 import { UserRole } from '../models/User';
 
 const router = Router();
+
 
 // Rotas públicas
 router.get('/', authenticate, getCourses);
@@ -54,6 +56,7 @@ router.post('/:courseId/videos', authenticate, requireRole([UserRole.ADMIN, User
 router.put('/:courseId/videos/:videoId', authenticate, requireRole([UserRole.ADMIN, UserRole.PROFESSOR]), updateVideo);
 router.delete('/:courseId/videos/:videoId', authenticate, requireRole([UserRole.ADMIN, UserRole.PROFESSOR]), deleteVideo);
 
+
 // ==================== NOVAS ROTAS PARA ATIVIDADES ====================
 router.get('/:courseId/activities', authenticate, getCourseActivities);
 router.post('/:courseId/activities', authenticate, requireRole([UserRole.ADMIN, UserRole.PROFESSOR]), addActivityToCourse);
@@ -63,5 +66,8 @@ router.delete('/:courseId/activities/:activityId', authenticate, requireRole([Us
 // ==================== NOVAS ROTAS PARA ALUNOS E ANALYTICS ====================
 router.get('/:courseId/students', authenticate, getCourseStudents);
 router.get('/:courseId/analytics', authenticate, getCourseAnalytics);
+router.get('/:courseId/debug', authenticate, debugCourse);
+
+
 
 export default router;

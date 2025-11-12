@@ -5,6 +5,9 @@ const API_BASE_URL = 'http://localhost:5000/api';
 let currentCourse = null;
 let currentUser = null;
 
+window.currentCourse = null;
+window.currentUser = null;
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', function () {
     console.log('🚀 DOM Carregado - Iniciando página...');
@@ -71,7 +74,7 @@ function redirectToLogin() {
 }
 
 // ==================== CARREGAMENTO DE DADOS ====================
-
+// src/scripts/professor-curso-detalhes.js - CORREÇÃO DA FUNÇÃO
 async function loadCourseDetails(courseId) {
     try {
         showLoading();
@@ -103,23 +106,15 @@ async function loadCourseDetails(courseId) {
         const courseData = await response.json();
         console.log('📊 Dados do curso recebidos:', courseData);
 
-        // Ajuste para estrutura de resposta
-        currentCourse = courseData.course || courseData.data || courseData;
+        // CORREÇÃO: Definir como GLOBAL
+        window.currentCourse = courseData.course || courseData.data || courseData;
+        currentCourse = window.currentCourse; // Manter compatibilidade
 
         if (!currentCourse) {
             throw new Error('Estrutura de dados do curso não reconhecida');
         }
 
-        // DEBUG CRÍTICO - Mostrar estrutura real
-        console.log('🔍 ESTRUTURA REAL DO CURSO:');
-        console.log('- Objeto completo:', currentCourse);
-        console.log('- Tem videos?', currentCourse.videos);
-        console.log('- Tem activities?', currentCourse.activities);
-        console.log('- Tem students?', currentCourse.students);
-        console.log('- Tem studentsEnrolled?', currentCourse.studentsEnrolled);
-        console.log('- Todas as propriedades:', Object.keys(currentCourse));
-
-        console.log('✅ Curso carregado:', currentCourse.title);
+        console.log('✅ Curso carregado e definido como global:', currentCourse.title);
         displayCourseDetails(currentCourse);
         hideLoading();
 

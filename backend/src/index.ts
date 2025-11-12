@@ -87,6 +87,8 @@ app.get('/professor/curso-detalhes', (_req, res) => {
     res.sendFile(path.join(__dirname, '../../src/pages/professor/detalhes.html'));
 });
 
+
+
 // ✅ SUAS APIS
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
@@ -119,6 +121,21 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: express.
     });
 });
 
+
+// Adicione isto ANTES das rotas no seu app.ts/index.ts
+app.use('/api/courses', (req, _res, next) => {
+    console.log('🎯 === ROTA COURSES DEBUG ===');
+    console.log('📋 Método:', req.method);
+    console.log('🔗 URL:', req.url);
+    console.log('📍 Path:', req.path);
+    console.log('🎯 Parâmetros:', req.params);
+    console.log('📦 Body:', req.body);
+    console.log('⏰ Timestamp:', new Date().toISOString());
+    console.log('============================');
+    next();
+});
+
+
 // Conexão com MongoDB
 const connectDB = async () => {
     try {
@@ -147,6 +164,8 @@ const connectDB = async () => {
         process.exit(1);
     }
 };
+
+
 
 // Conectar ao banco antes de iniciar o servidor
 connectDB();

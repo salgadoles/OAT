@@ -129,7 +129,7 @@ function redirectByRole(role) {
             break;
         case 'student':
         default:
-            window.location.href = '/explorar';
+            window.location.href = '/src/pages/user/jornada.html';
             break;
     }
 }
