@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OAT | Tela De Perfil Professor</title>
   <link rel="stylesheet" href="/src/styles/root-explore.css">
-    <link rel="stylesheet" href="/src/styles/perfilprofessor.css">
+  <link rel="stylesheet" href="/src/styles/perfilprofessor.css">
   <link rel="icon" href="/public/imagens/Group 209 (2).png" type="image/x-icon">
   <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
-
 </head>
 <body base>
 
   <!-- NAVBAR SUPERIOR -->
-   <div navbarsuperior class="navbar-superior">
+  <div navbarsuperior class="navbar-superior">
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/dashboard.html" logo class="nav-item">
         <img src="/public/imagens/Group 8 (1).png" alt="Logo" class="nav-icon">
@@ -22,52 +21,52 @@
         <img src="/public/imagens/Vector (6).png" alt="Explorar" class="nav-icon">
       </a>
     </section>
-    </section>
     <section barradepesquisa>
-  <div class="search-wrapper">
-    <input type="search" placeholder="Pesquisar cursos..." class="search-input">
-    <button class="btn-voz" id="btnVoz" title="Pesquisa por voz">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-width="2"/>
-        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="white" stroke-width="2"/>
-        <path d="M8 22H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <a class="btnsearch" href="#">
-      <img src="/public/imagens/Group 138.png" alt="Pesquisar">
-    </a>
-  </div>
-</section>
+      <div class="search-wrapper">
+        <input type="search" placeholder="Pesquisar cursos..." class="search-input">
+        <button class="btn-voz" id="btnVoz" title="Pesquisa por voz">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-width="2"/>
+            <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="white" stroke-width="2"/>
+            <path d="M8 22H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a class="btnsearch" href="#">
+          <img src="/public/imagens/Group 138.png" alt="Pesquisar">
+        </a>
+      </div>
+    </section>
 
-<div id="voiceModal" class="voice-modal">
-  <div class="voice-modal-content">
-    <div class="voice-header">
-      <h3>PESQUISA POR VOZ</h3>
-      <span class="close-modal">&times;</span>
-    </div>
-    <div class="voice-visualization">
-      <div class="voice-wave">
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
-        <div class="wave-bar"></div>
+    <div id="voiceModal" class="voice-modal">
+      <div class="voice-modal-content">
+        <div class="voice-header">
+          <h3>PESQUISA POR VOZ</h3>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="voice-visualization">
+          <div class="voice-wave">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+        </div>
+        <p id="voiceStatus">Clique em falar para começar</p>
+        <div class="voice-controls">
+          <button id="startVoiceSearch" class="voice-btn">
+            <span><img src="/public/imagens/Media Pause.png" alt=""></span>
+          </button>
+          <button id="stopVoiceSearch" class="voice-btn stop">
+            <span><img src="/public/imagens/Media Play.png" alt=""></span>
+          </button>
+        </div>
       </div>
     </div>
-    <p id="voiceStatus">Clique em falar para começar</p>
-    <div class="voice-controls">
-      <button id="startVoiceSearch" class="voice-btn">
-        <span><img src="/public/imagens/Media Pause.png" alt=""></span>
-      </button>
-      <button id="stopVoiceSearch" class="voice-btn stop">
-        <span><img src="/public/imagens/Media Play.png" alt=""></span>
-        </button>
-    </div>
-  </div>
-</div>
+    
     <section iconesnavtop class="icones-navtop">
       <a href="/src/pages/user/perfil.html" profile class="nav-item">
         <img src="/public/imagens/Group 67.png" alt="Perfil" class="nav-icon">
@@ -95,80 +94,284 @@
 
   <!-- CONTEÚDO PRINCIPAL -->
   <div content>
-
     <section class="btnvoltar" botaovoltar>
       <button voltar><img src="/public/imagens/Vector (2).png" alt=""></button>
     </section>
-<div class="profile-container">
-    <!-- CABEÇALHO DO PERFIL -->
-    <header class="profile-header">
+    
+    <div class="profile-container">
+      <!-- CABEÇALHO DO PERFIL -->
+      <header class="profile-header">
         <div class="banner">
-            <!-- Imagem de banner do professor -->
-            <img src="https://images.unsplash.com/photo-1554494583-c4e1649bfe71?q=80&w=2070&auto=format&fit=crop" alt="Banner do Professor">
+          <img src="https://images.unsplash.com/photo-1554494583-c4e1649bfe71?q=80&w=2070&auto=format&fit=crop" alt="Banner do Professor">
+          <div class="banner-overlay"></div>
         </div>
         <div class="info-principal">
-            <div class="foto-container">
-                <img class="foto-professor" src="https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=1887&auto=format&fit=crop" alt="Foto do Professor">
+          <div class="foto-container">
+            <img class="foto-professor" src="https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=1887&auto=format&fit=crop" alt="Foto do Professor">
+            <div class="online-status"></div>
+          </div>
+          <div class="texto-info">
+            <h1 class="nome-professor">Nome do Professor</h1>
+            <p class="titulo-professor">Especialista em Desenvolvimento Web</p>
+            <div class="stats">
+              <span><strong>1.2M</strong> Alunos</span>
+              <span class="separador">|</span>
+              <span><strong>15</strong> Cursos</span>
+              <span class="separador">|</span>
+              <span><img src="/public/imagens/Vector (7 ).png" class="star-icon"> 4.8 (2.5k reviews)</span>
             </div>
-            <div class="texto-info">
-                <h1 class="nome-professor">Nome do Professor</h1>
-                <p class="titulo-professor">Especialista em Desenvolvimento Web</p>
-                <div class="stats">
-                    <span><strong>1.2M</strong> Alunos</span>
-                    <span class="separador">|</span>
-                    <span><strong>15</strong> Cursos</span>
-                    <span class="separador">|</span>
-                    <span><img src="/public/imagens/Vector (7 ).png" class="star-icon"> 4.8 (2.5k reviews)</span>
-                </div>
+            <div class="tags">
+              <span class="tag">Frontend</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">CSS</span>
             </div>
-            <div class="botoes-acao">
-                <button class="btn-seguir">SEGUIR</button>
-                <button class="btn-social"><img src="/public/imagens/Vector (6).png" alt="Compartilhar"></button>
-            </div>
+          </div>
+          <div class="botoes-acao">
+            <button class="btn-seguir">SEGUIR</button>
+            <button class="btn-social"><img src="/public/imagens/Vector (6).png" alt="Compartilhar"></button>
+            <button class="btn-mensagem">MENSAGEM</button>
+          </div>
         </div>
-    </header>
+      </header>
 
-    <!-- SEÇÃO DE BIOGRAFIA -->
-    <section class="profile-section bio">
+      <!-- SEÇÃO DE BIOGRAFIA -->
+      <section class="profile-section bio">
         <h2>Sobre Mim</h2>
         <p>Apaixonado por tecnologia e educação, meu objetivo é desmistificar o mundo da programação. Com mais de 10 anos de experiência na indústria, trago uma abordagem prática e focada em projetos reais para que você não apenas aprenda a teoria, mas saiba como aplicá-la no mercado de trabalho.</p>
-    </section>
-
-    <!-- SEÇÃO DE CURSOS -->
-    <section class="profile-section cursos">
-        <h2>Meus Cursos</h2>
-        <div class="grid-cursos">
-            <!-- Card de Curso (Exemplo 1) -->
-            <div class="card-curso">
-                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1974&auto=format&fit=crop" class="thumbnail-curso">
-                <div class="card-curso-content">
-                    <h4>Frontend do Zero ao Pro</h4>
-                    <p>Domine HTML, CSS e JavaScript moderno.</p>
-                    <div class="card-curso-footer">
-                        <span><img src="/public/imagens/Vector (7 ).png" class="star-icon-small"> 4.9</span>
-                        <strong>FREE</strong>
-                    </div>
-                </div>
-            </div>
-            <!-- Card de Curso (Exemplo 2) -->
-            <div class="card-curso">
-                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" class="thumbnail-curso">
-                <div class="card-curso-content">
-                    <h4>React.js para Iniciantes</h4>
-                    <p>Crie aplicações web interativas.</p>
-                    <div class="card-curso-footer">
-                        <span><img src="/public/imagens/Vector (7 ).png" class="star-icon-small"> 4.7</span>
-                        <strong>FREE</strong>
-                    </div>
-                </div>
-            </div>
-            <!-- Adicione mais cards aqui -->
+        <div class="bio-details">
+          <div class="detail-item">
+            <span class="detail-label">Experiência</span>
+            <span class="detail-value">10+ anos</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Especialidades</span>
+            <span class="detail-value">Frontend, JavaScript, React</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Localização</span>
+            <span class="detail-value">São Paulo, Brasil</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Idiomas</span>
+            <span class="detail-value">Português, Inglês</span>
+          </div>
         </div>
-    </section>
-</div>
+      </section>
 
+      <!-- SEÇÃO DE HABILIDADES -->
+      <section class="profile-section habilidades">
+        <h2>Habilidades</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">HTML/CSS</span>
+              <span class="skill-percent">95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">React</span>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Node.js</span>
+              <span class="skill-percent">75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- SEÇÃO DE CURSOS -->
+      <section class="profile-section cursos">
+        <div class="section-header">
+          <h2>Meus Cursos</h2>
+          <div class="filter-options">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Mais Populares</button>
+            <button class="filter-btn">Recentes</button>
+          </div>
+        </div>
+        <div class="grid-cursos">
+          <!-- Card de Curso (Exemplo 1) -->
+          <div class="card-curso">
+            <div class="curso-badge">Mais Popular</div>
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1974&auto=format&fit=crop" class="thumbnail-curso">
+            <div class="card-curso-content">
+              <h4>Frontend do Zero ao Pro</h4>
+              <p>Domine HTML, CSS e JavaScript moderno.</p>
+              <div class="curso-meta">
+                <span class="meta-item">32 horas</span>
+                <span class="meta-item">120 aulas</span>
+                <span class="meta-item">Iniciante</span>
+              </div>
+              <div class="card-curso-footer">
+                <span><img src="/public/imagens/Vector (7 ).png" class="star-icon-small"> 4.9</span>
+                <div class="price-container">
+                  <span class="original-price">R$ 199,90</span>
+                  <strong class="current-price">FREE</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card de Curso (Exemplo 2) -->
+          <div class="card-curso">
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" class="thumbnail-curso">
+            <div class="card-curso-content">
+              <h4>React.js para Iniciantes</h4>
+              <p>Crie aplicações web interativas.</p>
+              <div class="curso-meta">
+                <span class="meta-item">24 horas</span>
+                <span class="meta-item">85 aulas</span>
+                <span class="meta-item">Iniciante</span>
+              </div>
+              <div class="card-curso-footer">
+                <span><img src="/public/imagens/Vector (7 ).png" class="star-icon-small"> 4.7</span>
+                <div class="price-container">
+                  <span class="original-price">R$ 149,90</span>
+                  <strong class="current-price">FREE</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card de Curso (Exemplo 3) -->
+          <div class="card-curso">
+            <div class="curso-badge">Novo</div>
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" class="thumbnail-curso">
+            <div class="card-curso-content">
+              <h4>Node.js Avançado</h4>
+              <p>Desenvolvimento backend com Node.js.</p>
+              <div class="curso-meta">
+                <span class="meta-item">40 horas</span>
+                <span class="meta-item">150 aulas</span>
+                <span class="meta-item">Avançado</span>
+              </div>
+              <div class="card-curso-footer">
+                <span><img src="/public/imagens/Vector (7 ).png" class="star-icon-small"> 4.8</span>
+                <div class="price-container">
+                  <strong class="current-price">R$ 249,90</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- SEÇÃO DE AVALIAÇÕES -->
+      <section class="profile-section avaliacoes">
+        <h2>Avaliações dos Alunos</h2>
+        <div class="rating-overview">
+          <div class="rating-score">
+            <div class="score-number">4.8</div>
+            <div class="stars">
+              <img src="/public/imagens/Vector (7 ).png" class="star-icon">
+              <img src="/public/imagens/Vector (7 ).png" class="star-icon">
+              <img src="/public/imagens/Vector (7 ).png" class="star-icon">
+              <img src="/public/imagens/Vector (7 ).png" class="star-icon">
+              <img src="/public/imagens/Vector (7 ).png" class="star-icon">
+            </div>
+            <div class="total-reviews">2.5k avaliações</div>
+          </div>
+          <div class="rating-bars">
+            <div class="rating-bar">
+              <span>5 estrelas</span>
+              <div class="bar-container">
+                <div class="bar-fill" style="width: 80%"></div>
+              </div>
+              <span>80%</span>
+            </div>
+            <div class="rating-bar">
+              <span>4 estrelas</span>
+              <div class="bar-container">
+                <div class="bar-fill" style="width: 15%"></div>
+              </div>
+              <span>15%</span>
+            </div>
+            <div class="rating-bar">
+              <span>3 estrelas</span>
+              <div class="bar-container">
+                <div class="bar-fill" style="width: 3%"></div>
+              </div>
+              <span>3%</span>
+            </div>
+            <div class="rating-bar">
+              <span>2 estrelas</span>
+              <div class="bar-container">
+                <div class="bar-fill" style="width: 1%"></div>
+              </div>
+              <span>1%</span>
+            </div>
+            <div class="rating-bar">
+              <span>1 estrela</span>
+              <div class="bar-container">
+                <div class="bar-fill" style="width: 1%"></div>
+              </div>
+              <span>1%</span>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1887&auto=format&fit=crop" alt="Aluno" class="reviewer-avatar">
+                <div>
+                  <span class="reviewer-name">Maria Silva</span>
+                  <div class="review-stars">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                  </div>
+                </div>
+              </div>
+              <span class="review-date">2 semanas atrás</span>
+            </div>
+            <p class="review-text">Excelente professor! As explicações são claras e os projetos práticos realmente ajudam a fixar o conteúdo.</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop" alt="Aluno" class="reviewer-avatar">
+                <div>
+                  <span class="reviewer-name">João Santos</span>
+                  <div class="review-stars">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                    <img src="/public/imagens/Vector (7 ).png" class="star-icon-small">
+                  </div>
+                </div>
+              </div>
+              <span class="review-date">1 mês atrás</span>
+            </div>
+            <p class="review-text">Consegui minha primeira vaga como desenvolvedor frontend graças aos cursos deste professor. Recomendo muito!</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <div navbarinferior>
       <section iconsferramentas>
@@ -177,43 +380,44 @@
       </section>
     </div>
   </div>
+  
   <iframe id="caderno-do-aluno-iframe" 
         src="https://script.google.com/macros/s/AKfycbzlks2e1ZpZP8OFCilnrbfkUyHXbTcjPEIgSZagkBFOH0XJAbhEDVufmOCMYDZofheN/exec" 
         frameborder="0" 
         style="position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; transition: height 0.3s ease; border: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.1 );">
-</iframe>
+  </iframe>
 
-<!-- ===== MODAL CODESPACE ===== -->
-<div id="editor-modal" class="editor-modal">
-  <div class="editor-header">
-    <span>CODE SPACE</span>
-    <div>
-      <button id="add-file">＋</button>
-      <button id="run-code">▶</button>
-      <button id="close-editor">✖</button>
+  <!-- ===== MODAL CODESPACE ===== -->
+  <div id="editor-modal" class="editor-modal">
+    <div class="editor-header">
+      <span>CODE SPACE</span>
+      <div>
+        <button id="add-file">＋</button>
+        <button id="run-code">▶</button>
+        <button id="close-editor">✖</button>
+      </div>
+    </div>
+
+    <div class="editor-body">
+      <aside class="sidebar">
+        <ul id="file-list"></ul>
+      </aside>
+
+      <div class="workspace">
+        <div id="monaco-editor" class="editor-container"></div>
+        <iframe id="preview-frame" class="preview"></iframe>
+      </div>
     </div>
   </div>
 
-  <div class="editor-body">
-    <aside class="sidebar">
-      <ul id="file-list"></ul>
-    </aside>
-
-    <div class="workspace">
-      <div id="monaco-editor" class="editor-container"></div>
-      <iframe id="preview-frame" class="preview"></iframe>
-    </div>
+  <div class="transition-overlay">
+    <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
+    <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
+    <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
+    <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
+    <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
   </div>
-</div>
-
-
-<div class="transition-overlay">
-  <img src="/public/imagens/Ilu1_1.svg" class="scribble scribble1">
-  <img src="/public/imagens/Ilu2real.svg" class="scribble scribble2">
-  <img src="/public/imagens/Ilu3.svg" class="scribble scribble3">
-  <img src="/public/imagens/Ilu4.svg" class="scribble scribble4">
-  <img src="/public/imagens/Ilufinal.svg" class="scribble scribble5">
-</div>
+  
   <!-- SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="/src/scripts/transition.js"></script>
