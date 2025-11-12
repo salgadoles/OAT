@@ -173,6 +173,11 @@ border-style: double;
   object-fit: contain;
   min-width: 25px;
 }
+
+[iconsferramentas] img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
     
 /* ==========================
    CONTEÚDO PRINCIPAL
@@ -180,6 +185,7 @@ border-style: double;
 html, body {
   height: 100%;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 [content] {

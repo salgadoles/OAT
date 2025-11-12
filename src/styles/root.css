@@ -149,11 +149,17 @@ h1, h2, h3, h4 {
   min-width: 25px;
 }
 
+[iconsferramentas] img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
 /* ==========================
    CONTEÚDO PRINCIPAL
 ========================== */
 html, body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 [content] {

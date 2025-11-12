@@ -1,0 +1,245 @@
+/* ==========================
+   CONTAINER PRINCIPAL
+========================== */
+.profile-container {
+    width: 100%;
+    padding: 0 clamp(1rem, 4vw, 4rem) clamp(6rem, 10vh, 10rem);
+    box-sizing: border-box;
+}
+
+/* ==========================
+   CABEÇALHO DO PERFIL
+========================== */
+.profile-header {
+    width: 100%;
+    margin-bottom: clamp(2rem, 5vh, 4rem);
+}
+
+.profile-header .banner {
+    width: 100%;
+    height: clamp(150px, 25vh, 300px);
+    border-radius: clamp(12px, 2vw, 20px);
+    overflow: hidden;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-header .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.profile-header .info-principal {
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-top: -60px;
+    padding-left: clamp(1rem, 3vw, 3rem);
+    position: relative;
+    z-index: 2;
+}
+
+.profile-header .foto-container {
+    width: clamp(100px, 12vw, 180px);
+    height: clamp(100px, 12vw, 180px);
+    border-radius: 50%;
+    border: 4px solid black;
+    background-color: black;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.profile-header .foto-professor {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-header .texto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+}
+
+.profile-header .nome-professor {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    color: white;
+    line-height: 1.1;
+}
+
+.profile-header .titulo-professor {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    color: #ccc;
+    font-weight: 500;
+}
+
+.profile-header .stats {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    color: #f0f0f0;
+}
+
+.profile-header .stats .separador {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-header .stats .star-icon {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.profile-header .botoes-acao {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-header .btn-seguir {
+    padding: clamp(10px, 1vw, 12px) clamp(20px, 2.5vw, 30px);
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-weight: 700;
+    background-color: #FFC300;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-header .btn-seguir:hover {
+    background-color: #ffee00;
+    transform: translateY(-2px);
+}
+
+.profile-header .btn-social {
+    width: clamp(40px, 3.5vw, 50px);
+    height: clamp(40px, 3.5vw, 50px);
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-header .btn-social:hover {
+    background-color: #2a2a2a;
+    border-color: white;
+}
+
+.profile-header .btn-social img {
+    width: 50%;
+    height: 50%;
+}
+
+/* ==========================
+   SEÇÕES DE CONTEÚDO
+========================== */
+.profile-section {
+    margin-top: clamp(2.5rem, 6vh, 4rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.profile-section h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.profile-section.bio p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    line-height: 1.7;
+    color: #e0e0e0;
+    max-width: 80ch;
+}
+
+/* ==========================
+   GRID DE CURSOS
+========================== */
+.grid-cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(250px, 25vw, 320px), 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+.card-curso {
+    background: #0A0A0A;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-curso:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card-curso .thumbnail-curso {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-curso-content {
+    padding: 1rem;
+}
+
+.card-curso-content h4 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.card-curso-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+    min-height: 40px;
+}
+
+.card-curso-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-curso-footer span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.card-curso-footer .star-icon-small {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.card-curso-footer strong {
+    font-size: 1.1rem;
+    color: #FFC300;
+}
