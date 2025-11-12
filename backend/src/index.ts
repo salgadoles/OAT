@@ -82,6 +82,11 @@ app.get('/admin-solicitacoes', (_req, res) => {
     res.sendFile(path.join(__dirname, '../../src/pages/admin/admin-solicitacao.html'));
 });
 
+
+app.get('/professor/curso-detalhes', (_req, res) => {
+    res.sendFile(path.join(__dirname, '../../src/pages/professor/detalhes.html'));
+});
+
 // ✅ SUAS APIS
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
